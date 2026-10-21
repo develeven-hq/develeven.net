@@ -9,33 +9,33 @@ import {
 const services = [
   {
     label: "Web experiences",
-    icon: <WebDevIcon size={18} color="#CEFF69" />,
+    icon: <WebDevIcon size={18} />,
   },
   {
     label: "Custom software",
-    icon: <CustomSoftwareIcon size={18} color="#CEFF69" />,
+    icon: <CustomSoftwareIcon size={18} />,
   },
   {
     label: "Game development",
-    icon: <GameDevIcon size={18} color="#CEFF69" />,
+    icon: <GameDevIcon size={18} />,
   },
   {
     label: "Website maintenance",
-    icon: <MaintenanceIcon size={18} color="#CEFF69" />,
+    icon: <MaintenanceIcon size={18} />,
   },
 ];
 
 export default function ServicesBar() {
   return (
-    <div className="w-full border-t border-b border-[#2A3029] bg-[#101211]">
-      <div className="w-full max-w-screen-2xl mx-auto h-21 px-6 sm:px-8 lg:px-16 flex justify-between items-center overflow-x-auto gap-6">
-        <span className="text-[#A4ADA0] text-sm sm:text-base font-bold font-sans tracking-wide whitespace-nowrap">
+    <div className="w-full border-t border-b border-dv-border bg-dv-bg">
+      <div className="w-full max-w-8xl mx-auto h-21 px-6 sm:px-8 lg:px-16 flex justify-between items-center overflow-x-auto gap-6">
+        <span className="text-dv-muted text-sm sm:text-base font-semibold font-sans tracking-normal whitespace-nowrap">
           From idea to infrastructure
         </span>
         {services.map((svc) => (
           <div key={svc.label} className="flex items-center gap-2.5 sm:gap-3 overflow-hidden whitespace-nowrap">
             {svc.icon}
-            <span className="text-[#F2F4EC] text-sm sm:text-base font-semibold font-sans tracking-wide">
+            <span className="text-dv-text text-sm sm:text-base font-medium font-sans tracking-normal">
               {svc.label}
             </span>
           </div>

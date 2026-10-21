@@ -12,7 +12,7 @@ import CTABanner from "@/components/sections/home/CTABanner";
 
 export default function HomePage() {
   return (
-    <div className="w-full flex flex-col items-center bg-[#101211]">
+    <div className="w-full flex flex-col items-center bg-dv-bg">
       <HeroSection />
       <ServicesBar />
       <ServicesGrid />

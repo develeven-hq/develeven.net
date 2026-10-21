@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
+const monaSans = localFont({
+  src: "./fonts/MonaSans-Variable.woff2",
+  variable: "--font-mona-sans",
   display: "swap",
+  weight: "200 900",
 });
 
 export const metadata: Metadata = {
@@ -24,9 +25,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={manrope.variable}
+      className={monaSans.variable}
     >
-      <body className="bg-[#101211] text-[#F2F4EC] antialiased min-h-screen flex flex-col font-sans">
+      <body className="bg-dv-bg text-dv-text antialiased min-h-screen flex flex-col font-sans">
         <Navbar />
         <main className="flex-1 flex flex-col items-center w-full">
           {children}

@@ -34,20 +34,20 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section className="w-full bg-[#191C19]">
-      <div className="w-full max-w-screen-2xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-start gap-12 lg:gap-14 overflow-hidden">
+    <section className="w-full bg-dv-card">
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-start gap-12 lg:gap-14 overflow-hidden">
         {/* Header */}
         <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
           <div className="max-w-2xl flex flex-col items-start gap-6">
             <SectionLabel>04 / From zero to shipped</SectionLabel>
-            <h2 className="w-full text-[#F2F4EC] text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
+            <h2 className="w-full text-dv-text text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
               A clear process.
               <br />
               No disappearing acts.
             </h2>
           </div>
           <div className="lg:max-w-md flex flex-col items-start pb-2">
-            <p className="w-full text-[#C5CDC1] text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
+            <p className="w-full text-dv-lead text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
               Direct conversations. Visible progress. Shared decisions. You always know
               what we’re building, and why.
             </p>
@@ -62,18 +62,18 @@ export default function ProcessSection() {
               className="flex flex-col items-start gap-6 overflow-hidden"
             >
               <div className="w-full flex items-center gap-4 overflow-hidden">
-                <span className="text-[#CEFF69] text-base sm:text-lg font-bold font-sans tracking-wide">
+                <span className="text-dv-lime text-base sm:text-lg font-medium font-sans tracking-wide">
                   {step.number}
                 </span>
-                <div className="flex-1 h-px bg-[#2A3029]" />
+                <div className="flex-1 h-px bg-dv-border" />
               </div>
-              <h3 className="w-full text-[#F2F4EC] text-2xl font-bold font-sans tracking-tight">
+              <h3 className="w-full text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
                 {step.title}
               </h3>
-              <p className="w-full text-[#A4ADA0] text-sm sm:text-base font-normal font-sans leading-relaxed">
+              <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
                 {step.description}
               </p>
-              <span className="w-full text-[#CEFF69] text-xs sm:text-sm font-bold font-sans tracking-wide">
+              <span className="w-full text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-wide">
                 {step.deliverable}
               </span>
             </div>

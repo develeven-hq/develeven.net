@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function PricingPage() {
   return (
-    <div className="w-full flex flex-col items-center bg-[#101211]">
+    <div className="w-full flex flex-col items-center bg-dv-bg">
       <PricingHero />
       <PricingNav />
       <WebsitePricing />

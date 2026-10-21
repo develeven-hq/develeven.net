@@ -149,11 +149,11 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`w-full fixed top-0 left-0 right-0 z-50 bg-[#101211]/90 backdrop-blur-xl border-b border-[#2a302995] transition-transform duration-300 ease-in-out ${
+        className={`w-full fixed top-0 left-0 right-0 z-50 bg-dv-bg/90 backdrop-blur-xl border-b border-dv-border/60 transition-transform duration-300 ease-in-out ${
           isVisible || isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-      <div className="w-full max-w-screen-2xl mx-auto h-20 lg:h-24 px-6 sm:px-8 lg:px-16 flex justify-between items-center">
+      <div className="w-full max-w-8xl mx-auto h-20 lg:h-24 px-6 sm:px-8 lg:px-16 flex justify-between items-center">
         {/* Logo */}
         <Link
           href="/"
@@ -161,10 +161,10 @@ export default function Navbar() {
           className="flex items-center gap-3 overflow-hidden group"
         >
           <div className="flex items-start gap-1 sm:gap-1.5 overflow-hidden">
-            <div className="w-1 sm:w-1.5 h-5 sm:h-6 bg-[#CEFF69]" />
-            <div className="w-1 sm:w-1.5 h-5 sm:h-6 bg-[#CEFF69]" />
+            <div className="w-1 sm:w-1.5 h-5 sm:h-6 bg-dv-lime" />
+            <div className="w-1 sm:w-1.5 h-5 sm:h-6 bg-dv-lime" />
           </div>
-          <span className="text-[#F2F4EC] text-xl sm:text-2xl font-bold font-sans tracking-tight">
+          <span className="text-dv-text text-xl sm:text-2xl font-bold font-sans tracking-tight">
             DevEleven
           </span>
         </Link>
@@ -179,10 +179,10 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href, link.targetId)}
-                className={`text-sm sm:text-base font-semibold font-sans transition-colors ${
+                className={`text-sm sm:text-base font-medium font-sans transition-colors ${
                   isActive
-                    ? "text-[#CEFF69]"
-                    : "text-[#F2F4EC] hover:text-[#CEFF69]"
+                    ? "text-dv-lime"
+                    : "text-dv-text hover:text-dv-lime"
                 }`}
               >
                 {link.label}
@@ -195,9 +195,9 @@ export default function Navbar() {
         <Link
           href="/#contact"
           onClick={(e) => handleNavClick(e, "/#contact", "contact")}
-          className="hidden lg:flex h-12 px-6 bg-[#CEFF69] rounded-lg items-center gap-6 overflow-hidden hover:bg-[#b8f050] transition-colors group cursor-pointer"
+          className="hidden lg:flex h-12 px-6 bg-dv-lime rounded-lg items-center gap-6 overflow-hidden hover:bg-dv-lime-hover transition-colors group cursor-pointer"
         >
-          <span className="text-[#11150E] text-sm font-semibold font-sans">
+          <span className="text-dv-dark text-sm sm:text-base font-medium font-sans">
             Let’s talk
           </span>
           <ArrowIcon color="dark" />
@@ -208,9 +208,9 @@ export default function Navbar() {
           <Link
             href="/#contact"
             onClick={(e) => handleNavClick(e, "/#contact", "contact")}
-            className="h-10 px-4 bg-[#CEFF69] rounded-lg flex items-center gap-2 hover:bg-[#b8f050] transition-colors cursor-pointer"
+            className="h-10 px-4 bg-dv-lime rounded-lg flex items-center gap-2 hover:bg-dv-lime-hover transition-colors cursor-pointer"
           >
-            <span className="text-[#11150E] text-xs sm:text-sm font-semibold font-sans">
+            <span className="text-dv-dark text-xs sm:text-sm font-medium font-sans">
               Talk
             </span>
             <ArrowIcon color="dark" size="md" />
@@ -219,14 +219,14 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="w-10 h-10 rounded-lg bg-[#191C19] border border-[#2A3029] hover:border-[#CEFF69] flex items-center justify-center text-[#F2F4EC] transition-colors cursor-pointer"
+            className="w-10 h-10 rounded-lg bg-dv-card border border-dv-border hover:border-dv-lime flex items-center justify-center text-dv-text transition-colors cursor-pointer"
             aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
-              <CloseIcon size={20} color="#CEFF69" />
+              <CloseIcon size={20} color="var(--color-dv-lime)" />
             ) : (
-              <MenuIcon size={20} color="#F2F4EC" />
+              <MenuIcon size={20} color="var(--color-dv-text)" />
             )}
           </button>
         </div>
@@ -234,18 +234,18 @@ export default function Navbar() {
 
       {/* Mobile Navigation Drawer */}
       <div
-        className={`lg:hidden fixed inset-x-0 top-20 bottom-0 bg-[#101211]/98 backdrop-blur-md z-40 flex flex-col justify-between overflow-y-auto border-t border-[#2A3029] transition-all duration-300 ease-in-out ${
+        className={`lg:hidden fixed inset-x-0 top-20 bottom-0 bg-dv-bg/98 backdrop-blur-md z-40 flex flex-col justify-between overflow-y-auto border-t border-dv-border transition-all duration-300 ease-in-out ${
           isMobileMenuOpen
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-3 pointer-events-none"
         }`}
       >
         <div className="px-6 sm:px-8 py-6 flex flex-col gap-6">
-          <div className="flex items-center justify-between border-b border-[#2A3029] pb-3">
-            <span className="text-[#A4ADA0] text-xs sm:text-sm font-semibold font-sans tracking-wider">
+          <div className="flex items-center justify-between border-b border-dv-border pb-3">
+            <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-wide">
               Navigation
             </span>
-            <span className="text-[#CEFF69] text-xs sm:text-sm font-bold font-sans">
+            <span className="text-dv-lime text-xs sm:text-sm font-semibold font-sans">
               /11
             </span>
           </div>
@@ -259,11 +259,11 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href, link.targetId)}
-                  className={`py-3.5 border-b border-[#2A3029]/60 flex items-center justify-between transition-colors group ${
-                    isActive ? "text-[#CEFF69]" : "text-[#F2F4EC] hover:text-[#CEFF69]"
+                  className={`py-3.5 border-b border-dv-border/60 flex items-center justify-between transition-colors group ${
+                    isActive ? "text-dv-lime" : "text-dv-text hover:text-dv-lime"
                   }`}
                 >
-                  <span className="text-xl font-bold font-sans">
+                  <span className="text-xl font-medium font-sans tracking-normal">
                     {link.label}
                   </span>
                   <ArrowIcon
@@ -280,21 +280,21 @@ export default function Navbar() {
             <Link
               href="/#contact"
               onClick={(e) => handleNavClick(e, "/#contact", "contact")}
-              className="w-full h-12 px-5 bg-[#CEFF69] rounded-lg flex items-center justify-between text-[#11150E] font-semibold text-sm sm:text-base hover:bg-[#b8f050] transition-colors group cursor-pointer"
+              className="w-full h-12 px-5 bg-dv-lime rounded-lg flex items-center justify-between text-dv-dark font-medium text-sm sm:text-base hover:bg-dv-lime-hover transition-colors group cursor-pointer"
             >
               <span>Discuss your project</span>
               <ArrowIcon color="dark" size="md" />
             </Link>
-            <span className="text-[#A4ADA0] text-xs sm:text-sm font-medium font-sans text-center pt-1 tracking-wider">
+            <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans text-center pt-1 tracking-normal">
               No sales script. Just a good conversation.
             </span>
           </div>
         </div>
 
         {/* Drawer Footer Legal Note */}
-        <div className="px-6 sm:px-8 py-4 border-t border-[#2A3029] flex justify-between items-center text-xs sm:text-sm font-medium font-sans text-[#A4ADA0]">
+        <div className="px-6 sm:px-8 py-4 border-t border-dv-border flex justify-between items-center text-xs sm:text-sm font-medium font-sans text-dv-muted">
           <span>© 2026 DevEleven</span>
-          <span className="text-[#CEFF69]">Built with intent</span>
+          <span className="text-dv-lime">Built with intent</span>
         </div>
       </div>
     </header>

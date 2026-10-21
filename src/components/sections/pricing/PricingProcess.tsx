@@ -33,20 +33,20 @@ const proposalItems = [
 
 export default function PricingProcess() {
   return (
-    <section id="process" className="w-full bg-[#E8EDE1]">
-      <div className="w-full max-w-screen-2xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-start gap-12 overflow-hidden">
+    <section id="process" className="w-full bg-dv-light-bg">
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-start gap-12 overflow-hidden">
         {/* Header */}
         <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8">
           <div className="max-w-3xl flex flex-col items-start gap-5">
             <SectionLabel theme="light">03 / From example to estimate</SectionLabel>
-            <h2 className="w-full text-[#11150E] text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
+            <h2 className="w-full text-dv-light-text text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
               The price follows the plan.
               <br />
               Not the other way around.
             </h2>
           </div>
           <div className="lg:max-w-md flex flex-col items-start pb-2">
-            <p className="w-full text-[#384031] text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
+            <p className="w-full text-dv-light-lead text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
               Complexity, integrations, and delivery constraints shape your
               investment. We make those trade-offs visible.
             </p>
@@ -61,18 +61,18 @@ export default function PricingProcess() {
               className="flex flex-col items-start gap-5 overflow-hidden"
             >
               <div className="w-full flex items-center gap-4 overflow-hidden">
-                <span className="text-[#2D3427] text-base sm:text-lg font-bold font-sans tracking-wide">
+                <span className="text-dv-light-label text-base sm:text-lg font-medium font-sans tracking-wide">
                   {step.number}
                 </span>
-                <div className="flex-1 h-px bg-[#BCC5B3]/60" />
+                <div className="flex-1 h-px bg-dv-light-border/60" />
               </div>
-              <h3 className="w-full text-[#11150E] text-2xl font-bold font-sans tracking-tight">
+              <h3 className="w-full text-dv-light-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
                 {step.title}
               </h3>
-              <p className="w-full text-[#384031] text-sm sm:text-base font-normal font-sans leading-relaxed">
+              <p className="w-full text-dv-light-lead text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
                 {step.description}
               </p>
-              <span className="text-[#11150E] text-xs sm:text-sm font-bold font-sans tracking-wide">
+              <span className="text-dv-light-text text-xs sm:text-sm font-medium font-sans tracking-wide">
                 {step.output}
               </span>
             </div>
@@ -80,15 +80,15 @@ export default function PricingProcess() {
         </div>
 
         {/* Checklist Footer */}
-        {/* <div className="w-full pt-7 border-t border-[#BCC5B3]/60 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 overflow-hidden">
-          <span className="text-[#384031] text-xs sm:text-sm font-bold font-sans tracking-wider">
+        {/* <div className="w-full pt-7 border-t border-dv-light-border/60 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 overflow-hidden">
+          <span className="text-dv-light-lead text-xs sm:text-sm font-bold font-sans tracking-wider">
             Every proposal should make clear
           </span>
           <div className="flex flex-wrap items-center gap-6 sm:gap-8 overflow-hidden">
             {proposalItems.map((item) => (
               <span
                 key={item}
-                className="text-[#11150E] text-sm sm:text-base font-bold font-sans"
+                className="text-dv-light-text text-sm sm:text-base font-bold font-sans"
               >
                 {item}
               </span>

@@ -25,11 +25,11 @@ export default function Button({
 }: ButtonProps) {
   const variantStyles = {
     primary:
-      "bg-[#CEFF69] outline outline-1 outline-[#CEFF69] -outline-offset-1 text-[#11150E] hover:bg-[#b8f050] transition-colors group",
+      "bg-dv-lime outline outline-1 outline-dv-lime -outline-offset-1 text-dv-dark hover:bg-dv-lime-hover transition-colors group",
     secondary:
-      "bg-transparent outline outline-1 outline-[#2A3029] -outline-offset-1 text-[#F2F4EC] hover:outline-[#A4ADA0] transition-colors group",
+      "bg-transparent outline outline-1 outline-dv-border -outline-offset-1 text-dv-text hover:outline-dv-muted transition-colors group",
     dark:
-      "bg-[#101211] outline outline-1 outline-[#2A3029] -outline-offset-1 text-[#F2F4EC] hover:outline-[#A4ADA0] transition-colors group",
+      "bg-dv-bg outline outline-1 outline-dv-border -outline-offset-1 text-dv-text hover:outline-dv-muted transition-colors group",
   };
 
   const arrowColor =
@@ -37,12 +37,12 @@ export default function Button({
 
   const strokeColor =
     arrowColor === "dark"
-      ? "#11150E"
+      ? "var(--color-dv-dark)"
       : arrowColor === "light"
-      ? "#F2F4EC"
-      : "#CEFF69";
+      ? "var(--color-dv-text)"
+      : "var(--color-dv-lime)";
 
-  const baseClasses = `h-14 px-6 rounded-lg overflow-hidden justify-start items-center gap-7 inline-flex font-sans text-sm font-semibold cursor-pointer shrink-0 ${
+  const baseClasses = `h-14 px-6 rounded-lg overflow-hidden justify-start items-center gap-7 inline-flex font-sans text-sm sm:text-base font-medium cursor-pointer shrink-0 ${
     fullWidth ? "w-full justify-between" : ""
   } ${variantStyles[variant]} ${className}`;
 

@@ -14,12 +14,12 @@ export default function ArrowIcon({
 }: ArrowIconProps) {
   const strokeColor =
     color === "dark"
-      ? "#11150E"
+      ? "var(--color-dv-dark)"
       : color === "light"
-      ? "#F2F4EC"
+      ? "var(--color-dv-text)"
       : color === "dim"
-      ? "#A4ADA0"
-      : "#CEFF69";
+      ? "var(--color-dv-muted)"
+      : "var(--color-dv-lime)";
 
   const dimension = size === "lg" ? 22 : 18;
 

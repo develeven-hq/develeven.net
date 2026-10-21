@@ -29,20 +29,20 @@ const engagements = [
 
 export default function EngagementSection() {
   return (
-    <section id="engagement" className="w-full bg-[#191C19]">
-      <div className="w-full max-w-screen-2xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-start gap-12 overflow-hidden">
+    <section id="engagement" className="w-full bg-dv-card">
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-start gap-12 overflow-hidden">
         {/* Header */}
         <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
           <div className="flex-1 max-w-2xl flex flex-col items-start gap-6">
             <SectionLabel>06 / A partnership that fits</SectionLabel>
-            <h2 className="w-full text-[#F2F4EC] text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
+            <h2 className="w-full text-dv-text text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
               Your ambition.
               <br />
               Our way in.
             </h2>
           </div>
           <div className="lg:max-w-md flex flex-col items-start pb-2">
-            <p className="w-full text-[#C5CDC1] text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
+            <p className="w-full text-dv-lead text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
               Three flexible ways to work together. Choose the model that fits
               your team, timeline, and goals.
             </p>
@@ -54,27 +54,27 @@ export default function EngagementSection() {
           {engagements.map((eng) => (
             <div
               key={eng.type}
-              className="p-7 bg-[#101211] bg-neutral-800/90 rounded-lg flex flex-col justify-between items-start gap-6 overflow-hidden"
+              className="p-7 bg-dv-bg rounded-lg flex flex-col justify-between items-start gap-6 overflow-hidden"
             >
               <div className="w-full flex flex-col items-start gap-5">
-                <span className="text-[#CEFF69] text-sm font-bold font-sans tracking-wider">
+                <span className="text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-wide">
                   {eng.type}
                 </span>
-                <h3 className="w-full text-[#F2F4EC] text-2xl font-bold font-sans tracking-tight">
+                <h3 className="w-full text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
                   {eng.title}
                 </h3>
-                <p className="w-full text-[#A4ADA0] text-sm sm:text-base font-normal font-sans leading-relaxed">
+                <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
                   {eng.description}
                 </p>
               </div>
 
               <div className="w-full flex flex-col items-start gap-6">
                 {/* Best For Box */}
-                <div className="w-full pt-5 border-t border-neutral-700 flex flex-col items-start gap-2 overflow-hidden">
-                  <span className="text-[#A4ADA0] text-xs sm:text-sm font-bold font-sans tracking-wider">
+                <div className="w-full pt-5 border-t border-dv-border flex flex-col items-start gap-2 overflow-hidden">
+                  <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-wide">
                     Best for
                   </span>
-                  <p className="w-full text-[#F2F4EC] text-sm sm:text-base font-semibold font-sans">
+                  <p className="w-full text-dv-text text-sm sm:text-base font-medium font-sans">
                     {eng.bestFor}
                   </p>
                 </div>
@@ -84,7 +84,7 @@ export default function EngagementSection() {
                   href="/#contact"
                   className="w-full flex justify-between items-center overflow-hidden group pt-1"
                 >
-                  <span className="text-[#CEFF69] text-sm sm:text-base font-semibold font-sans group-hover:underline">
+                  <span className="text-dv-lime text-sm sm:text-base font-medium font-sans tracking-normal group-hover:underline">
                     Let’s talk about it
                   </span>
                   <ArrowIcon color="lime" size="md" />

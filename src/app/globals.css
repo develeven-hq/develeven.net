@@ -1,31 +1,43 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-manrope);
-  --font-mono: var(--font-manrope);
+  --font-sans: var(--font-mona-sans);
+  --font-mono: var(--font-mona-sans);
+}
 
-  /* === DevEleven Design Tokens (from raw Figma export) === */
+@theme {
+  /* Layout & Container Standards */
+  --container-8xl: 90rem; /* 1440px desktop standard middleground */
 
-  /* Backgrounds */
-  --color-dv-bg:        #101211;   /* page background */
-  --color-dv-card:      #191C19;   /* card / section dark bg */
-  --color-dv-dark:      #101211;   /* button / deep dark bg (same as page bg) */
+  /* === DevEleven Design Tokens === */
 
-  /* Borders */
-  --color-dv-border:    #2A3029;   /* all outlines and dividers (subtle) */
+  /* Dark Theme Surfaces */
+  --color-dv-bg: var(--color-zinc-950);            /* Page and dark section background */
+  --color-dv-card: var(--color-zinc-900);          /* Card and alternate section background */
+  --color-dv-surface: #262626;       /* Elevated dark surface / secondary button bg */
+  --color-dv-border: #2A3029;        /* Default borders, dividers, outlines */
+  --color-dv-surface-border: #404040;/* Elevated surface dividers */
 
-  /* Accent */
-  --color-dv-lime:      #CEFF69;   /* primary accent green */
+  /* Dark Theme Typography */
+  --color-dv-text: #F2F4EC;          /* Primary headings and bold text */
+  --color-dv-muted: #A4ADA0;         /* Secondary and muted body text */
+  --color-dv-lead: #C5CDC1;          /* Lead paragraph and narrative text */
 
-  /* Text */
-  --color-dv-text:      #F2F4EC;   /* primary text */
-  --color-dv-muted:     #A4ADA0;   /* secondary/muted text */
+  /* Primary Accent (Lime) */
+  --color-dv-lime: var(--color-sky-300);          /* Signature accent lime */
+  --color-dv-lime-hover: #b8f050;    /* Interactive hover state for lime */
 
-  /* Light section (work showcase, pricing process) */
-  --color-dv-light-bg:  #E8EDE1;   /* light section background */
-  --color-dv-light-text:#11150E;   /* dark text on light bg */
-  --color-dv-light-muted:#596151;  /* muted text on light bg */
-  --color-dv-light-border:#BCC5B3; /* dividers on light bg */
+  /* Dark Elements (on Light & Lime backgrounds) */
+  --color-dv-dark: #11150E;          /* Charcoal text on lime & dark CTA button */
+  --color-dv-dark-hover: #1a1f16;    /* Hover state for dark CTA button */
+
+  /* Light Theme Sections (WorkShowcase, PricingProcess) */
+  --color-dv-light-bg: #E8EDE1;      /* Light section background */
+  --color-dv-light-text: #11150E;    /* Dark headings and primary text */
+  --color-dv-light-lead: #384031;    /* Lead paragraph text on light background */
+  --color-dv-light-body: #353D2F;    /* Description body text on light background */
+  --color-dv-light-label: #2D3427;   /* Kicker and phase numbers on light background */
+  --color-dv-light-border: #BCC5B3;  /* Dividers and borders on light background */
 }
 
 * {
@@ -43,9 +55,9 @@ html {
 }
 
 body {
-  background-color: #101211;
-  color: #F2F4EC;
-  font-family: var(--font-manrope), sans-serif;
+  background-color: var(--color-dv-bg);
+  color: var(--color-dv-text);
+  font-family: var(--font-mona-sans), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -14,7 +14,7 @@ const websiteTiers: PricingCardProps[] = [
   {
     name: "Launch",
     tag: "A focused first impression",
-    icon: <WebDevIcon size={24} color="#CEFF69" />,
+    icon: <WebDevIcon size={24} />,
     price: "$300 - $500",
     period: "/ project",
     scope: "Up to 5 core pages",
@@ -32,7 +32,7 @@ const websiteTiers: PricingCardProps[] = [
     tag: "Built to evolve",
     badge: "Most popular",
     featured: true,
-    icon: <LayersIcon size={24} color="#CEFF69" />,
+    icon: <LayersIcon size={24} />,
     price: "$600 - $1,000",
     period: "/ project",
     scope: "Up to 12 pages + CMS",
@@ -48,7 +48,7 @@ const websiteTiers: PricingCardProps[] = [
   {
     name: "Commerce",
     tag: "Turn visits into business",
-    icon: <CommerceIcon size={24} color="#CEFF69" />,
+    icon: <CommerceIcon size={24} />,
     price: "$1,000 - $1,800",
     period: "/ project",
     scope: "Storefront + up to 50 products",
@@ -67,7 +67,7 @@ const softwareTiers: PricingCardProps[] = [
   {
     name: "Custom software",
     tag: "SaaS, internal tools & platforms",
-    icon: <BracesIcon size={24} color="#CEFF69" />,
+    icon: <BracesIcon size={24} />,
     price: "$1,500 - $3,000",
     period: "/ project",
     scope: "One core workflow, two roles & integration",
@@ -83,7 +83,7 @@ const softwareTiers: PricingCardProps[] = [
   {
     name: "Game development",
     tag: "Playable prototypes & production",
-    icon: <GameDevIcon size={24} color="#CEFF69" />,
+    icon: <GameDevIcon size={24} />,
     price: "$800 - $1,500",
     period: "/ project",
     scope: "One core mechanic, one level & platform",
@@ -99,7 +99,7 @@ const softwareTiers: PricingCardProps[] = [
   {
     name: "Engineering services",
     tag: "Targeted architecture & sprints",
-    icon: <EngineeringIcon size={24} color="#CEFF69" />,
+    icon: <EngineeringIcon size={24} />,
     price: "$200 - $500",
     period: "/ project",
     scope: "One bounded technical problem",
@@ -116,13 +116,13 @@ const softwareTiers: PricingCardProps[] = [
 
 export default function WebsitePricing() {
   return (
-    <section id="websites" className="w-full bg-[#101211]">
-      <div className="w-full max-w-screen-2xl mx-auto px-6 sm:px-8 lg:px-16 pt-8 pb-20 lg:pt-10 lg:pb-24 flex flex-col items-start gap-14 lg:gap-16">
+    <section id="websites" className="w-full bg-dv-bg">
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 pt-8 pb-20 lg:pt-10 lg:pb-24 flex flex-col items-start gap-14 lg:gap-16">
         {/* 01 / Website development & maintenance */}
         <div className="w-full flex flex-col items-start gap-6 sm:gap-8">
           <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
             <SectionLabel>01 / Website development & maintenance</SectionLabel>
-            <span className="text-[#A4ADA0] text-xs sm:text-sm font-medium font-sans">
+            <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-normal">
               Three example scopes · Post-launch maintenance included
             </span>
           </div>

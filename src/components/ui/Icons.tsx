@@ -67,7 +67,7 @@ export function ArrowDown({
 export function CheckIcon({
   className = "",
   size = 16,
-  color = "#CEFF69",
+  color = "var(--color-dv-lime)",
   strokeWidth = 2,
 }: IconProps) {
   return (
@@ -84,7 +84,7 @@ export function CheckIcon({
 export function InfoIcon({
   className = "",
   size = 20,
-  color = "#CEFF69",
+  color = "var(--color-dv-lime)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -101,7 +101,7 @@ export function InfoIcon({
 export function WebDevIcon({
   className = "",
   size = 26,
-  color = "#CEFF69",
+  color = "var(--color-dv-lime)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -118,7 +118,7 @@ export function WebDevIcon({
 export function MaintenanceIcon({
   className = "",
   size = 26,
-  color = "#CEFF69",
+  color = "var(--color-dv-lime)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -135,7 +135,7 @@ export function MaintenanceIcon({
 export function LayersIcon({
   className = "",
   size = 26,
-  color = "#CEFF69",
+  color = "var(--color-dv-lime)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -152,7 +152,7 @@ export function LayersIcon({
 export function CommerceIcon({
   className = "",
   size = 26,
-  color = "#CEFF69",
+  color = "var(--color-dv-lime)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -169,7 +169,7 @@ export function CommerceIcon({
 export function CustomSoftwareIcon({
   className = "",
   size = 26,
-  color = "#CEFF69",
+  color = "var(--color-dv-lime)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -186,7 +186,7 @@ export function CustomSoftwareIcon({
 export function BracesIcon({
   className = "",
   size = 26,
-  color = "#CEFF69",
+  color = "var(--color-dv-lime)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -203,7 +203,7 @@ export function BracesIcon({
 export function GameDevIcon({
   className = "",
   size = 26,
-  color = "#CEFF69",
+  color = "var(--color-dv-lime)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -220,7 +220,7 @@ export function GameDevIcon({
 export function EngineeringIcon({
   className = "",
   size = 26,
-  color = "#CEFF69",
+  color = "var(--color-dv-lime)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -237,7 +237,7 @@ export function EngineeringIcon({
 export function InspectIcon({
   className = "",
   size = 26,
-  color = "#CEFF69",
+  color = "var(--color-dv-lime)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -254,7 +254,7 @@ export function InspectIcon({
 export function ResilienceIcon({
   className = "",
   size = 26,
-  color = "#CEFF69",
+  color = "var(--color-dv-lime)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -271,7 +271,7 @@ export function ResilienceIcon({
 export function FoundationIcon({
   className = "",
   size = 26,
-  color = "#CEFF69",
+  color = "var(--color-dv-lime)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -288,7 +288,7 @@ export function FoundationIcon({
 export function FaqIcon({
   className = "",
   size = 18,
-  color = "#CEFF69",
+  color = "var(--color-dv-lime)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -305,7 +305,7 @@ export function FaqIcon({
 export function PlusIcon({
   className = "",
   size = 18,
-  color = "#A4ADA0",
+  color = "var(--color-dv-muted)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -322,7 +322,7 @@ export function PlusIcon({
 export function MinusIcon({
   className = "",
   size = 18,
-  color = "#CEFF69",
+  color = "var(--color-dv-lime)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -339,7 +339,7 @@ export function MinusIcon({
 export function MenuIcon({
   className = "",
   size = 22,
-  color = "#F2F4EC",
+  color = "var(--color-dv-text)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -356,7 +356,7 @@ export function MenuIcon({
 export function CloseIcon({
   className = "",
   size = 22,
-  color = "#F2F4EC",
+  color = "var(--color-dv-text)",
   strokeWidth = 1.5,
 }: IconProps) {
   return (

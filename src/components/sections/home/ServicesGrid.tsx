@@ -26,24 +26,24 @@ function ServiceCard({
   icon,
 }: ServiceCardProps) {
   return (
-    <div className="h-68 p-7 bg-[#191C19] rounded-lg flex flex-col justify-start items-start gap-6 overflow-hidden">
+    <div className="h-68 p-7 bg-dv-card rounded-lg flex flex-col justify-start items-start gap-6 overflow-hidden">
       <div className="w-full flex justify-between items-center overflow-hidden">
         <div className="w-6 h-6 flex items-center justify-center shrink-0">
           {icon}
         </div>
-        <span className="text-[#A4ADA0] text-xs sm:text-sm font-bold font-sans tracking-wider">
+        <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-wide">
           {number}
         </span>
       </div>
       <div className="w-full flex flex-col items-start gap-3 overflow-hidden">
-        <h3 className="w-full text-[#F2F4EC] text-2xl font-bold font-sans tracking-tight">
+        <h3 className="w-full text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
           {title}
         </h3>
-        <p className="w-full text-[#A4ADA0] text-sm sm:text-base font-normal font-sans leading-relaxed">
+        <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
           {description}
         </p>
       </div>
-      <span className="w-full text-[#CEFF69] text-xs sm:text-sm font-semibold font-sans tracking-wide leading-relaxed">
+      <span className="w-full text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-normal leading-relaxed">
         {tags}
       </span>
     </div>
@@ -52,20 +52,20 @@ function ServiceCard({
 
 export default function ServicesGrid() {
   return (
-    <section id="services" className="w-full bg-[#101211]">
-      <div className="w-full max-w-screen-2xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-start gap-12 overflow-hidden">
+    <section id="services" className="w-full bg-dv-bg">
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-start gap-12 overflow-hidden">
         {/* Header */}
         <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
           <div className="flex-1 max-w-2xl flex flex-col items-start gap-6">
             <SectionLabel>01 / What we build</SectionLabel>
-            <h2 className="w-full text-[#F2F4EC] text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
+            <h2 className="w-full text-dv-text text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
               The right expertise.
               <br />
               From the ground up.
             </h2>
           </div>
           <div className="lg:max-w-md flex flex-col items-start pb-2">
-            <p className="w-full text-[#C5CDC1] text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
+            <p className="w-full text-dv-lead text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
               One engineering partner for your digital ecosystem. Start with a
               single challenge, stay for the bigger picture.
             </p>
@@ -79,50 +79,50 @@ export default function ServicesGrid() {
             title="Website development"
             description="Fast, accessible websites that turn your brand into a better digital experience. Built for people, search, and scale."
             tags="Marketing sites / E-commerce / Web apps"
-            icon={<WebDevIcon size={24} color="#CEFF69" />}
+            icon={<WebDevIcon size={24} />}
           />
           <ServiceCard
             number="SVC / 02"
             title="Website maintenance"
             description="Keep your website secure, current, and performing at its best. Proactive maintenance, without the technical overhead."
             tags="Updates / Security / Performance"
-            icon={<MaintenanceIcon size={24} color="#CEFF69" />}
+            icon={<MaintenanceIcon size={24} />}
           />
           <ServiceCard
             number="SVC / 03"
             title="Custom software"
             description="Purpose-built tools for the way your business actually works. From customer platforms to complex internal systems."
             tags="SaaS / Business tools / Integrations"
-            icon={<CustomSoftwareIcon size={24} color="#CEFF69" />}
+            icon={<CustomSoftwareIcon size={24} />}
           />
           <ServiceCard
             number="SVC / 04"
             title="Game development"
             description="Compelling worlds, responsive mechanics, and solid technical foundations. From playable prototype to polished release."
             tags="Unity / Unreal / Interactive experiences"
-            icon={<GameDevIcon size={24} color="#CEFF69" />}
+            icon={<GameDevIcon size={24} />}
           />
           <ServiceCard
             number="SVC / 05"
             title="Engineering & infrastructure"
             description="Connect systems, modernize your stack, and make your infrastructure ready for what comes next."
             tags="APIs / Cloud / DevOps / Modernization"
-            icon={<EngineeringIcon size={24} color="#CEFF69" />}
+            icon={<EngineeringIcon size={24} />}
           />
 
           {/* CTA Card */}
           <div className="h-68 p-7 rounded-lg flex flex-col justify-between items-start overflow-hidden">
-            <span className="text-[#A4ADA0] text-xs sm:text-sm font-bold font-sans tracking-wider">
+            <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-wide">
               Not sure where to start?
             </span>
-            <p className="w-full text-[#F2F4EC] text-2xl sm:text-3xl font-bold font-sans tracking-tight leading-snug">
+            <p className="w-full text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
               Bring the challenge. We’ll find the right approach.
             </p>
             <Link
               href="/#contact"
               className="flex items-center gap-4 overflow-hidden group cursor-pointer"
             >
-              <span className="text-[#CEFF69] text-sm font-semibold font-sans group-hover:underline">
+              <span className="text-dv-lime text-sm sm:text-base font-medium font-sans tracking-normal group-hover:underline">
                 Let’s figure it out
               </span>
               <ArrowIcon color="lime" size="md" />

@@ -38,23 +38,23 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="w-full bg-[#101211]">
-      <div className="w-full max-w-screen-2xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col lg:flex-row justify-start items-start gap-12 lg:gap-20 overflow-hidden">
+    <section id="faq" className="w-full bg-dv-bg">
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col lg:flex-row justify-start items-start gap-12 lg:gap-20 overflow-hidden">
         {/* Left Column */}
         <div className="w-full lg:w-100 xl:w-108 flex flex-col items-start gap-6 shrink-0">
           <SectionLabel>07 / A few good questions</SectionLabel>
-          <h2 className="w-full text-[#F2F4EC] text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
+          <h2 className="w-full text-dv-text text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
             Before we
             <br />
             write a line.
           </h2>
-          <p className="w-full text-[#C5CDC1] text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
+          <p className="w-full text-dv-lead text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
             A little clarity before a big decision. Have something else in mind? Just
             ask.
           </p>
           <Link
             href="/#contact"
-            className="text-[#CEFF69] text-sm sm:text-base font-semibold font-sans hover:underline flex items-center gap-1.5 group"
+            className="text-dv-lime text-sm sm:text-base font-medium font-sans hover:underline flex items-center gap-1.5 group"
           >
             <span>Talk to our team</span>
             <ArrowIcon color="lime" size="md" />
@@ -62,13 +62,13 @@ export default function FAQSection() {
         </div>
 
         {/* Right Accordion List */}
-        <div className="flex-1 w-full flex flex-col items-start overflow-hidden border-t border-[#2A3029]">
+        <div className="flex-1 w-full flex flex-col items-start overflow-hidden border-t border-dv-border">
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index;
           return (
             <div
               key={faq.question}
-              className={`w-full overflow-hidden border-b border-[#2A3029] transition-all ${
+              className={`w-full overflow-hidden border-b border-dv-border transition-all ${
                 isOpen ? "pt-6 pb-7" : "py-6.5"
               }`}
             >
@@ -76,23 +76,23 @@ export default function FAQSection() {
                 onClick={() => setOpenIndex(isOpen ? null : index)}
                 className="w-full flex justify-between items-center gap-6 text-left cursor-pointer group overflow-hidden"
               >
-                <span className="flex-1 text-[#F2F4EC] text-lg sm:text-xl font-bold font-sans">
+                <span className="flex-1 text-dv-text text-base sm:text-lg font-medium font-sans tracking-normal">
                   {faq.question}
                 </span>
 
                 {/* Toggle Icon */}
                 <div className="w-5 h-5 flex items-center justify-center shrink-0">
                   {isOpen ? (
-                    <MinusIcon size={18} color="#CEFF69" />
+                    <MinusIcon size={18} />
                   ) : (
-                    <PlusIcon size={18} color="#A4ADA0" className="group-hover:stroke-[#CEFF69] transition-colors" />
+                    <PlusIcon size={18} className="group-hover:stroke-dv-lime transition-colors" />
                   )}
                 </div>
               </button>
 
               {isOpen && (
                 <div className="w-full pt-5">
-                  <p className="w-full text-[#A4ADA0] text-sm sm:text-base font-normal font-sans leading-relaxed">
+                  <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
                     {faq.answer}
                   </p>
                 </div>
