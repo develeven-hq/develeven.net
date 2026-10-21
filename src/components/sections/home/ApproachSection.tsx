@@ -1,5 +1,4 @@
 import React from "react";
-import SectionLabel from "@/components/ui/SectionLabel";
 import TechPill from "@/components/ui/TechPill";
 import { InspectIcon, ResilienceIcon, FoundationIcon } from "@/components/ui/Icons";
 
@@ -29,67 +28,49 @@ const techStack = ["React", "Node.js", "Python", "Unity", "AWS"];
 export default function ApproachSection() {
   return (
     <section id="approach" className="w-full bg-dv-bg">
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col lg:flex-row justify-start items-start gap-12 lg:gap-20 overflow-hidden">
-        {/* Left Column */}
-        <div className="flex-1 max-w-xl flex flex-col items-start gap-7">
-          <SectionLabel>03 / How we think</SectionLabel>
-          <h2 className="w-full text-dv-text text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
-            Good software
-            <br />
-            is more than
-            <br />a good launch.
-          </h2>
-          <p className="w-full text-dv-lead text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
-            It’s what happens after. How it holds up under pressure. How easily it
-            evolves. How confidently your team can rely on it.
-          </p>
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20 overflow-hidden">
+        {/* Centered Heading */}
+        <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight text-center">
+          The standards we follow to build reliable software
+        </h2>
 
-          <div className="w-full pt-3 flex flex-col items-start gap-3.5 overflow-hidden">
-            <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-wide">
-              The right tool for the job, not the trend.
-            </span>
-            <div className="flex flex-wrap items-start gap-2 overflow-hidden">
-              {techStack.map((tech) => (
-                <TechPill key={tech} label={tech} />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column */}
-        <div className="flex-1 w-full flex flex-col items-start gap-7 overflow-hidden">
-          {/* Quality Gate Bar */}
-          <div className="w-full p-4 bg-dv-card rounded-lg outline outline-1 outline-dv-border -outline-offset-1 flex justify-between items-center overflow-hidden">
-            <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-wide">
-              DevEleven / Quality gate
-            </span>
-            <div className="flex items-center gap-2 overflow-hidden">
-              <div className="w-1.5 h-1.5 bg-dv-lime rounded-full" />
-              <span className="text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-wide">
-                Built into every release
-              </span>
-            </div>
-          </div>
-
-          {/* Principles List */}
+        {/* 3 Principles Grid */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
           {principles.map((p) => (
             <div
               key={p.title}
-              className="w-full pb-6 border-b border-dv-border flex items-start gap-5 overflow-hidden"
+              className="w-full p-6 sm:p-8 bg-dv-card rounded-lg outline outline-1 outline-dv-border -outline-offset-1 flex flex-col gap-4 overflow-hidden"
             >
-              <div className="w-6 h-6 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-8 h-8 flex items-center justify-center text-dv-lime">
                 {p.icon}
               </div>
-              <div className="flex-1 flex flex-col items-start gap-2.5 overflow-hidden">
-                <h3 className="w-full text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
-                  {p.title}
-                </h3>
-                <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
-                  {p.description}
-                </p>
-              </div>
+              <h3 className="w-full text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
+                {p.title}
+              </h3>
+              <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
+                {p.description}
+              </p>
             </div>
           ))}
+        </div>
+
+        {/* Bottom Bar: Tech Stack & Quality Gate */}
+        <div className="w-full p-5 sm:p-6 bg-dv-card rounded-lg outline outline-1 outline-dv-border -outline-offset-1 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 overflow-hidden">
+          <div className="flex flex-wrap items-center gap-2.5 overflow-hidden">
+            <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans mr-1">
+              Core technologies:
+            </span>
+            {techStack.map((tech) => (
+              <TechPill key={tech} label={tech} />
+            ))}
+          </div>
+
+          <div className="flex items-center gap-2 overflow-hidden shrink-0">
+            <div className="w-1.5 h-1.5 bg-dv-lime rounded-full" />
+            <span className="text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-wide">
+              Quality gate built into every release
+            </span>
+          </div>
         </div>
       </div>
     </section>

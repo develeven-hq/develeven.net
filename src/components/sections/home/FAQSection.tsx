@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import SectionLabel from "@/components/ui/SectionLabel";
 import ArrowIcon from "@/components/ui/ArrowIcon";
 import { PlusIcon, MinusIcon } from "@/components/ui/Icons";
 
@@ -39,67 +38,62 @@ export default function FAQSection() {
 
   return (
     <section id="faq" className="w-full bg-dv-bg">
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col lg:flex-row justify-start items-start gap-12 lg:gap-20 overflow-hidden">
-        {/* Left Column */}
-        <div className="w-full lg:w-100 xl:w-108 flex flex-col items-start gap-6 shrink-0">
-          <SectionLabel>07 / A few good questions</SectionLabel>
-          <h2 className="w-full text-dv-text text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
-            Before we
-            <br />
-            write a line.
-          </h2>
-          <p className="w-full text-dv-lead text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
-            A little clarity before a big decision. Have something else in mind? Just
-            ask.
-          </p>
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20 overflow-hidden">
+        {/* Centered Heading */}
+        <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight text-center">
+          Common questions about working with us
+        </h2>
+
+        {/* Centered Accordion Container */}
+        <div className="w-full max-w-3xl mx-auto flex flex-col items-start overflow-hidden border-t border-dv-border">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div
+                key={faq.question}
+                className={`w-full overflow-hidden border-b border-dv-border transition-all ${
+                  isOpen ? "pt-6 pb-7" : "py-6.5"
+                }`}
+              >
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="w-full flex justify-between items-center gap-6 text-left cursor-pointer group overflow-hidden"
+                >
+                  <span className="flex-1 text-dv-text text-base sm:text-lg font-medium font-sans tracking-normal">
+                    {faq.question}
+                  </span>
+
+                  {/* Toggle Icon */}
+                  <div className="w-5 h-5 flex items-center justify-center shrink-0">
+                    {isOpen ? (
+                      <MinusIcon size={18} />
+                    ) : (
+                      <PlusIcon size={18} className="group-hover:stroke-dv-lime transition-colors" />
+                    )}
+                  </div>
+                </button>
+
+                {isOpen && (
+                  <div className="w-full pt-5">
+                    <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Contact Link */}
+        <div className="flex items-center justify-center pt-2">
           <Link
             href="/#contact"
             className="text-dv-lime text-sm sm:text-base font-medium font-sans hover:underline flex items-center gap-1.5 group"
           >
-            <span>Talk to our team</span>
+            <span>Have another question? Talk to our team</span>
             <ArrowIcon color="lime" size="md" />
           </Link>
-        </div>
-
-        {/* Right Accordion List */}
-        <div className="flex-1 w-full flex flex-col items-start overflow-hidden border-t border-dv-border">
-        {faqs.map((faq, index) => {
-          const isOpen = openIndex === index;
-          return (
-            <div
-              key={faq.question}
-              className={`w-full overflow-hidden border-b border-dv-border transition-all ${
-                isOpen ? "pt-6 pb-7" : "py-6.5"
-              }`}
-            >
-              <button
-                onClick={() => setOpenIndex(isOpen ? null : index)}
-                className="w-full flex justify-between items-center gap-6 text-left cursor-pointer group overflow-hidden"
-              >
-                <span className="flex-1 text-dv-text text-base sm:text-lg font-medium font-sans tracking-normal">
-                  {faq.question}
-                </span>
-
-                {/* Toggle Icon */}
-                <div className="w-5 h-5 flex items-center justify-center shrink-0">
-                  {isOpen ? (
-                    <MinusIcon size={18} />
-                  ) : (
-                    <PlusIcon size={18} className="group-hover:stroke-dv-lime transition-colors" />
-                  )}
-                </div>
-              </button>
-
-              {isOpen && (
-                <div className="w-full pt-5">
-                  <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
-                    {faq.answer}
-                  </p>
-                </div>
-              )}
-            </div>
-          );
-        })}
         </div>
       </div>
     </section>

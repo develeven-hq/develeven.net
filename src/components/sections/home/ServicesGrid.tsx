@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import SectionLabel from "@/components/ui/SectionLabel";
 import ArrowIcon from "@/components/ui/ArrowIcon";
 import {
   WebDevIcon,
@@ -53,24 +52,11 @@ function ServiceCard({
 export default function ServicesGrid() {
   return (
     <section id="services" className="w-full bg-dv-bg">
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-start gap-12 overflow-hidden">
-        {/* Header */}
-        <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
-          <div className="flex-1 max-w-2xl flex flex-col items-start gap-6">
-            <SectionLabel>01 / What we build</SectionLabel>
-            <h2 className="w-full text-dv-text text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
-              The right expertise.
-              <br />
-              From the ground up.
-            </h2>
-          </div>
-          <div className="lg:max-w-md flex flex-col items-start pb-2">
-            <p className="w-full text-dv-lead text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
-              One engineering partner for your digital ecosystem. Start with a
-              single challenge, stay for the bigger picture.
-            </p>
-          </div>
-        </div>
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20 overflow-hidden">
+        {/* Centered Heading */}
+        <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight text-center">
+          Services we provide to build and scale your product
+        </h2>
 
         {/* 6 Cards Grid (3 cols on desktop) */}
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

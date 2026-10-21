@@ -1,25 +1,14 @@
 import React from "react";
-import SectionLabel from "@/components/ui/SectionLabel";
 import { ArrowUpRight } from "@/components/ui/Icons";
 
 export default function WorkShowcase() {
   return (
     <section id="work" className="w-full bg-dv-light-bg">
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-start gap-12 overflow-hidden">
-        {/* Header */}
-        <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
-          <div className="flex-1 max-w-2xl flex flex-col items-start gap-6">
-            <SectionLabel theme="light">02 / Engineering in practice</SectionLabel>
-            <h2 className="w-full text-dv-light-text text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
-              Different challenges. Same rigor.
-            </h2>
-          </div>
-          <div className="lg:max-w-md flex flex-col items-start pb-2">
-            <p className="w-full text-dv-light-lead text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
-              Illustrative build concepts. A look at what we can create.
-            </p>
-          </div>
-        </div>
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20 overflow-hidden">
+        {/* Centered Heading */}
+        <h2 className="text-dv-light-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight text-center">
+          Selected projects and build concepts
+        </h2>
 
       {/* Projects Row */}
       <div className="w-full flex flex-col lg:flex-row items-start gap-8">

@@ -1,5 +1,4 @@
 import React from "react";
-import SectionLabel from "@/components/ui/SectionLabel";
 import PricingCard, { PricingCardProps } from "@/components/sections/pricing/PricingCard";
 import {
   WebDevIcon,
@@ -117,13 +116,15 @@ const softwareTiers: PricingCardProps[] = [
 export default function WebsitePricing() {
   return (
     <section id="websites" className="w-full bg-dv-bg">
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 pt-8 pb-20 lg:pt-10 lg:pb-24 flex flex-col items-start gap-14 lg:gap-16">
-        {/* 01 / Website development & maintenance */}
-        <div className="w-full flex flex-col items-start gap-6 sm:gap-8">
-          <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-            <SectionLabel>01 / Website development & maintenance</SectionLabel>
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 pt-8 pb-20 lg:pt-10 lg:pb-24 flex flex-col items-start gap-20 lg:gap-24">
+        {/* Websites & maintenance */}
+        <div className="w-full flex flex-col items-center gap-12 lg:gap-16">
+          <div className="w-full flex flex-col items-center text-center gap-3">
+            <h2 className="text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight">
+              Website development and maintenance
+            </h2>
             <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-normal">
-              Three example scopes · Post-launch maintenance included
+              Example scopes · Post-launch maintenance included
             </span>
           </div>
 
@@ -134,10 +135,12 @@ export default function WebsitePricing() {
           </div>
         </div>
 
-        {/* 02 / Custom software, games & engineering */}
-        <div id="software" className="w-full flex flex-col items-start gap-6 sm:gap-8 scroll-mt-24">
-          <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-            <SectionLabel>02 / Custom software, games & engineering</SectionLabel>
+        {/* Custom software & engineering */}
+        <div id="software" className="w-full flex flex-col items-center gap-12 lg:gap-16 scroll-mt-24">
+          <div className="w-full flex justify-center text-center">
+            <h2 className="text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight">
+              Custom software, games, and dedicated engineering
+            </h2>
           </div>
 
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

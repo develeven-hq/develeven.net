@@ -30,10 +30,10 @@ This file serves as the persistent source of truth for all AI agents working on 
 | Tier | UI Role | Tailwind Size | Tailwind Weight | Tracking & Leading | Color Tokens |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **L1: Display / H1** | Page & Hero main titles | `text-5xl sm:text-7xl lg:text-8xl` | `font-bold` (700) | `tracking-tight leading-tight` / `leading-[1.02]` | `#F2F4EC` |
-| **L2: Section Headings / H2** | Major section headers (`h2`) | `text-4xl sm:text-5xl lg:text-6xl` | `font-bold` (700) | `tracking-tight leading-tight` / `leading-[1.08]` | `#F2F4EC` (dark) / `#11150E` (light) |
+| **L2: Section Headings / H2** | Major section headers (`h2`) — centered, clean, non-dramatic | `text-3xl sm:text-4xl lg:text-5xl` | `font-medium` (500) | `text-center tracking-tight leading-tight` | `#F2F4EC` (dark) / `#11150E` (light) |
 | **L3: Card Titles / H3** | Services, pricing tiers, showcase cases | `text-xl sm:text-2xl` | `font-medium` (500) | `tracking-normal leading-snug` | `#F2F4EC` (dark) / `#11150E` (light) |
 | **L4: Prices & Large Stats** | Pricing tiers (`$600–1,000`), stat metrics | `text-3xl sm:text-4xl lg:text-5xl` | `font-bold` (700) | `tracking-tight` | `#F2F4EC` |
-| **L5: Section Kickers / Labels** | Section overlines (`01 / What we build`) | `text-xs sm:text-sm` | `font-medium` (500) | `tracking-wide` | `#CEFF69` (dark) / `#2D3427` (light) |
+| **L5: Section Kickers / Labels** | Section overlines | `text-xs sm:text-sm` | `font-medium` (500) | `tracking-wide` | `#CEFF69` (dark) / `#2D3427` (light) |
 | **L6: Lead Paragraphs** | Hero narrative & section intro leads | `text-base sm:text-lg lg:text-xl` | `font-normal` (400) | `leading-relaxed` | `#C5CDC1` (dark) / `#384031` (light) |
 | **L7: Interactive & Navigation** | Nav links, buttons, CTA text, accordion triggers | `text-sm sm:text-base` / `text-base sm:text-lg` | `font-medium` (500) | `tracking-normal` / `hover:text-[#CEFF69]` | High-contrast interactive states |
 | **L8: Badges, Pills & Numbers** | Tech pills, step numbers (`01`), service codes | `text-xs sm:text-sm` or `text-base sm:text-lg` | `font-medium` (500) | `tracking-normal` / `tracking-wide` | `#CEFF69`, `#F2F4EC`, `#A4ADA0` |
@@ -41,7 +41,7 @@ This file serves as the persistent source of truth for all AI agents working on 
 | **L10: Body & Card Descriptions** | Standard explanatory paragraphs | `text-sm sm:text-base` | `font-normal` (400) | `leading-relaxed tracking-normal` | `#A4ADA0` |
 | **L11: Micro-copy & Notes** | Subtitles, footnotes, legal disclaimer | `text-xs sm:text-sm` | `font-medium` (500) | `tracking-wide` | `#A4ADA0`, `#F2F4EC` |
 
-> **Crucial Rule**: Use standard Tailwind classes only with no arbitrary pixel font sizes. Mona Sans requires `font-bold` (700) on display titles and H2 headings, `font-medium` (500) on card titles (matching GitHub Primer Brand `Heading--6` weight 480), and clean `font-normal` (400) on body descriptions.
+> **Crucial Rule**: Use standard Tailwind classes only with no arbitrary pixel font sizes. Mona Sans requires `font-bold` (700) on display titles (H1), `font-medium` (500) on centered section headings (H2, matching GitHub Primer Brand weight 460), `font-medium` (500) on card titles (matching GitHub Primer Brand `Heading--6` weight 480), and clean `font-normal` (400) on body descriptions. Avoid whole-word uppercase shout-styling on section headers. Section headings must be centered, direct, and sound like a natural sentence or descriptive clause that clearly clarifies the section's purpose (e.g., *'Services we provide to build and scale your product'*, *'How we scope, estimate, and price your project'*) without dramatic multi-part structures (no eyebrows/kickers, subtitles, or verbose marketing slop).
 
 ---
 

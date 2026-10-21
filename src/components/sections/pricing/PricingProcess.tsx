@@ -1,5 +1,4 @@
 import React from "react";
-import SectionLabel from "@/components/ui/SectionLabel";
 
 const steps = [
   {
@@ -34,24 +33,11 @@ const proposalItems = [
 export default function PricingProcess() {
   return (
     <section id="process" className="w-full bg-dv-light-bg">
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-start gap-12 overflow-hidden">
-        {/* Header */}
-        <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8">
-          <div className="max-w-3xl flex flex-col items-start gap-5">
-            <SectionLabel theme="light">03 / From example to estimate</SectionLabel>
-            <h2 className="w-full text-dv-light-text text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
-              The price follows the plan.
-              <br />
-              Not the other way around.
-            </h2>
-          </div>
-          <div className="lg:max-w-md flex flex-col items-start pb-2">
-            <p className="w-full text-dv-light-lead text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
-              Complexity, integrations, and delivery constraints shape your
-              investment. We make those trade-offs visible.
-            </p>
-          </div>
-        </div>
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20 overflow-hidden">
+        {/* Centered Heading */}
+        <h2 className="max-w-3xl text-dv-light-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight text-center">
+          How we scope, estimate, and price your project
+        </h2>
 
         {/* Steps Row */}
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 overflow-hidden">

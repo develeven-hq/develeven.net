@@ -1,5 +1,4 @@
 import React from "react";
-import SectionLabel from "@/components/ui/SectionLabel";
 
 const steps = [
   {
@@ -35,24 +34,11 @@ const steps = [
 export default function ProcessSection() {
   return (
     <section className="w-full bg-dv-card">
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-start gap-12 lg:gap-14 overflow-hidden">
-        {/* Header */}
-        <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
-          <div className="max-w-2xl flex flex-col items-start gap-6">
-            <SectionLabel>04 / From zero to shipped</SectionLabel>
-            <h2 className="w-full text-dv-text text-4xl sm:text-5xl lg:text-6xl font-bold font-sans tracking-tight leading-[1.12] pb-2">
-              A clear process.
-              <br />
-              No disappearing acts.
-            </h2>
-          </div>
-          <div className="lg:max-w-md flex flex-col items-start pb-2">
-            <p className="w-full text-dv-lead text-base sm:text-lg lg:text-xl font-normal font-sans leading-relaxed">
-              Direct conversations. Visible progress. Shared decisions. You always know
-              what we’re building, and why.
-            </p>
-          </div>
-        </div>
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20 overflow-hidden">
+        {/* Centered Heading */}
+        <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight text-center">
+          Our development process from idea to launch
+        </h2>
 
         {/* Steps Row */}
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 overflow-hidden">
