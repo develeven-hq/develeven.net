@@ -14,30 +14,30 @@
   /* Dark Theme Surfaces */
   --color-dv-bg: var(--color-zinc-950);            /* Page and dark section background */
   --color-dv-card: var(--color-zinc-900);          /* Card and alternate section background */
-  --color-dv-surface: #262626;       /* Elevated dark surface / secondary button bg */
-  --color-dv-border: #2A3029;        /* Default borders, dividers, outlines */
-  --color-dv-surface-border: #404040;/* Elevated surface dividers */
+  --color-dv-surface: var(--color-zinc-800);       /* Elevated dark surface / secondary button bg */
+  --color-dv-border: var(--color-zinc-800);        /* Default borders, dividers, outlines */
+  --color-dv-surface-border: var(--color-zinc-700); /* Elevated surface dividers */
 
   /* Dark Theme Typography */
-  --color-dv-text: #F2F4EC;          /* Primary headings and bold text */
-  --color-dv-muted: #A4ADA0;         /* Secondary and muted body text */
-  --color-dv-lead: #C5CDC1;          /* Lead paragraph and narrative text */
+  --color-dv-text: var(--color-white);          /* Primary headings and bold text */
+  --color-dv-muted: var(--color-zinc-400);         /* Secondary and muted body text */
+  --color-dv-lead: var(--color-zinc-300);          /* Lead paragraph and narrative text */
 
   /* Primary Accent (Lime) */
   --color-dv-lime: var(--color-sky-300);          /* Signature accent lime */
-  --color-dv-lime-hover: #b8f050;    /* Interactive hover state for lime */
+  --color-dv-lime-hover: var(--color-sky-200);    /* Interactive hover state for lime */
 
   /* Dark Elements (on Light & Lime backgrounds) */
-  --color-dv-dark: #11150E;          /* Charcoal text on lime & dark CTA button */
-  --color-dv-dark-hover: #1a1f16;    /* Hover state for dark CTA button */
+  --color-dv-dark: var(--color-zinc-950);          /* Charcoal text on lime & dark CTA button */
+  --color-dv-dark-hover: var(--color-zinc-900);    /* Hover state for dark CTA button */
 
   /* Light Theme Sections (WorkShowcase, PricingProcess) */
-  --color-dv-light-bg: #E8EDE1;      /* Light section background */
-  --color-dv-light-text: #11150E;    /* Dark headings and primary text */
-  --color-dv-light-lead: #384031;    /* Lead paragraph text on light background */
-  --color-dv-light-body: #353D2F;    /* Description body text on light background */
-  --color-dv-light-label: #2D3427;   /* Kicker and phase numbers on light background */
-  --color-dv-light-border: #BCC5B3;  /* Dividers and borders on light background */
+  --color-dv-light-bg: var(--color-slate-200);      /* Light section background */
+  --color-dv-light-text: var(--color-zinc-950);    /* Dark headings and primary text */
+  --color-dv-light-lead: var(--color-zinc-700);     /* Lead paragraph text on light background */
+  --color-dv-light-body: var(--color-zinc-800);    /* Description body text on light background */
+  --color-dv-light-label: var(--color-zinc-800);   /* Kicker and phase numbers on light background */
+  --color-dv-light-border: var(--color-zinc-300);  /* Dividers and borders on light background */
 }
 
 * {

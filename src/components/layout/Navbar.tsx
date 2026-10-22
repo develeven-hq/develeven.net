@@ -13,8 +13,8 @@ interface NavLinkItem {
 }
 
 const navLinks: NavLinkItem[] = [
-  { label: "Services", href: "/#services", targetId: "services" },
-  { label: "Work", href: "/#work", targetId: "work" },
+  { label: "Platform", href: "/#services", targetId: "services" },
+  { label: "Solutions", href: "/#work", targetId: "work" },
   { label: "Our approach", href: "/#approach", targetId: "approach" },
   { label: "Studio", href: "/#studio", targetId: "studio" },
   { label: "Pricing", href: "/pricing" },
@@ -179,7 +179,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href, link.targetId)}
-                className={`text-sm sm:text-base font-medium font-sans transition-colors ${
+                className={`text-base font-medium tracking-[0.24px] font-sans transition-colors ${
                   isActive
                     ? "text-dv-lime"
                     : "text-dv-text hover:text-dv-lime"
