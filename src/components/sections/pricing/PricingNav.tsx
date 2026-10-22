@@ -11,22 +11,22 @@ import {
 
 const links = [
   {
-    label: "01 / Websites & maintenance",
+    label: "Websites & maintenance",
     href: "#websites",
     icon: <WebDevIcon size={15} />,
   },
   {
-    label: "02 / Software & games",
+    label: "Software & games",
     href: "#software",
     icon: <CustomSoftwareIcon size={15} />,
   },
   {
-    label: "03 / Process",
+    label: "Process",
     href: "#process",
     icon: <FoundationIcon size={15} />,
   },
   {
-    label: "04 / Pricing FAQ",
+    label: "Pricing FAQ",
     href: "#pricing-faq",
     icon: <FaqIcon size={15} />,
   },

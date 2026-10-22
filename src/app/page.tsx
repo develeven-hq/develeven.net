@@ -23,9 +23,6 @@ export default function HomePage() {
       <EngagementSection />
       <FAQSection />
       <CTABanner
-        sectionTag="08 / Your next chapter"
-        topRightText="Let’s build something that matters"
-        hasDot={true}
         headline={
           <>
             Big idea?
@@ -33,7 +30,7 @@ export default function HomePage() {
             Let’s make it real.
           </>
         }
-        headlineSize="8xl"
+        headlineSize="7xl"
         description="Tell us what you’re thinking. We’ll bring the questions, the expertise, and a clear way forward."
         buttonText="Discuss your project"
         note="No sales script. Just a good conversation."

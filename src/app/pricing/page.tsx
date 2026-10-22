@@ -24,9 +24,6 @@ export default function PricingPage() {
       <PricingProcess />
       <PricingFAQ />
       <CTABanner
-        sectionTag="05 / Your project, clearly scoped"
-        topRightText="Let’s find the right starting point"
-        hasDot={true}
         headline={
           <>
             Big ambition?
@@ -34,8 +31,8 @@ export default function PricingPage() {
             Let’s define the build.
           </>
         }
-        headlineSize="8xl"
-        description="Tell us your goals, the service you need, your budget range and your ideal launch date. We’ll work out a practical next step."
+        headlineSize="7xl"
+        description="Tell us your goals, your budget range and your ideal launch date. We’ll work out a practical next step."
         buttonText="Discuss your project"
         note="No sales script. Just a good conversation."
       />

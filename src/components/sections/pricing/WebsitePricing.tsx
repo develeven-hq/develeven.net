@@ -121,10 +121,10 @@ export default function WebsitePricing() {
         <div className="w-full flex flex-col items-center gap-12 lg:gap-16">
           <div className="w-full flex flex-col items-center text-center gap-3">
             <h2 className="text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight">
-              Website development and maintenance
+              Website development pricing
             </h2>
-            <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-normal">
-              Example scopes · Post-launch maintenance included
+            <span className="text-dv-lead text-sm font-medium font-sans tracking-wide">
+              Price ranges · Post-launch maintenance included
             </span>
           </div>
 
@@ -139,7 +139,7 @@ export default function WebsitePricing() {
         <div id="software" className="w-full flex flex-col items-center gap-12 lg:gap-16 scroll-mt-24">
           <div className="w-full flex justify-center text-center">
             <h2 className="text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight">
-              Custom software, games, and dedicated engineering
+              Custom software, games, and others
             </h2>
           </div>
 
