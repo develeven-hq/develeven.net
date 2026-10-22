@@ -153,43 +153,47 @@ export default function Navbar() {
           isVisible || isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-      <div className="w-full max-w-8xl mx-auto h-20 lg:h-24 px-6 sm:px-8 lg:px-16 flex justify-between items-center">
-        {/* Logo */}
-        <Link
-          href="/"
-          onClick={(e) => handleNavClick(e, "/")}
-          className="flex items-center gap-3 overflow-hidden group"
-        >
-          <div className="flex items-start gap-1 sm:gap-1.5 overflow-hidden">
-            <div className="w-1 sm:w-1.5 h-5 sm:h-6 bg-dv-lime" />
-            <div className="w-1 sm:w-1.5 h-5 sm:h-6 bg-dv-lime" />
-          </div>
-          <span className="text-dv-text text-xl sm:text-2xl font-bold font-sans tracking-tight">
-            DevEleven
-          </span>
-        </Link>
+      <div className="w-full max-w-8xl mx-auto h-20 lg:h-20 px-6 sm:px-8 lg:px-16 flex justify-between items-center">
+        {/* Left container: Brand Logo & Desktop Navigation */}
+        <div className="flex items-center gap-8 xl:gap-12">
+          {/* Logo */}
+          <Link
+            href="/"
+            onClick={(e) => handleNavClick(e, "/")}
+            className="flex items-center gap-3 overflow-hidden group"
+          >
+            <img
+              src="/E%20Cyan%2045%20Degree.svg"
+              alt="DevEleven logo"
+              className="w-6 h-6 sm:w-7 sm:h-7 shrink-0 object-contain transition-transform duration-200 group-hover:scale-105"
+            />
+            <span className="text-dv-text text-xl font-medium font-sans tracking-tight">
+              DevEleven
+            </span>
+          </Link>
 
-        {/* Desktop Navigation links */}
-        <nav className="hidden lg:flex items-center gap-8 overflow-hidden">
-          {navLinks.map((link) => {
-            const isPricing = link.href === "/pricing";
-            const isActive = isPricing && pathname === "/pricing";
-            return (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href, link.targetId)}
-                className={`text-base font-medium tracking-[0.24px] font-sans transition-colors ${
-                  isActive
-                    ? "text-dv-lime"
-                    : "text-dv-text hover:text-dv-lime"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
+          {/* Desktop Navigation links */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+            {navLinks.map((link) => {
+              const isPricing = link.href === "/pricing";
+              const isActive = isPricing && pathname === "/pricing";
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href, link.targetId)}
+                  className={`text-base font-medium tracking-[0.24px] font-sans transition-colors ${
+                    isActive
+                      ? "text-dv-lime"
+                      : "text-dv-text hover:text-dv-lime"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
 
         {/* Desktop CTA Button */}
         <Link
