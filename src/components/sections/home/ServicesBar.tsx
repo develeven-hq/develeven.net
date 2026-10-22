@@ -8,7 +8,7 @@ import {
 
 const services = [
   {
-    label: "Web experiences",
+    label: "Web development",
     icon: <WebDevIcon size={18} />,
   },
   {
@@ -29,9 +29,6 @@ export default function ServicesBar() {
   return (
     <div className="w-full border-t border-b border-dv-border bg-dv-bg">
       <div className="w-full max-w-8xl mx-auto h-21 px-6 sm:px-8 lg:px-16 flex justify-between items-center overflow-x-auto gap-6">
-        <span className="text-dv-muted text-sm sm:text-base font-semibold font-sans tracking-normal whitespace-nowrap">
-          From idea to infrastructure
-        </span>
         {services.map((svc) => (
           <div key={svc.label} className="flex items-center gap-2.5 sm:gap-3 overflow-hidden whitespace-nowrap">
             {svc.icon}

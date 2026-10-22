@@ -27,7 +27,7 @@ export default function Button({
     primary:
       "bg-dv-lime outline outline-1 outline-dv-lime -outline-offset-1 text-dv-dark hover:bg-dv-lime-hover transition-colors group",
     secondary:
-      "bg-transparent outline outline-1 outline-dv-border -outline-offset-1 text-dv-text hover:outline-dv-muted transition-colors group",
+      "bg-dv-surface hover:bg-dv-surface/90 text-dv-text hover:outline-dv-muted transition-colors group",
     dark:
       "bg-dv-bg outline outline-1 outline-dv-border -outline-offset-1 text-dv-text hover:outline-dv-muted transition-colors group",
   };

@@ -32,7 +32,7 @@
   --color-dv-dark-hover: var(--color-zinc-900);    /* Hover state for dark CTA button */
 
   /* Light Theme Sections (WorkShowcase, PricingProcess) */
-  --color-dv-light-bg: var(--color-slate-200);      /* Light section background */
+  --color-dv-light-bg: var(--color-zinc-100);      /* Light section background */
   --color-dv-light-text: var(--color-zinc-950);    /* Dark headings and primary text */
   --color-dv-light-lead: var(--color-zinc-700);     /* Lead paragraph text on light background */
   --color-dv-light-body: var(--color-zinc-800);    /* Description body text on light background */

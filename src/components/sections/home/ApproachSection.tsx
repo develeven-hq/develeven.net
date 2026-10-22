@@ -39,7 +39,7 @@ export default function ApproachSection() {
           {principles.map((p) => (
             <div
               key={p.title}
-              className="w-full p-6 sm:p-8 bg-dv-card rounded-lg outline outline-1 outline-dv-border -outline-offset-1 flex flex-col gap-4 overflow-hidden"
+              className="w-full p-6 sm:p-8 bg-dv-card rounded-lg flex flex-col gap-4 overflow-hidden"
             >
               <div className="w-8 h-8 flex items-center justify-center text-dv-lime">
                 {p.icon}
@@ -55,7 +55,7 @@ export default function ApproachSection() {
         </div>
 
         {/* Bottom Bar: Tech Stack & Quality Gate */}
-        <div className="w-full p-5 sm:p-6 bg-dv-card rounded-lg outline outline-1 outline-dv-border -outline-offset-1 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 overflow-hidden">
+        <div className="w-full p-5 sm:p-6 bg-dv-card rounded-lg flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 overflow-hidden">
           <div className="flex flex-wrap items-center gap-2.5 overflow-hidden">
             <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans mr-1">
               Core technologies:
