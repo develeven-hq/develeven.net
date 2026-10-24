@@ -63,12 +63,12 @@ export default function ProjectCard({
           </div>
 
           {/* Attention-Grabbing Subtitle */}
-          <p className="text-zinc-300 text-base sm:text-lg font-medium font-sans leading-snug">
+          <p className="text-dv-text text-base sm:text-lg font-medium font-sans leading-snug">
             {subtitle}
           </p>
 
           {/* High-Contrast Description */}
-          <p className="text-zinc-300 text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
+          <p className="text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
             {description}
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function ProjectCard({
                 key={tech.name}
                 title={tech.name}
                 aria-label={tech.name}
-                className="group/tech relative w-8 h-8 rounded-md bg-zinc-700/60 hover:bg-zinc-700 flex items-center justify-center text-zinc-100 hover:text-white transition-all cursor-default"
+                className="group/tech relative w-8 h-8 rounded-md bg-zinc-700/60 hover:bg-zinc-700 flex items-center justify-center text-dv-text hover:text-white transition-all cursor-default"
               >
                 <span className="flex items-center justify-center text-base">
                   {tech.icon}
