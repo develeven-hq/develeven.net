@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import ArrowIcon from "@/components/ui/ArrowIcon";
 import { MenuIcon, CloseIcon } from "@/components/ui/Icons";
@@ -162,9 +163,12 @@ export default function Navbar() {
             onClick={(e) => handleNavClick(e, "/")}
             className="flex items-center gap-3 overflow-hidden group"
           >
-            <img
+            <Image
               src="/E%20Cyan%2045%20Degree.svg"
               alt="DevEleven logo"
+              width={28}
+              height={28}
+              priority
               className="w-6 h-6 sm:w-7 sm:h-7 shrink-0 object-contain transition-transform duration-200 group-hover:scale-105"
             />
             <span className="text-dv-text text-xl font-medium font-sans tracking-tight">

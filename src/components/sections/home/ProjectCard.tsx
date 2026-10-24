@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "@/components/ui/Icons";
 
 export interface TechIconItem {
@@ -37,10 +38,12 @@ export default function ProjectCard({
     >
       {/* Clean Media Presentation Frame */}
       <div className="w-full relative aspect-16/10 sm:aspect-16/9 bg-zinc-900 overflow-hidden">
-        <img
+        <Image
           src={imageSrc}
           alt={imageAlt}
-          className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 650px"
+          className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
         />
         {/* Subtle Vignette Gradient Overlay */}
         <div className="absolute inset-0 bg-linear-to-t from-zinc-950/40 via-transparent to-transparent pointer-events-none" />

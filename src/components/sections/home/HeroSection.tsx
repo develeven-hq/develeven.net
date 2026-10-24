@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import StatusDot from "@/components/ui/StatusDot";
 
@@ -38,10 +39,14 @@ export default function HeroSection() {
 
         {/* Right Column (Fig. 11 Card) */}
         <div className="w-full lg:w-120 xl:w-135 relative rounded-lg flex flex-col items-start overflow-hidden shrink-0">
-          <img
+          <Image
             src="/images/eleven-sculpture.png"
             alt="Built with intent"
-            className="w-full flex-1 object-cover"
+            width={540}
+            height={540}
+            priority
+            sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 480px, 540px"
+            className="w-full h-auto object-cover"
           />
         </div>
       </div>
