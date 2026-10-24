@@ -32,7 +32,7 @@ const faqs = [
 
 export default function PricingFAQ() {
   return (
-    <section id="pricing-faq" className="w-full bg-dv-card border-b border-dv-border">
+    <section id="pricing-faq" className="w-full bg-dv-card">
       <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20 overflow-hidden">
         {/* Centered Heading */}
         <h2 className="text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight text-center">

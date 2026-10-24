@@ -46,7 +46,7 @@ function ServiceCard({
 
 export default function ServicesGrid() {
   return (
-    <section id="services" className="w-full bg-dv-bg border-b border-dv-border">
+    <section id="services" className="w-full bg-dv-bg">
       <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20 overflow-hidden">
         {/* Centered Heading */}
         <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight text-center">
