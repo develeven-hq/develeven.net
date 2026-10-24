@@ -67,25 +67,24 @@ function StepCard({ step }: StepCardProps) {
         </div>
 
         {/* Title */}
-        <h3 className="text-dv-text text-2xl sm:text-3xl font-medium font-sans leading-snug tracking-tight">
+        <h3 className="text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-tight">
           {step.title}
         </h3>
 
         {/* Narrative Description */}
-        <p className="text-zinc-300 text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
+        <p className="text-dv-lead text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
           {step.description}
         </p>
       </div>
 
       {/* Bottom Timeline Milestone Indicator */}
       <div className="w-full pt-4 border-t border-zinc-700/50 flex items-center justify-between">
-        <span className="text-dv-muted text-xs font-medium font-sans tracking-wide">
+        <span className="text-dv-muted text-sm font-medium font-sans">
           Phase {step.number} Milestone
         </span>
         <div className="flex items-center gap-1.5">
-          <div className="w-1.5 h-1.5 rounded-full bg-dv-lime" />
-          <span className="text-dv-lime text-xs font-medium font-sans">
-            Ready for next stage
+          <span className="text-dv-lime text-sm font-medium font-sans">
+            Learn More
           </span>
         </div>
       </div>
@@ -112,17 +111,17 @@ export default function ProcessSection() {
             {/* Horizontal Timeline Connector: 01 -> 02 */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 lg:w-12 flex items-center justify-center z-20 pointer-events-none">
               <svg viewBox="0 0 48 20" className="w-full overflow-visible" fill="none">
-                <circle cx="2" cy="10" r="3" fill="#CEFF69" />
+                <circle cx="2" cy="10" r="3" fill="#4ade80" />
                 <line
                   x1="2"
                   y1="10"
                   x2="38"
                   y2="10"
-                  stroke="#CEFF69"
+                  stroke="#4ade80"
                   strokeWidth="2"
                   strokeDasharray="4 3"
                 />
-                <polygon points="36,6 46,10 36,14" fill="#CEFF69" />
+                <polygon points="36,6 46,10 36,14" fill="#4ade80" />
               </svg>
             </div>
 
@@ -139,19 +138,19 @@ export default function ProcessSection() {
             >
               <defs>
                 <linearGradient id="proc-curve-grad" x1="100%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#CEFF69" />
-                  <stop offset="50%" stopColor="#CEFF69" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#CEFF69" />
+                  <stop offset="0%" stopColor="#4ade80" />
+                  <stop offset="50%" stopColor="#4ade80" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#4ade80" />
                 </linearGradient>
               </defs>
-              <circle cx="750" cy="2" r="3" fill="#CEFF69" />
+              <circle cx="750" cy="2" r="3" fill="#4ade80" />
               <path
                 d="M 750 2 C 750 32, 700 32, 650 32 L 350 32 C 300 32, 250 32, 250 62"
                 stroke="url(#proc-curve-grad)"
                 strokeWidth="2"
                 strokeDasharray="6 4"
               />
-              <polygon points="244,52 250,64 256,52" fill="#CEFF69" />
+              <polygon points="244,52 250,64 256,52" fill="#4ade80" />
             </svg>
           </div>
 
@@ -163,17 +162,17 @@ export default function ProcessSection() {
             {/* Horizontal Timeline Connector: 03 -> 04 */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 lg:w-12 flex items-center justify-center z-20 pointer-events-none">
               <svg viewBox="0 0 48 20" className="w-full overflow-visible" fill="none">
-                <circle cx="2" cy="10" r="3" fill="#CEFF69" />
+                <circle cx="2" cy="10" r="3" fill="#4ade80" />
                 <line
                   x1="2"
                   y1="10"
                   x2="38"
                   y2="10"
-                  stroke="#CEFF69"
+                  stroke="#4ade80"
                   strokeWidth="2"
                   strokeDasharray="4 3"
                 />
-                <polygon points="36,6 46,10 36,14" fill="#CEFF69" />
+                <polygon points="36,6 46,10 36,14" fill="#4ade80" />
               </svg>
             </div>
 
@@ -188,17 +187,17 @@ export default function ProcessSection() {
             {/* Mobile Connector: 01 -> 02 */}
             <div className="w-full flex justify-center items-center py-2 pointer-events-none">
               <svg viewBox="0 0 20 40" className="w-5 h-8 overflow-visible" fill="none">
-                <circle cx="10" cy="2" r="3" fill="#CEFF69" />
+                <circle cx="10" cy="2" r="3" fill="#4ade80" />
                 <line
                   x1="10"
                   y1="2"
                   x2="10"
                   y2="30"
-                  stroke="#CEFF69"
+                  stroke="#4ade80"
                   strokeWidth="2"
                   strokeDasharray="4 3"
                 />
-                <polygon points="5,28 10,38 15,28" fill="#CEFF69" />
+                <polygon points="5,28 10,38 15,28" fill="#4ade80" />
               </svg>
             </div>
 
@@ -207,17 +206,17 @@ export default function ProcessSection() {
             {/* Mobile Connector: 02 -> 03 */}
             <div className="w-full flex justify-center items-center py-2 pointer-events-none">
               <svg viewBox="0 0 20 40" className="w-5 h-8 overflow-visible" fill="none">
-                <circle cx="10" cy="2" r="3" fill="#CEFF69" />
+                <circle cx="10" cy="2" r="3" fill="#4ade80" />
                 <line
                   x1="10"
                   y1="2"
                   x2="10"
                   y2="30"
-                  stroke="#CEFF69"
+                  stroke="#4ade80"
                   strokeWidth="2"
                   strokeDasharray="4 3"
                 />
-                <polygon points="5,28 10,38 15,28" fill="#CEFF69" />
+                <polygon points="5,28 10,38 15,28" fill="#4ade80" />
               </svg>
             </div>
 
@@ -226,17 +225,17 @@ export default function ProcessSection() {
             {/* Mobile Connector: 03 -> 04 */}
             <div className="w-full flex justify-center items-center py-2 pointer-events-none">
               <svg viewBox="0 0 20 40" className="w-5 h-8 overflow-visible" fill="none">
-                <circle cx="10" cy="2" r="3" fill="#CEFF69" />
+                <circle cx="10" cy="2" r="3" fill="#4ade80" />
                 <line
                   x1="10"
                   y1="2"
                   x2="10"
                   y2="30"
-                  stroke="#CEFF69"
+                  stroke="#4ade80"
                   strokeWidth="2"
                   strokeDasharray="4 3"
                 />
-                <polygon points="5,28 10,38 15,28" fill="#CEFF69" />
+                <polygon points="5,28 10,38 15,28" fill="#4ade80" />
               </svg>
             </div>
 

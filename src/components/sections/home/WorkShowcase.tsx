@@ -19,7 +19,7 @@ const projects: ProjectCardProps[] = [
     id: "orbit",
     title: "Orbit",
     subtitle: "Complex workflows. One clear view.",
-    imageSrc: "/images/operations-dashboard.png",
+    imageSrc: "/images/operations-dashboard.jpg",
     imageAlt: "Orbit operations platform dashboard preview",
     description:
       "A connected operations platform with real-time reporting, role-based access, and automated workflow handoffs built to replace fragmented spreadsheets.",

@@ -37,7 +37,7 @@ export default function ProjectCard({
       className="w-full flex flex-col h-full bg-dv-surface/80 rounded-lg overflow-hidden group cursor-pointer transition-colors duration-300 hover:bg-zinc-800"
     >
       {/* Clean Media Presentation Frame */}
-      <div className="w-full relative aspect-16/10 sm:aspect-16/9 bg-zinc-900 overflow-hidden">
+      <div className="w-full relative aspect-16/10 sm:aspect-video bg-zinc-900 overflow-hidden">
         <Image
           src={imageSrc}
           alt={imageAlt}
@@ -45,8 +45,6 @@ export default function ProjectCard({
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 650px"
           className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
         />
-        {/* Subtle Vignette Gradient Overlay */}
-        <div className="absolute inset-0 bg-linear-to-t from-zinc-950/40 via-transparent to-transparent pointer-events-none" />
       </div>
 
       {/* Content Body */}
@@ -54,7 +52,7 @@ export default function ProjectCard({
         <div className="flex flex-col items-start gap-3">
           {/* Title & Interactive Arrow */}
           <div className="w-full flex items-center justify-between gap-4">
-            <h3 className="text-dv-text text-2xl sm:text-3xl font-bold font-sans tracking-tight group-hover:text-dv-lime transition-colors">
+            <h3 className="text-dv-text text-xl sm:text-2xl font-medium font-sans tracking-tight group-hover:text-dv-lime transition-colors">
               {title}
             </h3>
             <div className="w-8 h-8 rounded-md bg-zinc-700/50 flex items-center justify-center shrink-0 group-hover:bg-dv-lime group-hover:text-dv-dark transition-all">
@@ -66,7 +64,7 @@ export default function ProjectCard({
           </div>
 
           {/* Attention-Grabbing Subtitle */}
-          <p className="text-dv-text text-base sm:text-lg font-medium font-sans leading-snug">
+          <p className="text-dv-text text-base font-medium font-sans leading-snug">
             {subtitle}
           </p>
 
