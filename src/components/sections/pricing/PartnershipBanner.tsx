@@ -4,7 +4,7 @@ import ArrowIcon from "@/components/ui/ArrowIcon";
 
 export default function PartnershipBanner() {
   return (
-    <section className="w-full bg-dv-card">
+    <section className="w-full bg-dv-card border-b border-dv-border">
       <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-14 lg:py-16 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 lg:gap-12">
         <div className="max-w-3xl flex flex-col items-start gap-3">
           <span className="text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-wide">

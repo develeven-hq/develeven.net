@@ -87,29 +87,35 @@ Every section must follow this two-tier container structure:
 
 ---
 
-## 5. Color Palette & Design Tokens
+## 5. Color Palette & Surface Elevation Standards
 
+### Dark Surface Elevation Hierarchy ("Higher Means Lighter")
+Surfaces in DevEleven strictly adhere to the elevation rule: **elements higher in spatial elevation must be lighter in color value than the surface they sit on.**
+
+| Elevation Level | Role | Token | Value | Applied To |
+| :--- | :--- | :--- | :--- | :--- |
+| **Level 0 (Ground / Page)** | Dark page background | `--color-dv-bg` | `var(--color-zinc-950)` | Page container, primary dark sections (`Hero`, `ServicesGrid`, `Approach`, `Studio`, `FAQ`, `WebsitePricing`) |
+| **Level 1 (Section or Base Card)** | Lighter zinc section or ground card | `--color-dv-card` | `var(--color-zinc-900)` | Alternating sections (`WorkShowcase`, `ProcessSection`, `EngagementSection`, `PartnershipBanner`, `PricingFAQ`) OR cards on Level 0 sections (`ServicesGrid` cards, `Approach` cards, `PricingCard`) |
+| **Level 2 (Elevated Card / Surface)** | Cards on Level 1 sections, secondary buttons | `--color-dv-surface` | `var(--color-zinc-800)` | Cards on Level 1 sections (`EngagementSection` cards, `WorkShowcase` cards), buttons inside `PricingCard` |
+| **Level 3 (Elevated Divider / Border)** | Borders on Level 2 cards | `--color-dv-surface-border` | `var(--color-zinc-700)` | Borders and inner dividers on Level 2 cards |
+
+> **Crucial Rule**: **Higher means lighter**. A section which is lighter zinc (`zinc-900` / `bg-dv-card`) must **NEVER** have a darker card (`zinc-950` / `bg-dv-bg`) on it. Cards on a `zinc-900` section must be `zinc-800` (`bg-dv-surface`). There are **no light background sections** on the site.
+>
+> **No Card Outlines or Borders**: Cards across the entire site must **NEVER** have outer outlines or borders (`border`, `outline`). Cards define their boundaries purely through clean surface elevation contrast (e.g. `zinc-900` card on `zinc-950` section, or `zinc-800` card on `zinc-900` section).
+
+### Design Tokens
 Defined in `src/app/globals.css`:
-- **Page Background**: `--color-dv-bg: #101211`
-- **Card Background**: `--color-dv-card: #191C19`
-- **Page Background**: `--color-dv-bg: #101211` (`bg-dv-bg`)
-- **Card Background**: `--color-dv-card: #191C19` (`bg-dv-card`)
-- **Elevated Surface**: `--color-dv-surface: #262626` (`bg-dv-surface`)
-- **Subtle Borders & Dividers**: `--color-dv-border: #2A3029` (`border-dv-border`, `bg-dv-border`, `outline-dv-border`)
-- **Elevated Surface Borders**: `--color-dv-surface-border: #404040` (`border-dv-surface-border`)
-- **Primary Lime Accent**: `--color-dv-lime: #CEFF69` (`text-dv-lime`, `bg-dv-lime`, `outline-dv-lime`, `border-dv-lime`)
-- **Lime Accent Hover**: `--color-dv-lime-hover: #b8f050` (`hover:bg-dv-lime-hover`)
-- **Primary Text**: `--color-dv-text: #F2F4EC` (`text-dv-text`)
-- **Secondary / Muted Text**: `--color-dv-muted: #A4ADA0` (`text-dv-muted`)
-- **Lead Text**: `--color-dv-lead: #C5CDC1` (`text-dv-lead` for high-contrast narrative leads)
-- **Dark Accents (Text & Buttons)**: `--color-dv-dark: #11150E` (`text-dv-dark`, `bg-dv-dark`), hover: `--color-dv-dark-hover: #1a1f16` (`hover:bg-dv-dark-hover`)
-- **Light Sections (`WorkShowcase`, `PricingProcess`)**:
-  - Background: `--color-dv-light-bg: #E8EDE1` (`bg-dv-light-bg`)
-  - Dark Headings: `--color-dv-light-text: #11150E` (`text-dv-light-text`)
-  - Dark Labels: `--color-dv-light-label: #2D3427` (`text-dv-light-label`)
-  - Lead Text: `--color-dv-light-lead: #384031` (`text-dv-light-lead`)
-  - Body Text: `--color-dv-light-body: #353D2F` (`text-dv-light-body`)
-  - Light Border: `--color-dv-light-border: #BCC5B3` (`border-dv-light-border/60`, `bg-dv-light-border/60`)
+- **Page Background**: `--color-dv-bg: var(--color-zinc-950)` (`bg-dv-bg`)
+- **Card Background**: `--color-dv-card: var(--color-zinc-900)` (`bg-dv-card`)
+- **Elevated Surface**: `--color-dv-surface: var(--color-zinc-800)` (`bg-dv-surface`)
+- **Subtle Borders & Dividers**: `--color-dv-border: var(--color-zinc-800)` (`border-dv-border`, `bg-dv-border`, `outline-dv-border`)
+- **Elevated Surface Borders**: `--color-dv-surface-border: var(--color-zinc-700)` (`border-dv-surface-border`)
+- **Primary Lime Accent**: `--color-dv-lime: var(--color-sky-300)` (`text-dv-lime`, `bg-dv-lime`, `outline-dv-lime`, `border-dv-lime`)
+- **Lime Accent Hover**: `--color-dv-lime-hover: var(--color-sky-200)` (`hover:bg-dv-lime-hover`)
+- **Primary Text**: `--color-dv-text: var(--color-white)` (`text-dv-text`)
+- **Secondary / Muted Text**: `--color-dv-muted: var(--color-zinc-400)` (`text-dv-muted`)
+- **Lead Text**: `--color-dv-lead: var(--color-zinc-300)` (`text-dv-lead` for high-contrast narrative leads)
+- **Dark Accents (Text & Buttons)**: `--color-dv-dark: var(--color-zinc-950)` (`text-dv-dark`, `bg-dv-dark`), hover: `--color-dv-dark-hover: var(--color-zinc-900)` (`hover:bg-dv-dark-hover`)
 
 ### Corner Radius Standards
 - **Cards, Buttons & Media Boxes**: Use `rounded-lg` (8px / 0.5rem). Never leave corners aggressively sharp (`rounded-none`, `rounded-[4px]`) or overly round (`rounded-2xl`, `rounded-full`). `rounded-lg` provides a modern, refined curvature without compromising the architectural look.

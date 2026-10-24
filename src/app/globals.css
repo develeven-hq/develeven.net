@@ -37,7 +37,7 @@
   --color-dv-light-lead: var(--color-zinc-700);     /* Lead paragraph text on light background */
   --color-dv-light-body: var(--color-zinc-800);    /* Description body text on light background */
   --color-dv-light-label: var(--color-zinc-800);   /* Kicker and phase numbers on light background */
-  --color-dv-light-border: var(--color-zinc-300);  /* Dividers and borders on light background */
+  --color-dv-light-border: var(--color-red-300);  /* Dividers and borders on light background */
 }
 
 * {

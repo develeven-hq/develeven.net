@@ -9,7 +9,7 @@ export default function PricingHero() {
             DevEleven / Pricing & engagements
           </span>
           <h1 className="w-full text-dv-text text-4xl sm:text-5xl lg:text-6xl font-medium font-sans tracking-tight leading-[1.08]">
-            Clear scope. Considered investment.
+            Choose the plan that fits your needs.
           </h1>
         </div>
       </div>

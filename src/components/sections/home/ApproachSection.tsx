@@ -23,7 +23,14 @@ const principles = [
   },
 ];
 
-const techStack = ["React", "Node.js", "Python", "Unity", "AWS"];
+const techStack = [
+  { name: "React", iconSrc: "/icons/tech/react.svg" },
+  { name: "TypeScript", iconSrc: "/icons/tech/typescript.svg" },
+  { name: "Node.js", iconSrc: "/icons/tech/nodejs.svg" },
+  { name: "Python", iconSrc: "/icons/tech/python.svg" },
+  { name: "Unity", iconSrc: "/icons/tech/unity.svg" },
+  { name: "AWS", iconSrc: "/icons/tech/aws.svg" },
+];
 
 export default function ApproachSection() {
   return (
@@ -55,18 +62,17 @@ export default function ApproachSection() {
         </div>
 
         {/* Bottom Bar: Tech Stack & Quality Gate */}
-        <div className="w-full p-5 sm:p-6 bg-dv-card rounded-lg flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 overflow-hidden">
-          <div className="flex flex-wrap items-center gap-2.5 overflow-hidden">
+        <div className="w-full p-5 sm:p-6 bg-dv-card rounded-lg flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
             <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans mr-1">
               Core technologies:
             </span>
             {techStack.map((tech) => (
-              <TechPill key={tech} label={tech} />
+              <TechPill key={tech.name} name={tech.name} iconSrc={tech.iconSrc} />
             ))}
           </div>
 
-          <div className="flex items-center gap-2 overflow-hidden shrink-0">
-            <div className="w-1.5 h-1.5 bg-dv-lime rounded-full" />
+          <div className="flex items-center gap-2 shrink-0">
             <span className="text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-wide">
               Quality gate built into every release
             </span>
@@ -76,3 +82,5 @@ export default function ApproachSection() {
     </section>
   );
 }
+
+

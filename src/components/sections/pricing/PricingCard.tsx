@@ -29,13 +29,7 @@ export default function PricingCard({
   featured = false,
 }: PricingCardProps) {
   return (
-    <div
-      className={`p-7 bg-dv-card rounded-lg flex flex-col justify-between items-start gap-8 ${
-        featured
-          ? "outline outline-1 outline-dv-lime -outline-offset-1"
-          : "outline-dv-border -outline-offset-1"
-      }`}
-    >
+    <div className="p-7 bg-dv-card rounded-lg flex flex-col justify-between items-start gap-8">
       <div className="w-full flex flex-col items-start gap-5">
         {/* Header: Icon + Title on left, Badge on right */}
         <div className="w-full flex justify-between items-start gap-4">

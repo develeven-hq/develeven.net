@@ -14,13 +14,13 @@ export default function StudioSection() {
         {/* Content Row */}
         <div className="w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left Image Box */}
-          <div className="w-full lg:w-130 xl:w-143 h-85 sm:h-100 lg:h-108 relative rounded-lg outline outline-1 outline-dv-border -outline-offset-1 overflow-hidden flex flex-col items-start shrink-0">
+          <div className="w-full lg:w-130 xl:w-143 h-85 sm:h-100 lg:h-108 relative rounded-lg overflow-hidden flex flex-col items-start shrink-0">
             <img
               src="/images/engineering-workspace.png"
               alt="The DevEleven studio"
               className="w-full h-full object-cover"
             />
-            <div className="left-5 bottom-5 absolute px-3 py-2 bg-dv-bg rounded-md overflow-hidden flex items-start">
+            <div className="left-5 bottom-5 absolute px-3 py-2 bg-dv-card/90 backdrop-blur-xs rounded-md overflow-hidden flex items-start">
               <span className="text-dv-text text-xs sm:text-sm font-medium font-sans tracking-wide">
                 The details are the work.
               </span>

@@ -32,10 +32,10 @@ const proposalItems = [
 
 export default function PricingProcess() {
   return (
-    <section id="process" className="w-full bg-dv-light-bg">
+    <section id="process" className="w-full bg-dv-bg border-b border-dv-border">
       <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20 overflow-hidden">
         {/* Centered Heading */}
-        <h2 className="max-w-3xl text-dv-light-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight text-center">
+        <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight text-center">
           How we scope, estimate, and price your project
         </h2>
 
@@ -47,18 +47,18 @@ export default function PricingProcess() {
               className="flex flex-col items-start gap-5 overflow-hidden"
             >
               <div className="w-full flex items-center gap-4 overflow-hidden">
-                <span className="text-dv-light-label text-base sm:text-lg font-medium font-sans tracking-wide">
+                <span className="text-dv-lime text-base sm:text-lg font-medium font-sans tracking-wide">
                   {step.number}
                 </span>
-                <div className="flex-1 h-px bg-dv-light-border/60" />
+                <div className="flex-1 h-px bg-dv-border" />
               </div>
-              <h3 className="w-full text-dv-light-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
+              <h3 className="w-full text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
                 {step.title}
               </h3>
-              <p className="w-full text-dv-light-lead text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
+              <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
                 {step.description}
               </p>
-              <span className="text-dv-light-text text-xs sm:text-sm font-medium font-sans tracking-wide">
+              <span className="text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-wide">
                 {step.output}
               </span>
             </div>

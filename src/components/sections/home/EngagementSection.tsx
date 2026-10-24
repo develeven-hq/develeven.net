@@ -40,7 +40,7 @@ export default function EngagementSection() {
           {engagements.map((eng) => (
             <div
               key={eng.type}
-              className="p-7 bg-dv-bg rounded-lg flex flex-col justify-between items-start gap-6 overflow-hidden"
+              className="p-7 bg-dv-surface/80 rounded-lg flex flex-col justify-between items-start gap-6 overflow-hidden"
             >
               <div className="w-full flex flex-col items-start gap-5">
                 <span className="text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-wide">
@@ -56,7 +56,7 @@ export default function EngagementSection() {
 
               <div className="w-full flex flex-col items-start gap-6">
                 {/* Best For Box */}
-                <div className="w-full pt-5 border-t border-dv-border flex flex-col items-start gap-2 overflow-hidden">
+                <div className="w-full pt-5 border-t border-dv-surface-border flex flex-col items-start gap-2 overflow-hidden">
                   <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-wide">
                     Best for
                   </span>
