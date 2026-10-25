@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import StatusDot from "@/components/ui/StatusDot";
 
 export default function HeroSection() {
   return (
@@ -13,7 +12,7 @@ export default function HeroSection() {
             Booking projects for early 2027
           </span>
 
-          <h1 className="w-full text-dv-text text-7xl font-medium font-sans leading-[1.02] tracking-tight pb-2">
+          <h1 className="w-full text-dv-text text-6xl lg:text-7xl font-medium font-sans leading-[1.02] tracking-tight pb-2">
             Ambitious ideas.
             <br />
             Precisely
