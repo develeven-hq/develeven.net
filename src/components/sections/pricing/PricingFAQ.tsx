@@ -1,8 +1,9 @@
-import React from "react";
-import Link from "next/link";
-import ArrowIcon from "@/components/ui/ArrowIcon";
+"use client";
 
-const faqs = [
+import React from "react";
+import FAQSection, { type FAQItem } from "@/components/sections/FAQSection";
+
+export const pricingFaqs: FAQItem[] = [
   {
     question: "Are these your final prices?",
     answer:
@@ -32,41 +33,16 @@ const faqs = [
 
 export default function PricingFAQ() {
   return (
-    <section id="pricing-faq" className="w-full bg-dv-card">
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20 overflow-hidden">
-        {/* Centered Heading */}
-        <h2 className="text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight text-center">
-          Questions about pricing and proposals
-        </h2>
-
-        {/* Centered List */}
-        <div className="w-full max-w-3xl mx-auto flex flex-col items-start overflow-hidden border-b border-dv-border">
-          {faqs.map((faq) => (
-            <div
-              key={faq.question}
-              className="w-full py-6 border-t border-dv-border flex flex-col items-start gap-3 overflow-hidden"
-            >
-              <h3 className="w-full text-dv-text text-base sm:text-lg font-medium font-sans tracking-normal">
-                {faq.question}
-              </h3>
-              <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
-                {faq.answer}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Contact Link */}
-        <div className="flex items-center justify-center pt-2">
-          <Link
-            href="/#contact"
-            className="text-dv-lime text-sm sm:text-base font-medium font-sans hover:underline flex items-center gap-1.5 group"
-          >
-            <span>Talk to our team</span>
-            <ArrowIcon color="lime" size="md" />
-          </Link>
-        </div>
-      </div>
-    </section>
+    <FAQSection
+      id="pricing-faq"
+      heading="Questions about pricing and proposals"
+      faqs={pricingFaqs}
+      inquiryTitle="Need a custom estimate or breakdown?"
+      inquiryDescription="Every project is unique. If our standard packages don't match your scope or timeline, we're happy to discuss your specific requirements and explore practical phases."
+      buttonText="Discuss your project"
+      buttonHref="/#contact"
+      bgVariant="card"
+    />
   );
 }
+
