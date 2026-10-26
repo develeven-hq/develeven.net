@@ -24,6 +24,9 @@ import {
   ChevronDown as LucideChevronDown,
   Rocket,
   Handshake,
+  Terminal,
+  Users,
+  TrendingUp,
 } from "lucide-react";
 
 interface IconProps {
@@ -321,6 +324,59 @@ export function PartnershipIcon({
     />
   );
 }
+
+/** Studio Trait 1 - Engineer-led (Terminal) */
+export function TerminalIcon({
+  className = "",
+  size = 24,
+  color = "var(--color-dv-lime)",
+  strokeWidth = 1.5,
+}: IconProps) {
+  return (
+    <Terminal
+      size={size}
+      color={color}
+      strokeWidth={strokeWidth}
+      className={`shrink-0 ${className}`}
+    />
+  );
+}
+
+/** Studio Trait 2 - Collaborative (Users) */
+export function CollaborationIcon({
+  className = "",
+  size = 24,
+  color = "var(--color-dv-lime)",
+  strokeWidth = 1.5,
+}: IconProps) {
+  return (
+    <Users
+      size={size}
+      color={color}
+      strokeWidth={strokeWidth}
+      className={`shrink-0 ${className}`}
+    />
+  );
+}
+
+/** Studio Trait 3 - Long-term minded (TrendingUp / Uptrend) */
+export function UptrendIcon({
+  className = "",
+  size = 24,
+  color = "var(--color-dv-lime)",
+  strokeWidth = 1.5,
+}: IconProps) {
+  return (
+    <TrendingUp
+      size={size}
+      color={color}
+      strokeWidth={strokeWidth}
+      className={`shrink-0 ${className}`}
+    />
+  );
+}
+
+export const TrendingUpIcon = UptrendIcon;
 
 /** FAQ / Question icon (CircleHelp) */
 export function FaqIcon({

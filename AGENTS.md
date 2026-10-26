@@ -85,6 +85,9 @@ Every section must follow this two-tier container structure:
     - Foundation: `GitBranch`
     - Project Engagement: `Rocket`
     - Partnership Engagement: `Handshake`
+    - Engineer-led Studio: `Terminal`
+    - Collaborative Studio: `Users`
+    - Long-term minded Studio: `TrendingUp`
     - Checklists: `Check` with `strokeWidth={2.0}`
 
 ---

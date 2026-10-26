@@ -46,7 +46,7 @@ export default function ApproachSection() {
           {principles.map((p) => (
             <div
               key={p.title}
-              className="w-full p-6 sm:p-8 bg-dv-card rounded-lg flex flex-col gap-4 overflow-hidden"
+              className="w-full p-6 pb-8 sm:p-8 sm:pb-12 bg-dv-card rounded-lg flex flex-col gap-4 overflow-hidden"
             >
               <div className="w-8 h-8 flex items-center justify-center text-dv-lime">
                 {p.icon}
