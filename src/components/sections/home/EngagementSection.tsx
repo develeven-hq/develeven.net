@@ -1,28 +1,29 @@
 import React from "react";
 import Link from "next/link";
 import ArrowIcon from "@/components/ui/ArrowIcon";
+import { ProjectIcon, PartnershipIcon, MaintenanceIcon } from "@/components/ui/Icons";
 
 const engagements = [
   {
-    type: "01 / Project",
     title: "Build something new",
     description:
       "A focused engagement to take your idea from scope to launch, with clear milestones and a shared delivery plan.",
     bestFor: "New websites, MVPs, custom platforms",
+    icon: <ProjectIcon size={24} />,
   },
   {
-    type: "02 / Partnership",
     title: "Extend your team",
     description:
       "Engineering expertise alongside your people. Add capacity, solve specialist challenges, and keep delivery moving.",
     bestFor: "Growing products, ongoing roadmaps",
+    icon: <PartnershipIcon size={24} />,
   },
   {
-    type: "03 / Ongoing maintenance",
     title: "Keep getting better",
     description:
       "A dependable partner for maintenance, optimization, and thoughtful improvements after your product goes live.",
     bestFor: "Live websites, established software",
+    icon: <MaintenanceIcon size={24} />,
   },
 ];
 
@@ -39,13 +40,13 @@ export default function EngagementSection() {
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-hidden">
           {engagements.map((eng) => (
             <div
-              key={eng.type}
+              key={eng.title}
               className="p-7 bg-dv-surface/80 rounded-lg flex flex-col justify-between items-start gap-6 overflow-hidden"
             >
-              <div className="w-full flex flex-col items-start gap-5">
-                <span className="text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-wide">
-                  {eng.type}
-                </span>
+              <div className="w-full flex flex-col items-start gap-4">
+                <div className="w-8 h-8 flex items-center justify-center text-dv-lime">
+                  {eng.icon}
+                </div>
                 <h3 className="w-full text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
                   {eng.title}
                 </h3>

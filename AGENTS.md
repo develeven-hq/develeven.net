@@ -83,6 +83,8 @@ Every section must follow this two-tier container structure:
     - Quality Inspection: `ScanLine`
     - Resilience: `ShieldCheck`
     - Foundation: `GitBranch`
+    - Project Engagement: `Rocket`
+    - Partnership Engagement: `Handshake`
     - Checklists: `Check` with `strokeWidth={2.0}`
 
 ---

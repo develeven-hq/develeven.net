@@ -22,6 +22,8 @@ import {
   X as LucideX,
   Globe as LucideGlobe,
   ChevronDown as LucideChevronDown,
+  Rocket,
+  Handshake,
 } from "lucide-react";
 
 interface IconProps {
@@ -278,6 +280,40 @@ export function FoundationIcon({
 }: IconProps) {
   return (
     <GitBranch
+      size={size}
+      color={color}
+      strokeWidth={strokeWidth}
+      className={`shrink-0 ${className}`}
+    />
+  );
+}
+
+/** Project engagement - Build something new (Rocket) */
+export function ProjectIcon({
+  className = "",
+  size = 24,
+  color = "var(--color-dv-lime)",
+  strokeWidth = 1.5,
+}: IconProps) {
+  return (
+    <Rocket
+      size={size}
+      color={color}
+      strokeWidth={strokeWidth}
+      className={`shrink-0 ${className}`}
+    />
+  );
+}
+
+/** Partnership engagement - Extend your team (Handshake) */
+export function PartnershipIcon({
+  className = "",
+  size = 24,
+  color = "var(--color-dv-lime)",
+  strokeWidth = 1.5,
+}: IconProps) {
+  return (
+    <Handshake
       size={size}
       color={color}
       strokeWidth={strokeWidth}
