@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-import ArrowIcon from "@/components/ui/ArrowIcon";
-import { PlusIcon, MinusIcon } from "@/components/ui/Icons";
+import Button from "@/components/ui/Button";
+import StatusDot from "@/components/ui/StatusDot";
+import { PlusIcon, MinusIcon, FaqIcon } from "@/components/ui/Icons";
 
 const faqs = [
   {
@@ -38,62 +38,72 @@ export default function FAQSection() {
 
   return (
     <section id="faq" className="w-full bg-dv-bg">
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20 overflow-hidden">
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-12 lg:gap-16 overflow-hidden">
         {/* Centered Heading */}
         <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight text-center">
           Common questions about working with us
         </h2>
 
-        {/* Centered Accordion Container */}
-        <div className="w-full max-w-3xl mx-auto flex flex-col items-start overflow-hidden border-t border-dv-border">
-          {faqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <div
-                key={faq.question}
-                className={`w-full overflow-hidden border-b border-dv-border transition-all ${
-                  isOpen ? "pt-6 pb-7" : "py-6.5"
-                }`}
-              >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full flex justify-between items-center gap-6 text-left cursor-pointer group overflow-hidden"
-                >
-                  <span className="flex-1 text-dv-text text-base sm:text-lg font-medium font-sans tracking-normal">
-                    {faq.question}
-                  </span>
-
-                  {/* Toggle Icon */}
-                  <div className="w-5 h-5 flex items-center justify-center shrink-0">
-                    {isOpen ? (
-                      <MinusIcon size={18} />
-                    ) : (
-                      <PlusIcon size={18} className="group-hover:stroke-dv-lime transition-colors" />
-                    )}
-                  </div>
-                </button>
-
-                {isOpen && (
-                  <div className="w-full pt-5">
-                    <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
+        {/* 2-Column Split: Left Inquiry Card + Right Accordion Stack */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+          {/* Left Column: Inquiry Card */}
+          <div className="w-full order-2 lg:order-1 lg:col-span-5 bg-dv-card rounded-lg p-7 sm:p-8 lg:p-9 flex flex-col justify-between gap-8 lg:sticky lg:top-28">
+            <div className="w-full flex flex-col items-start gap-5">
+              <div className="w-8 h-8 flex items-center justify-center text-dv-lime">
+                <FaqIcon size={24} />
               </div>
-            );
-          })}
-        </div>
+              <div className="w-full flex flex-col items-start gap-3">
+                <h3 className="w-full text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
+                  Have a question not answered here?
+                </h3>
+                <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
+                  We’re an engineer-led studio with zero sales pressure. Whether you have an existing codebase or an early concept, we’re happy to discuss your specific requirements.
+                </p>
+              </div>
+            </div>
 
-        {/* Contact Link */}
-        <div className="flex items-center justify-center pt-2">
-          <Link
-            href="/#contact"
-            className="text-dv-lime text-sm sm:text-base font-medium font-sans hover:underline flex items-center gap-1.5 group"
-          >
-            <span>Have another question? Talk to our team</span>
-            <ArrowIcon color="lime" size="md" />
-          </Link>
+            <div className="w-full pt-6 border-t border-dv-border flex flex-col items-start gap-5">
+              <Button href="/#contact" variant="primary" fullWidth>
+                Discuss your project
+              </Button>
+            </div>
+          </div>
+
+          {/* Right Column: Elevated Accordion Cards Stack */}
+          <div className="w-full order-1 lg:order-2 lg:col-span-7 flex flex-col gap-3.5 sm:gap-4">
+            {faqs.map((faq, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <div
+                  key={faq.question}
+                  className="w-full bg-dv-card rounded-lg p-6 sm:p-7 flex flex-col transition-colors overflow-hidden"
+                >
+                  <button
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className="w-full flex justify-between items-center gap-4 sm:gap-6 text-left cursor-pointer group"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="flex-1 text-dv-text text-base sm:text-lg font-medium font-sans leading-snug group-hover:text-dv-lime transition-colors">
+                      {faq.question}
+                    </span>
+
+                    {/* Toggle Icon Box */}
+                    <div className="w-8 h-8 rounded-md bg-dv-surface flex items-center justify-center text-dv-lime shrink-0 group-hover:bg-zinc-700 transition-colors">
+                      {isOpen ? <MinusIcon size={16} /> : <PlusIcon size={16} />}
+                    </div>
+                  </button>
+
+                  {isOpen && (
+                    <div className="w-full pt-4 mt-4 border-t border-dv-border">
+                      <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

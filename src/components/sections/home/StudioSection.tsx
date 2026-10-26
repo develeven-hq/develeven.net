@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import StatusDot from "@/components/ui/StatusDot";
 import {
   TerminalIcon,
   CollaborationIcon,
