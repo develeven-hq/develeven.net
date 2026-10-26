@@ -12,7 +12,7 @@ const principles = [
   {
     title: "Resilience by design",
     description:
-      "Security, accessibility, and performance considered from day one — not added at the finish line.",
+      "Security, accessibility, and performance considered from day one - not added at the finish line.",
     icon: <ResilienceIcon size={24} />,
   },
   {

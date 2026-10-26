@@ -33,7 +33,7 @@ export const homeFaqs: FAQItem[] = [
   {
     question: "What happens after launch?",
     answer:
-      "We offer ongoing maintenance plans for security updates, performance, and continuous improvement. Or we hand over cleanly — your choice. Either way, you leave with clear documentation.",
+      "We offer ongoing maintenance plans for security updates, performance, and continuous improvement. Or we hand over cleanly - your choice. Either way, you leave with clear documentation.",
   },
 ];
 

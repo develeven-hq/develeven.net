@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import React from "react";
 import HeroSection from "@/components/sections/home/HeroSection";
 import ServicesBar from "@/components/sections/home/ServicesBar";
@@ -9,6 +10,12 @@ import StudioSection from "@/components/sections/home/StudioSection";
 import EngagementSection from "@/components/sections/home/EngagementSection";
 import FAQSection from "@/components/sections/home/FAQSection";
 import CTABanner from "@/components/sections/home/CTABanner";
+
+export const metadata: Metadata = {
+  title: "DevEleven - Independent Engineering Studio",
+  description:
+    "Websites, software, and games built to work beautifully. We turn complex challenges into reliable digital products - from first sketch to the next release.",
+};
 
 export default function HomePage() {
   return (

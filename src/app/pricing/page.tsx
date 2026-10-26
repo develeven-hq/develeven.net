@@ -9,9 +9,9 @@ import PricingFAQ from "@/components/sections/pricing/PricingFAQ";
 import CTABanner from "@/components/sections/home/CTABanner";
 
 export const metadata: Metadata = {
-  title: "Pricing — DevEleven",
+  title: "Pricing",
   description:
-    "Clear scope. Considered investment. Compare ways to work with DevEleven — from a focused website to a complex product.",
+    "Clear scope. Considered investment. Compare ways to work with DevEleven - from a focused website to a complex product.",
 };
 
 export default function PricingPage() {

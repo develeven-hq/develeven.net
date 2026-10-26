@@ -24,13 +24,14 @@ This file serves as the persistent source of truth for all AI agents working on 
 - **No Arbitrary Sizes**: Never use arbitrary pixel classes (e.g., `text-[26px]`, `text-[11px]`). Use only standard Tailwind sizing classes.
 - **Minimum Font Size Limit**: No text may ever be smaller than `text-xs` (12px / 0.75rem).
 - **No All-Caps (Avoid Whole Uppercase)**: Never style whole phrases, section labels, deliverables, or badges in shouting all-caps (e.g., do NOT use `01 / WHAT WE BUILD` or `PROJECT BRIEF + ROADMAP`). Use clean sentence or title case (e.g., `01 / What we build`, `Marketing sites / E-commerce`, `Built with intent`). Standard industry acronyms are permitted (`SaaS`, `API`, `CMS`, `SEO`, `USD`, `MVP`, `FAQ`, `DevOps`).
+- **No Em-Dashes**: Never use em-dashes (`—`) anywhere across the pages, copy, headings, metadata, or titles. Use standard hyphens (`-`), en-dashes (`–`) for numeric ranges (e.g., `$600–1,000`), or natural punctuation (commas, colons, parentheses) instead.
 
 ### Typographic Scale & Hierarchy Table
 
 | Tier | UI Role | Tailwind Size | Tailwind Weight | Tracking & Leading | Color Tokens |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **L1: Display / H1** | Page & Hero main titles | `text-5xl sm:text-7xl lg:text-8xl` | `font-bold` (700) | `tracking-tight leading-tight` / `leading-[1.02]` | `#F2F4EC` |
-| **L2: Section Headings / H2** | Major section headers (`h2`) — centered, clean, non-dramatic | `text-3xl sm:text-4xl lg:text-5xl` | `font-medium` (500) | `text-center tracking-tight leading-tight` | `#F2F4EC` (dark) / `#11150E` (light) |
+| **L2: Section Headings / H2** | Major section headers (`h2`) - centered, clean, non-dramatic | `text-3xl sm:text-4xl lg:text-5xl` | `font-medium` (500) | `text-center tracking-tight leading-tight` | `#F2F4EC` (dark) / `#11150E` (light) |
 | **L3: Card Titles / H3** | Services, pricing tiers, showcase cases | `text-xl sm:text-2xl` | `font-medium` (500) | `tracking-normal leading-snug` | `#F2F4EC` (dark) / `#11150E` (light) |
 | **L4: Prices & Large Stats** | Pricing tiers (`$600–1,000`), stat metrics | `text-3xl sm:text-4xl lg:text-5xl` | `font-bold` (700) | `tracking-tight` | `#F2F4EC` |
 | **L5: Section Kickers / Labels** | Section overlines | `text-xs sm:text-sm` | `font-medium` (500) | `tracking-wide` | `#CEFF69` (dark) / `#2D3427` (light) |
@@ -146,10 +147,33 @@ Defined in `src/app/globals.css`:
 
 ---
 
-## 7. Code Quality & Build Checks
+## 7. Page Metadata & Unique Titles Standard
+
+- **Unique Title Per Page**: Every page route must export an explicit and unique `<title>` in its `metadata`. No two pages may share the same title or rely on untitled defaults.
+- **Title Structure**:
+  - Home: `DevEleven - Independent Engineering Studio`
+  - Interior pages: `<Page Name> - DevEleven` (e.g., `Pricing - DevEleven`).
+  - Always use a standard hyphen with spaces (` - `), never an em-dash (`—`).
+- **Layout Template**: In `src/app/layout.tsx`, define:
+  ```ts
+  export const metadata: Metadata = {
+    title: {
+      default: "DevEleven - Independent Engineering Studio",
+      template: "%s - DevEleven",
+    },
+    ...
+  };
+  ```
+
+---
+
+## 8. Code Quality & Build Checks
 
 Always verify these commands before concluding any task:
-1. `npx tsc --noEmit` — must pass with 0 errors.
-2. `grep -rn "font-mono" src/components/` — must return 0 results.
-3. `grep -rn "text-\[[0-9]*px\]" src/` — must return 0 results.
-4. Test HTTP 200 on all routes: `curl -I http://localhost:3000/` and `curl -I http://localhost:3000/pricing`.
+1. `npx tsc --noEmit` - must pass with 0 errors.
+2. `grep -rn "font-mono" src/components/` - must return 0 results.
+3. `grep -rn "text-\[[0-9]*px\]" src/` - must return 0 results.
+4. `grep -rn "—" src/` - must return 0 results (strictly enforcing no em-dashes).
+5. Verify every page route exports a unique title in its metadata.
+6. Test HTTP 200 on all routes: `curl -I http://localhost:3000/` and `curl -I http://localhost:3000/pricing`.
+

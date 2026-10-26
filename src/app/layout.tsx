@@ -12,9 +12,12 @@ const monaSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "DevEleven — Independent Engineering Studio",
+  title: {
+    default: "DevEleven - Independent Engineering Studio",
+    template: "%s - DevEleven",
+  },
   description:
-    "Websites, software, and games built to work beautifully. We turn complex challenges into reliable digital products — from first sketch to the next release.",
+    "Websites, software, and games built to work beautifully. We turn complex challenges into reliable digital products - from first sketch to the next release.",
 };
 
 export default function RootLayout({
