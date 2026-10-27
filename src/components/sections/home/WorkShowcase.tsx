@@ -24,12 +24,36 @@ const projects: ProjectCardProps[] = [
     description:
       "A connected operations platform with real-time reporting, role-based access, and automated workflow handoffs built to replace fragmented spreadsheets.",
     technologies: [
-      { name: "React", icon: <SiReact size={17} /> },
-      { name: "Next.js", icon: <SiNextdotjs size={17} /> },
-      { name: "TypeScript", icon: <SiTypescript size={17} /> },
-      { name: "Tailwind CSS", icon: <SiTailwindcss size={17} /> },
-      { name: "Node.js", icon: <SiNodedotjs size={17} /> },
-      { name: "PostgreSQL", icon: <SiPostgresql size={17} /> },
+      {
+        name: "React",
+        iconSrc: "/icons/tech/react.svg",
+        icon: <SiReact size={17} className="text-[#61DAFB]" />,
+      },
+      {
+        name: "Next.js",
+        iconSrc: "/icons/tech/nextjs.svg",
+        icon: <SiNextdotjs size={17} className="text-white" />,
+      },
+      {
+        name: "TypeScript",
+        iconSrc: "/icons/tech/typescript.svg",
+        icon: <SiTypescript size={17} className="text-[#3178C6]" />,
+      },
+      {
+        name: "Tailwind CSS",
+        iconSrc: "/icons/tech/tailwindcss.svg",
+        icon: <SiTailwindcss size={17} className="text-[#38BDF8]" />,
+      },
+      {
+        name: "Node.js",
+        iconSrc: "/icons/tech/nodejs.svg",
+        icon: <SiNodedotjs size={17} className="text-[#5FA04E]" />,
+      },
+      {
+        name: "PostgreSQL",
+        iconSrc: "/icons/tech/postgresql.svg",
+        icon: <SiPostgresql size={17} className="text-[#336791]" />,
+      },
     ],
     href: "/#contact",
   },
@@ -42,10 +66,26 @@ const projects: ProjectCardProps[] = [
     description:
       "An atmospheric exploration experience combining immersive procedural environments, responsive gameplay mechanics, and scalable runtime systems.",
     technologies: [
-      { name: "Unity", icon: <SiUnity size={17} /> },
-      { name: "C#", icon: <TbBrandCSharp size={18} /> },
-      { name: "Blender", icon: <SiBlender size={17} /> },
-      { name: "OpenGL / Shaders", icon: <SiOpengl size={17} /> },
+      {
+        name: "Unity",
+        iconSrc: "/icons/tech/unity.svg",
+        icon: <SiUnity size={17} className="text-white" />,
+      },
+      {
+        name: "C#",
+        iconSrc: "/icons/tech/csharp.svg",
+        icon: <TbBrandCSharp size={18} className="text-[#9B4993]" />,
+      },
+      {
+        name: "Blender",
+        iconSrc: "/icons/tech/blender.svg",
+        icon: <SiBlender size={17} className="text-[#EA7600]" />,
+      },
+      {
+        name: "OpenGL / Shaders",
+        iconSrc: "/icons/tech/opengl.svg",
+        icon: <SiOpengl size={17} className="text-[#5586A4]" />,
+      },
     ],
     href: "/#contact",
   },

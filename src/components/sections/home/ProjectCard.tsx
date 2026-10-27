@@ -5,7 +5,8 @@ import { ArrowUpRight } from "@/components/ui/Icons";
 
 export interface TechIconItem {
   name: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
+  iconSrc?: string;
 }
 
 export interface ProjectCardProps {
@@ -82,10 +83,20 @@ export default function ProjectCard({
                 key={tech.name}
                 title={tech.name}
                 aria-label={tech.name}
-                className="group/tech relative w-8 h-8 rounded-md bg-zinc-700/60 hover:bg-zinc-700 flex items-center justify-center text-dv-text hover:text-white transition-all cursor-default"
+                className="group/tech relative w-8 h-8 rounded-md bg-zinc-700/60 hover:bg-zinc-700 flex items-center justify-center transition-all cursor-default"
               >
-                <span className="flex items-center justify-center text-base">
-                  {tech.icon}
+                <span className="flex items-center justify-center text-base transition-transform duration-150 group-hover/tech:scale-110">
+                  {tech.iconSrc ? (
+                    <Image
+                      src={tech.iconSrc}
+                      alt={tech.name}
+                      width={18}
+                      height={18}
+                      className="w-4.5 h-4.5 object-contain"
+                    />
+                  ) : (
+                    tech.icon
+                  )}
                 </span>
                 {/* Floating tooltip */}
                 <span
