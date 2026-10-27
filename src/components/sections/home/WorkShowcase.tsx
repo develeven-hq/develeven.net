@@ -18,6 +18,7 @@ const projects: ProjectCardProps[] = [
   {
     id: "orbit",
     title: "Orbit",
+    type: "application",
     subtitle: "Complex workflows. One clear view.",
     imageSrc: "/images/operations-dashboard.jpg",
     imageAlt: "Orbit operations platform dashboard preview",
@@ -60,6 +61,7 @@ const projects: ProjectCardProps[] = [
   {
     id: "afterlight",
     title: "Afterlight",
+    type: "game",
     subtitle: "A world worth getting lost in.",
     imageSrc: "/images/exploration-game.png",
     imageAlt: "Afterlight atmospheric exploration game preview",

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "@/components/ui/Icons";
+import { ArrowUpRight, getProjectTypeIcon } from "@/components/ui/Icons";
 
 export interface TechIconItem {
   name: string;
@@ -14,6 +14,8 @@ export interface ProjectCardProps {
   title: string;
   subtitle: string;
   category?: string;
+  type?: "website" | "application" | "game" | string;
+  typeIcon?: React.ReactNode;
   description: string;
   imageSrc: string;
   imageAlt: string;
@@ -25,6 +27,9 @@ export interface ProjectCardProps {
 export default function ProjectCard({
   title,
   subtitle,
+  category,
+  type,
+  typeIcon,
   description,
   imageSrc,
   imageAlt,
@@ -32,6 +37,8 @@ export default function ProjectCard({
   tags,
   href = "/#contact",
 }: ProjectCardProps) {
+  const resolvedTypeIcon =
+    typeIcon || getProjectTypeIcon(type || category, { size: 20 });
   return (
     <Link
       href={href}
@@ -53,8 +60,13 @@ export default function ProjectCard({
         <div className="flex flex-col items-start gap-3">
           {/* Title & Interactive Arrow */}
           <div className="w-full flex items-center justify-between gap-4">
-            <h3 className="text-dv-text text-xl sm:text-2xl font-medium font-sans tracking-tight group-hover:text-dv-lime transition-colors">
-              {title}
+            <h3 className="text-dv-text text-xl sm:text-2xl font-medium font-sans tracking-tight group-hover:text-dv-lime transition-colors flex items-center gap-2.5">
+              {resolvedTypeIcon && (
+                <span className="text-dv-lime shrink-0 flex items-center justify-center">
+                  {resolvedTypeIcon}
+                </span>
+              )}
+              <span>{title}</span>
             </h3>
             <div className="w-8 h-8 rounded-md bg-zinc-700/50 flex items-center justify-center shrink-0 group-hover:bg-dv-lime group-hover:text-dv-dark transition-all">
               <ArrowUpRight
