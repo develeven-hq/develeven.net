@@ -77,27 +77,27 @@ export default function ProjectCard({
 
         {/* Tech Stack Icons or Fallback Tags */}
         {technologies && technologies.length > 0 ? (
-          <div className="flex flex-wrap items-center gap-2 pt-1">
+          <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 pt-1">
             {technologies.map((tech) => (
               <div
                 key={tech.name}
                 title={tech.name}
                 aria-label={tech.name}
-                className="group/tech relative w-8 h-8 rounded-md bg-zinc-700/60 hover:bg-zinc-700 flex items-center justify-center transition-all cursor-default"
+                className="group/tech relative flex items-center justify-center transition-transform duration-200 hover:scale-110 cursor-default"
               >
-                <span className="flex items-center justify-center text-base transition-transform duration-150 group-hover/tech:scale-110">
-                  {tech.iconSrc ? (
-                    <Image
-                      src={tech.iconSrc}
-                      alt={tech.name}
-                      width={18}
-                      height={18}
-                      className="w-4.5 h-4.5 object-contain"
-                    />
-                  ) : (
-                    tech.icon
-                  )}
-                </span>
+                {tech.iconSrc ? (
+                  <Image
+                    src={tech.iconSrc}
+                    alt={tech.name}
+                    width={22}
+                    height={22}
+                    className="w-5 h-5 sm:w-5.5 sm:h-5.5 object-contain"
+                  />
+                ) : (
+                  <span className="flex items-center justify-center text-lg sm:text-xl">
+                    {tech.icon}
+                  </span>
+                )}
                 {/* Floating tooltip */}
                 <span
                   aria-hidden="true"

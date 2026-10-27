@@ -62,16 +62,16 @@ export default function TechPill({
         aria-label={displayName}
         title={displayName}
         tabIndex={0}
-        className="group relative flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-dv-surface hover:bg-zinc-700 active:scale-95 transition-all duration-150 cursor-default select-none focus:outline-none focus:ring-1 focus:ring-dv-lime"
+        className="group relative flex items-center justify-center transition-transform duration-200 hover:scale-110 active:scale-95 cursor-default select-none focus:outline-none"
       >
-        <div className="flex items-center justify-center transition-transform duration-150 group-hover:scale-110">
+        <div className="flex items-center justify-center">
           {renderIcon()}
         </div>
 
         {/* Clean floating tooltip on hover */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-zinc-950 text-zinc-100 text-xs font-medium font-sans rounded-md opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-150 whitespace-nowrap shadow-xl z-20"
+          className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-zinc-950 text-zinc-100 text-xs font-medium font-sans rounded opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-150 whitespace-nowrap shadow-xl z-20"
         >
           {displayName}
         </span>
@@ -81,11 +81,9 @@ export default function TechPill({
 
   // Fallback for label-only without outline/border
   return (
-    <div className="px-3 py-1.5 rounded-lg bg-dv-surface flex items-center justify-center">
-      <span className="text-dv-text text-xs sm:text-sm font-medium font-sans tracking-normal leading-normal">
-        {displayName}
-      </span>
-    </div>
+    <span className="text-dv-text text-xs sm:text-sm font-medium font-sans tracking-normal leading-normal">
+      {displayName}
+    </span>
   );
 }
 

@@ -63,7 +63,7 @@ export default function ApproachSection() {
 
         {/* Bottom Bar: Tech Stack & Quality Gate */}
         <div className="w-full p-5 sm:p-6 bg-dv-card rounded-lg flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5">
-          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+          <div className="flex flex-wrap items-center gap-3.5 sm:gap-4">
             <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans mr-1">
               Core technologies:
             </span>
