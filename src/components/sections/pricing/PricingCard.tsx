@@ -5,31 +5,30 @@ import ArrowIcon from "@/components/ui/ArrowIcon";
 
 export interface PricingCardProps {
   name: string;
-  tag: string;
+  tag?: string;
   badge?: string;
   icon: React.ReactNode;
   price: string;
-  scope: string;
+  period?: string;
+  scope?: string;
   features: string[];
-  buttonText: string;
+  buttonText?: string;
   featured?: boolean;
 }
 
 export default function PricingCard({
   name,
-  tag,
   badge,
   icon,
   price,
-  scope,
   features,
-  buttonText,
+  buttonText = "Get started",
   featured = false,
 }: PricingCardProps) {
   return (
-    <div className="p-7 bg-dv-card rounded-lg flex flex-col justify-between items-start gap-8">
-      <div className="w-full flex flex-col items-start gap-5">
-        {/* Header: Icon + Title on left, Badge on right */}
+    <div className="p-7 bg-dv-card rounded-lg flex flex-col justify-between items-start gap-10">
+      <div className="w-full flex flex-col items-start gap-6">
+        {/* Tier Identity Header */}
         <div className="w-full flex justify-between items-start gap-4">
           <div className="flex items-center gap-3 min-w-0">
             <div className="w-6 h-6 flex items-center justify-center shrink-0">
@@ -40,22 +39,20 @@ export default function PricingCard({
             </h3>
           </div>
           {badge && (
-            <div className="px-2.5 py-1 bg-dv-lime rounded-md flex items-start shrink-0">
-              <span className="text-dv-dark text-xs font-medium font-sans tracking-wide">
+            <div className="px-2.5 py-1 bg-dv-lime rounded-md flex items-center shrink-0">
+              <span className="text-dv-dark text-sm font-medium font-sans tracking-wide">
                 {badge}
               </span>
             </div>
           )}
         </div>
 
-        {/* Punchy Lime Tag */}
-        <span className="text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-normal">
-          {tag}
-        </span>
-
-        {/* Price Block: Price + period beside it */}
-        <div className="w-full flex items-baseline gap-2.5 flex-wrap">
-          <span className="text-dv-text text-3xl sm:text-4xl lg:text-5xl font-bold font-sans tracking-tight">
+        {/* Price */}
+        <div className="w-full flex flex-col items-start gap-1">
+          <span className="text-dv-lead text-sm font-normal font-sans tracking-wide">
+            Starting from
+          </span>
+          <span className="text-dv-text text-4xl sm:text-5xl lg:text-5xl font-bold font-sans tracking-tight">
             {price}
           </span>
         </div>
@@ -63,28 +60,28 @@ export default function PricingCard({
         {/* 1px Divider */}
         <div className="w-full h-px bg-dv-border" />
 
-        {/* Scope Title */}
-        <span className="w-full text-dv-text text-sm sm:text-base font-medium font-sans tracking-normal">
-          {scope}
-        </span>
-
-        {/* Checklist */}
+        {/* Features Checklist */}
         <div className="w-full flex flex-col items-start gap-3">
-          {features.map((feature) => (
-            <CheckItem key={feature}>{feature}</CheckItem>
-          ))}
+          <span className="text-dv-text font-medium font-sans tracking-wide">
+            What's included:
+          </span>
+          <div className="w-full flex flex-col items-start gap-2.5">
+            {features.map((feature) => (
+              <CheckItem key={feature}>{feature}</CheckItem>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Bottom CTA Button */}
       <Link
         href="/#contact"
-        className={`w-full h-14 px-6 rounded-lg flex items-center justify-between transition-colors group cursor-pointer ${featured
-          ? "bg-dv-lime text-dv-dark hover:bg-dv-lime-hover"
-          : "bg-dv-surface hover:bg-dv-surface/80 text-dv-text hover:outline-dv-muted"
+        className={`w-full h-14 mt-2 px-6 rounded-lg flex items-center justify-between transition-colors group cursor-pointer ${featured
+          ? "bg-dv-lime text-dv-dark hover:bg-dv-lime-hover font-semibold"
+          : "bg-dv-surface hover:bg-dv-surface/80 text-dv-text hover:outline-dv-muted font-medium"
           }`}
       >
-        <span className="text-sm sm:text-base font-medium font-sans tracking-normal">
+        <span className="text-sm sm:text-base font-sans tracking-normal">
           {buttonText}
         </span>
         <ArrowIcon color={featured ? "dark" : "lime"} />

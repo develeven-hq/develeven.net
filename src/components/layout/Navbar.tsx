@@ -241,7 +241,7 @@ export default function Navbar() {
       </div>
     </header>
 
-      {/* Mobile Navigation Drawer — outside <header> so fixed positioning is viewport-relative */}
+      {/* Mobile Navigation Drawer - outside <header> so fixed positioning is viewport-relative */}
       <div
         className={`lg:hidden fixed inset-x-0 top-20 bottom-0 bg-dv-bg z-40 flex flex-col overflow-y-auto transition-all duration-300 ease-in-out ${
           isMobileMenuOpen
