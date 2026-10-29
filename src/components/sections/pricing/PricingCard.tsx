@@ -9,7 +9,6 @@ export interface PricingCardProps {
   badge?: string;
   icon: React.ReactNode;
   price: string;
-  period?: string;
   scope: string;
   features: string[];
   buttonText: string;
@@ -22,7 +21,6 @@ export default function PricingCard({
   badge,
   icon,
   price,
-  period = "/ project",
   scope,
   features,
   buttonText,
@@ -60,9 +58,6 @@ export default function PricingCard({
           <span className="text-dv-text text-3xl sm:text-4xl lg:text-5xl font-bold font-sans tracking-tight">
             {price}
           </span>
-          <span className="text-dv-muted text-sm sm:text-base font-normal font-sans tracking-normal">
-            {period}
-          </span>
         </div>
 
         {/* 1px Divider */}
@@ -84,11 +79,10 @@ export default function PricingCard({
       {/* Bottom CTA Button */}
       <Link
         href="/#contact"
-        className={`w-full h-14 px-6 rounded-lg flex items-center justify-between transition-colors group cursor-pointer ${
-          featured
-            ? "bg-dv-lime text-dv-dark hover:bg-dv-lime-hover"
-            : "bg-dv-surface hover:bg-dv-surface/80 text-dv-text hover:outline-dv-muted"
-        }`}
+        className={`w-full h-14 px-6 rounded-lg flex items-center justify-between transition-colors group cursor-pointer ${featured
+          ? "bg-dv-lime text-dv-dark hover:bg-dv-lime-hover"
+          : "bg-dv-surface hover:bg-dv-surface/80 text-dv-text hover:outline-dv-muted"
+          }`}
       >
         <span className="text-sm sm:text-base font-medium font-sans tracking-normal">
           {buttonText}

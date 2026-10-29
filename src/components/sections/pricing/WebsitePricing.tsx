@@ -14,7 +14,7 @@ const websiteTiers: PricingCardProps[] = [
     name: "Launch",
     tag: "A focused first impression",
     icon: <WebDevIcon size={24} />,
-    price: "$300 - $500",
+    price: "$200",
     period: "/ project",
     scope: "Up to 5 core pages",
     features: [
@@ -32,7 +32,7 @@ const websiteTiers: PricingCardProps[] = [
     badge: "Most popular",
     featured: true,
     icon: <LayersIcon size={24} />,
-    price: "$600 - $1,000",
+    price: "$400",
     period: "/ project",
     scope: "Up to 12 pages + CMS",
     features: [
@@ -48,7 +48,7 @@ const websiteTiers: PricingCardProps[] = [
     name: "Commerce",
     tag: "Turn visits into business",
     icon: <CommerceIcon size={24} />,
-    price: "$1,000 - $1,800",
+    price: "$1000",
     period: "/ project",
     scope: "Storefront + up to 50 products",
     features: [
@@ -67,7 +67,7 @@ const softwareTiers: PricingCardProps[] = [
     name: "Custom software",
     tag: "SaaS, internal tools & platforms",
     icon: <BracesIcon size={24} />,
-    price: "$1,500 - $3,000",
+    price: "$1500",
     period: "/ project",
     scope: "One core workflow, two roles & integration",
     features: [
@@ -83,7 +83,7 @@ const softwareTiers: PricingCardProps[] = [
     name: "Game development",
     tag: "Playable prototypes & production",
     icon: <GameDevIcon size={24} />,
-    price: "$800 - $1,500",
+    price: "$800",
     period: "/ project",
     scope: "One core mechanic, one level & platform",
     features: [
@@ -99,7 +99,7 @@ const softwareTiers: PricingCardProps[] = [
     name: "Engineering services",
     tag: "Targeted architecture & sprints",
     icon: <EngineeringIcon size={24} />,
-    price: "$200 - $500",
+    price: "$300",
     period: "/ project",
     scope: "One bounded technical problem",
     features: [
