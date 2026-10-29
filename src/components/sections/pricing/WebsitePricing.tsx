@@ -54,11 +54,11 @@ const pricingTiers: PricingCardProps[] = [
     icon: <BracesIcon size={24} />,
     price: "$1500",
     features: [
-      "Custom web app or dashboard",
-      "User accounts & role permissions",
-      "Database & third-party APIs",
-      "Production deployment & setup",
-      "Full source code ownership",
+      "Custom web apps & SaaS platforms",
+      "Game development & prototypes",
+      "API & third-party integrations",
+      "Cloud infrastructure & database",
+      "Codebase audits & speed fixes",
     ],
     buttonText: "Get started",
   },
@@ -67,7 +67,7 @@ const pricingTiers: PricingCardProps[] = [
 export default function WebsitePricing() {
   return (
     <section id="websites" className="w-full bg-dv-bg">
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 pt-4 pb-4 sm:pt-6 sm:pb-6 lg:pt-6 lg:pb-8">
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 pt-8 pb-4 sm:pt-10 sm:pb-6 lg:pt-14 lg:pb-8">
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {pricingTiers.map((tier) => (
             <PricingCard key={tier.name} {...tier} />
