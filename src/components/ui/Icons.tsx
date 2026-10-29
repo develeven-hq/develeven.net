@@ -75,7 +75,7 @@ export function ArrowDown({
 export function CheckIcon({
   className = "",
   size = 16,
-  color = "var(--color-dv-bg)",
+  color = "var(--color-dv-lime)",
   strokeWidth = 4,
 }: IconProps) {
   return (

@@ -5,7 +5,7 @@ export default function CheckItem({ children }: { children: React.ReactNode }) {
   return (
     <div className="w-full flex items-start gap-2.5">
       <div className="h-6 flex items-center justify-center shrink-0">
-        <div className="w-4 h-4 bg-dv-lime rounded-full flex items-center justify-center shrink-0">
+        <div className="w-4 h-4 bg-dv-surface rounded-full flex items-center justify-center shrink-0">
           <CheckIcon size={10} />
         </div>
       </div>
