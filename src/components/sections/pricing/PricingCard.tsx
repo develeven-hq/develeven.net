@@ -26,11 +26,11 @@ export default function PricingCard({
   featured = false,
 }: PricingCardProps) {
   return (
-    <div className="p-7 bg-dv-card rounded-lg flex flex-col justify-between items-start gap-10">
-      <div className="w-full flex flex-col items-start gap-6">
+    <div className="p-6 bg-dv-card rounded-lg flex flex-col justify-between items-start gap-8">
+      <div className="w-full flex flex-col items-start gap-5">
         {/* Tier Identity Header */}
-        <div className="w-full flex justify-between items-start gap-4">
-          <div className="flex items-center gap-3 min-w-0">
+        <div className="w-full flex justify-between items-start gap-3">
+          <div className="flex flex-col items-start gap-3 min-w-0">
             <div className="w-6 h-6 flex items-center justify-center shrink-0">
               {icon}
             </div>
@@ -40,7 +40,7 @@ export default function PricingCard({
           </div>
           {badge && (
             <div className="px-2.5 py-1 bg-dv-lime rounded-md flex items-center shrink-0">
-              <span className="text-dv-dark text-sm font-medium font-sans tracking-wide">
+              <span className="text-dv-dark text-xs sm:text-sm font-medium font-sans tracking-wide">
                 {badge}
               </span>
             </div>
@@ -49,10 +49,10 @@ export default function PricingCard({
 
         {/* Price */}
         <div className="w-full flex flex-col items-start gap-1">
-          <span className="text-dv-lead text-sm font-normal font-sans tracking-wide">
+          <span className="text-dv-lead text-xs sm:text-sm font-normal font-sans tracking-wide">
             Starting from
           </span>
-          <span className="text-dv-text text-4xl sm:text-5xl lg:text-5xl font-bold font-sans tracking-tight">
+          <span className="text-dv-text text-3xl sm:text-4xl lg:text-4xl font-bold font-sans tracking-tight">
             {price}
           </span>
         </div>
@@ -62,7 +62,7 @@ export default function PricingCard({
 
         {/* Features Checklist */}
         <div className="w-full flex flex-col items-start gap-3">
-          <span className="text-dv-text font-medium font-sans tracking-wide">
+          <span className="text-dv-text text-sm font-medium font-sans tracking-wide">
             What's included:
           </span>
           <div className="w-full flex flex-col items-start gap-2.5">
@@ -76,12 +76,12 @@ export default function PricingCard({
       {/* Bottom CTA Button */}
       <Link
         href="/#contact"
-        className={`w-full h-14 mt-2 px-6 rounded-lg flex items-center justify-between transition-colors group cursor-pointer ${featured
+        className={`w-full h-12 mt-2 px-5 rounded-lg flex items-center justify-between transition-colors group cursor-pointer ${featured
           ? "bg-dv-lime text-dv-dark hover:bg-dv-lime-hover font-semibold"
           : "bg-dv-surface hover:bg-dv-surface/80 text-dv-text hover:outline-dv-muted font-medium"
           }`}
       >
-        <span className="text-sm sm:text-base font-sans tracking-normal">
+        <span className="text-sm font-sans tracking-normal">
           {buttonText}
         </span>
         <ArrowIcon color={featured ? "dark" : "lime"} />
