@@ -75,8 +75,8 @@ export function ArrowDown({
 export function CheckIcon({
   className = "",
   size = 16,
-  color = "var(--color-dv-lime)",
-  strokeWidth = 2,
+  color = "var(--color-dv-bg)",
+  strokeWidth = 4,
 }: IconProps) {
   return (
     <LucideCheck

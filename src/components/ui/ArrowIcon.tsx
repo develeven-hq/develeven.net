@@ -16,10 +16,10 @@ export default function ArrowIcon({
     color === "dark"
       ? "var(--color-dv-dark)"
       : color === "light"
-      ? "var(--color-dv-text)"
-      : color === "dim"
-      ? "var(--color-dv-muted)"
-      : "var(--color-dv-lime)";
+        ? "var(--color-dv-text)"
+        : color === "dim"
+          ? "var(--color-dv-muted)"
+          : "var(--color-dv-lime)";
 
   const dimension = size === "lg" ? 22 : 18;
 

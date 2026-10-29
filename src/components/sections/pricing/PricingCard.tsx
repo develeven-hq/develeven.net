@@ -40,7 +40,7 @@ export default function PricingCard({
           </div>
           {badge && (
             <div className="px-2.5 py-1 bg-dv-lime rounded-md flex items-center shrink-0">
-              <span className="text-dv-dark text-xs sm:text-sm font-medium font-sans tracking-wide">
+              <span className="text-dv-dark text-xs font-medium font-sans tracking-wide">
                 {badge}
               </span>
             </div>
@@ -52,7 +52,7 @@ export default function PricingCard({
           <span className="text-dv-lead text-xs sm:text-sm font-normal font-sans tracking-wide">
             Starting from
           </span>
-          <span className="text-dv-text text-3xl sm:text-4xl lg:text-4xl font-bold font-sans tracking-tight">
+          <span className="text-dv-text text-4xl sm:text-5xl lg:text-5xl font-bold font-sans tracking-tight">
             {price}
           </span>
         </div>
@@ -62,8 +62,8 @@ export default function PricingCard({
 
         {/* Features Checklist */}
         <div className="w-full flex flex-col items-start gap-3">
-          <span className="text-dv-text text-sm font-medium font-sans tracking-wide">
-            What's included:
+          <span className="text-dv-text text-sm lg:text-base font-medium font-sans tracking-wide">
+            What&apos;s included:
           </span>
           <div className="w-full flex flex-col items-start gap-2.5">
             {features.map((feature) => (
