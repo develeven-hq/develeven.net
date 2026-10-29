@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import React from "react";
 import PricingHero from "@/components/sections/pricing/PricingHero";
-import PricingNav from "@/components/sections/pricing/PricingNav";
 import WebsitePricing from "@/components/sections/pricing/WebsitePricing";
 import PartnershipBanner from "@/components/sections/pricing/PartnershipBanner";
 import PricingProcess from "@/components/sections/pricing/PricingProcess";
@@ -17,9 +16,11 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <div className="w-full flex flex-col items-center bg-dv-bg">
-      <PricingHero />
-      <PricingNav />
-      <WebsitePricing />
+      {/* First-look viewport container: ensures subsequent sections stay below the fold */}
+      <div className="w-full min-h-[calc(100vh-5rem)] lg:min-h-[calc(100vh-6rem)] flex flex-col justify-center py-6 sm:py-8 lg:py-10">
+        <PricingHero />
+        <WebsitePricing />
+      </div>
       <PartnershipBanner />
       <PricingProcess />
       <PricingFAQ />
