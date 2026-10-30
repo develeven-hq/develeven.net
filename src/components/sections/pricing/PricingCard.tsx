@@ -60,6 +60,20 @@ export default function PricingCard({
           </div>
         </div>
 
+        {/* Bottom CTA Button */}
+        <Link
+          href="/#contact"
+          className={`w-full h-12 mt-2 px-5 rounded-lg flex items-center justify-between transition-colors group cursor-pointer ${featured
+            ? "bg-dv-lime text-dv-dark hover:bg-dv-lime-hover font-semibold"
+            : "bg-dv-surface hover:bg-dv-surface/80 text-dv-text hover:outline-dv-muted font-medium"
+            }`}
+        >
+          <span className="text-sm font-sans tracking-normal">
+            {buttonText}
+          </span>
+          <ArrowIcon color={featured ? "dark" : "lime"} />
+        </Link>
+
         {/* 1px Divider */}
         <div className="w-full h-px bg-dv-border" />
 
@@ -76,19 +90,6 @@ export default function PricingCard({
         </div>
       </div>
 
-      {/* Bottom CTA Button */}
-      <Link
-        href="/#contact"
-        className={`w-full h-12 mt-2 px-5 rounded-lg flex items-center justify-between transition-colors group cursor-pointer ${featured
-          ? "bg-dv-lime text-dv-dark hover:bg-dv-lime-hover font-semibold"
-          : "bg-dv-surface hover:bg-dv-surface/80 text-dv-text hover:outline-dv-muted font-medium"
-          }`}
-      >
-        <span className="text-sm font-sans tracking-normal">
-          {buttonText}
-        </span>
-        <ArrowIcon color={featured ? "dark" : "lime"} />
-      </Link>
     </div>
   );
 }
