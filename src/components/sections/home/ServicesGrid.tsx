@@ -58,31 +58,31 @@ export default function ServicesGrid() {
           <ServiceCard
             title="Website development"
             description="Fast, accessible websites that turn your brand into a better digital experience. Built for people, search, and scale."
-            tags="Marketing sites / E-commerce / Web apps"
+            tags="Marketing sites · E-commerce · Web apps"
             icon={<WebDevIcon size={24} />}
           />
           <ServiceCard
             title="Website maintenance"
             description="Keep your website secure, current, and performing at its best. Proactive maintenance, without the technical overhead."
-            tags="Updates / Security / Performance"
+            tags="Updates · Security · Performance"
             icon={<MaintenanceIcon size={24} />}
           />
           <ServiceCard
             title="Custom software"
             description="Purpose-built tools for the way your business actually works. From customer platforms to complex internal systems."
-            tags="SaaS / Business tools / Integrations"
+            tags="SaaS · Business tools · Integrations"
             icon={<CustomSoftwareIcon size={24} />}
           />
           <ServiceCard
             title="Game development"
             description="Compelling worlds, responsive mechanics, and solid technical foundations. From playable prototype to polished release."
-            tags="Unity / Unreal / Interactive experiences"
+            tags="Unity · Unreal · Interactive experiences"
             icon={<GameDevIcon size={24} />}
           />
           <ServiceCard
             title="Engineering & infrastructure"
             description="Connect systems, modernize your stack, and make your infrastructure ready for what comes next."
-            tags="APIs / Cloud / DevOps / Modernization"
+            tags="APIs · Cloud · DevOps · Modernization"
             icon={<EngineeringIcon size={24} />}
           />
 

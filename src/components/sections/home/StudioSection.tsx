@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import ArrowIcon from "@/components/ui/ArrowIcon";
 import {
   TerminalIcon,
   CollaborationIcon,
@@ -63,14 +65,17 @@ export default function StudioSection() {
               </p>
             </div>
 
-            {/* Bottom Section - matching EngagementCard style */}
-            <div className="w-full pt-5 border-t border-dv-border flex flex-col items-start gap-2 overflow-hidden">
-              <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-wide">
-                How we operate
-              </span>
-              <p className="w-full text-dv-text text-sm sm:text-base font-medium font-sans">
-                Senior practitioners only. Direct Slack and repository access on every project.
-              </p>
+            {/* Bottom CTA Link */}
+            <div className="w-full pt-5 border-t border-dv-border flex items-center overflow-hidden">
+              <Link
+                href="/#contact"
+                className="w-full flex justify-between items-center overflow-hidden group cursor-pointer"
+              >
+                <span className="text-dv-lime text-sm sm:text-base font-medium font-sans tracking-normal group-hover:underline">
+                  Meet our team
+                </span>
+                <ArrowIcon color="lime" size="md" />
+              </Link>
             </div>
           </div>
         </div>
