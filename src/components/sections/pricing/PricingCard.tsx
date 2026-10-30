@@ -52,9 +52,12 @@ export default function PricingCard({
           <span className="text-dv-lead text-xs sm:text-sm font-normal font-sans tracking-wide">
             Starting from
           </span>
-          <span className="text-dv-text text-4xl sm:text-5xl lg:text-5xl font-bold font-sans tracking-tight">
-            {price}
-          </span>
+          <div className="flex items-baseline gap-1.5">
+            <span className="text-dv-text text-4xl sm:text-5xl lg:text-5xl font-medium font-sans tracking-tight">
+              {price}
+            </span>
+            <span className="text-base text-dv-muted">USD</span>
+          </div>
         </div>
 
         {/* 1px Divider */}
