@@ -42,7 +42,7 @@ export default function Button({
       ? "var(--color-dv-text)"
       : "var(--color-dv-lime)";
 
-  const baseClasses = `px-7 sm:px-8 py-3.5 sm:py-4 rounded-full overflow-hidden justify-start items-center gap-6 inline-flex font-sans text-sm sm:text-base font-medium cursor-pointer shrink-0 ${
+  const baseClasses = `px-6 sm:px-7 py-3.5 sm:py-4 rounded-full overflow-hidden justify-start items-center gap-2.5 sm:gap-3 inline-flex font-sans text-sm sm:text-base font-medium cursor-pointer shrink-0 ${
     fullWidth ? "w-full justify-between" : ""
   } ${variantStyles[variant]} ${className}`;
 

@@ -4,13 +4,67 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
+// ===========================================================================
+// PARTICLE APPEARANCE CONFIGURATION
+// You can edit any of these defaults directly here to change the look
+// across the site, or override them via props on <ParticleBackground />.
+// ===========================================================================
+export const PARTICLE_CONFIG = {
+  // Mode: "gradient" or "single"
+  colorMode: "gradient" as "gradient" | "single",
+
+  // Single color (used when colorMode is "single")
+  singleColor: "#388BFD",
+
+  // Gradient colors (used when colorMode is "gradient")
+  gradientStart: "#FF3366", // Color at start of angle (Top-Right default: vibrant red)
+  gradientEnd: "#388BFD",   // Color at end of angle (Bottom-Left default: electric blue)
+
+  // Gradient angle in degrees (0° to 360°):
+  //   45°  = Top-Right to Bottom-Left (current default)
+  //   90°  = Top to Bottom
+  //   0°   = Right to Left
+  //   180° = Left to Right
+  //   270° = Bottom to Top
+  gradientAngle: 35,
+
+  // Gradient spread / transition softness across the screen:
+  // Lower values (0.4–0.6) = higher contrast between sides
+  // Higher values (0.8–1.2) = softer, broader transition
+  gradientSpread: 1.2,
+
+  // Micro-gradient intensity within each individual particle dot (0.0 to 1.0):
+  // 0.0 = flat dots, 0.2 = subtle natural dimensional sheen
+  dotGradientStrength: 0.20,
+
+  // Particle size (render diameter in 3D world space)
+  particleSize: 4,
+
+  // Particle count (density for desktop and mobile screens)
+  particleCountDesktop: 1200,
+  particleCountMobile: 800,
+};
+
 export interface ParticleBackgroundProps {
   text?: string;
   count?: number;
-  color?: string;
+  particleCount?: number;
+
+  // Color customization
+  colorMode?: "gradient" | "single";
+  color?: string; // Shortcut for singleColor or legacy compatibility
+  singleColor?: string;
+  gradientStart?: string;
+  gradientEnd?: string;
+  gradientAngle?: number; // in degrees (e.g. 45 = top-right to bottom-left)
+  gradientSpread?: number;
+  dotGradientStrength?: number;
+
+  // Particle size, typography, positioning
   font?: string;
   scale?: number;
   size?: number;
+  particleSize?: number;
   yOffset?: number;
   className?: string;
 }
@@ -28,11 +82,19 @@ const vertexShader = /* glsl */ `
   uniform float uSphereRadius;
   uniform float uYOffset;
 
+  uniform float uUseGradient;
+  uniform vec3  uColorSingle;
+  uniform vec3  uColorStart;
+  uniform vec3  uColorEnd;
+  uniform vec2  uGradDir;
+  uniform float uGradSpread;
+
   attribute vec3  aSeed;     // random [0,1] per particle - drive unique drift
   attribute vec3  aTarget;   // shape or floater target in world units
   attribute float aFloater;  // 0.0 = forms {} shape, 1.0 = floats in background
 
   varying float vAlpha;
+  varying vec3  vColor;
 
   void main() {
     // ---- per-particle sinusoidal drift ----------------------------------
@@ -87,13 +149,22 @@ const vertexShader = /* glsl */ `
     p.z += force * 0.1;
 
     // ---- alpha ----------------------------------------------------------
-    // Solid, vibrant opacity in sphere (0.72) matching the brace shape (0.75)
-    float targetAlpha = mix(0.75, 0.38, aFloater);
-    vAlpha = mix(0.72, targetAlpha, local) + force * 0.20;
+    // Solid, vibrant opacity in sphere (0.85) matching the brace shape (0.88)
+    float targetAlpha = mix(0.88, 0.45, aFloater);
+    vAlpha = mix(0.85, targetAlpha, local) + force * 0.20;
 
     // ---- output ---------------------------------------------------------
     vec4 mv = modelViewMatrix * vec4(p, 1.0);
     gl_Position  = projectionMatrix * mv;
+
+    // ---- color calculation: single color vs directional gradient --------
+    vec2 ndc = gl_Position.xy / max(gl_Position.w, 0.001);
+    float proj = dot(ndc, uGradDir);
+    float gradT = clamp((proj / uGradSpread + 1.0) * 0.5, 0.0, 1.0);
+    gradT = smoothstep(0.0, 1.0, gradT);
+    vec3 gradColor = mix(uColorEnd, uColorStart, gradT);
+    vColor = mix(uColorSingle, gradColor, uUseGradient);
+
     // Balanced depth scaling so back particles do not shrink into faint specks
     float depthScale = mix(1.0, 6.0 / max(-mv.z, 0.1), 0.4);
     gl_PointSize = uSize * depthScale;
@@ -101,13 +172,33 @@ const vertexShader = /* glsl */ `
 `;
 
 const fragmentShader = /* glsl */ `
-  uniform vec3 uColor;
+  uniform float uUseGradient;
+  uniform vec3  uColorStart;
+  uniform vec3  uColorEnd;
+  uniform vec2  uGradDir;
+  uniform float uDotGradStrength;
+  varying vec3  vColor;
   varying float vAlpha;
 
   void main() {
-    // Round dots
-    if (length(gl_PointCoord - vec2(0.5)) > 0.5) discard;
-    gl_FragColor = vec4(uColor, vAlpha);
+    // Round dot with clean antialiased circular edge
+    vec2 coord = gl_PointCoord - vec2(0.5);
+    float dist = length(coord);
+    if (dist > 0.5) discard;
+    float edgeAlpha = smoothstep(0.5, 0.42, dist);
+
+    // Subtle internal directional micro-gradient within each dot
+    // In gl_PointCoord, y is 0 at top and 1 at bottom
+    vec2 dotNdc = vec2(gl_PointCoord.x - 0.5, 0.5 - gl_PointCoord.y) * 2.0;
+    float dotProj = dot(dotNdc, uGradDir);
+    float dotT = clamp((dotProj + 1.0) * 0.5, 0.0, 1.0);
+    vec3 dotGrad = mix(uColorEnd, uColorStart, dotT);
+
+    // Blend macro particle field color with micro dot gradient
+    float dotStrength = uDotGradStrength * uUseGradient;
+    vec3 finalColor = mix(vColor, dotGrad, dotStrength);
+
+    gl_FragColor = vec4(finalColor, vAlpha * edgeAlpha);
   }
 `;
 
@@ -271,7 +362,13 @@ interface ParticlesSceneProps {
   hoverRef: React.MutableRefObject<{ active: boolean; x: number; y: number }>;
   text: string;
   count: number;
-  color: string;
+  colorMode: "gradient" | "single";
+  singleColor: string;
+  gradientStart: string;
+  gradientEnd: string;
+  gradientAngle: number;
+  gradientSpread: number;
+  dotGradientStrength: number;
   font: string;
   scale: number;
   size: number;
@@ -282,7 +379,13 @@ function ParticlesScene({
   hoverRef,
   text,
   count,
-  color,
+  colorMode,
+  singleColor,
+  gradientStart,
+  gradientEnd,
+  gradientAngle,
+  gradientSpread,
+  dotGradientStrength,
   font,
   scale,
   size,
@@ -290,6 +393,38 @@ function ParticlesScene({
 }: ParticlesSceneProps) {
   const { viewport } = useThree();
   const pointsRef = useRef<THREE.Points>(null!);
+
+  const [isDark, setIsDark] = useState<boolean>(() => {
+    if (typeof document === "undefined") return true;
+    const attr = document.documentElement.getAttribute("data-theme");
+    if (attr) return attr === "dark";
+    if (document.documentElement.classList.contains("dark")) return true;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const checkTheme = () => {
+      const attr = document.documentElement.getAttribute("data-theme");
+      const dark = attr
+        ? attr === "dark"
+        : document.documentElement.classList.contains("dark") ||
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setIsDark(dark);
+    };
+    checkTheme();
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class", "data-theme"],
+    });
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    media.addEventListener("change", checkTheme);
+    return () => {
+      observer.disconnect();
+      media.removeEventListener("change", checkTheme);
+    };
+  }, []);
 
   // ---- build geometry once (or when count / text / font / scale changes) --
   const geometry = useMemo(() => {
@@ -336,35 +471,64 @@ function ParticlesScene({
   }, [count, text, font, scale, yOffset]);
 
   // ---- build material once -----------------------------------------------
-  const material = useMemo(
-    () =>
-      new THREE.ShaderMaterial({
-        uniforms: {
-          uTime: { value: 0 },
-          uMix: { value: 0 },
-          uMouse: { value: new THREE.Vector2(999, 999) },
-          uSpread: { value: new THREE.Vector3(10, 10, 3) },
-          uSphereRadius: { value: 2.25 },
-          uYOffset: { value: yOffset },
-          uSize: { value: size },
-          uColor: { value: new THREE.Color(color) },
-        },
-        vertexShader,
-        fragmentShader,
-        transparent: true,
-        depthWrite: false,
-        blending: THREE.AdditiveBlending,
-      }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
-  );
+  const material = useMemo(() => {
+    const rad = (gradientAngle * Math.PI) / 180;
+    return new THREE.ShaderMaterial({
+      uniforms: {
+        uTime: { value: 0 },
+        uMix: { value: 0 },
+        uMouse: { value: new THREE.Vector2(999, 999) },
+        uSpread: { value: new THREE.Vector3(10, 10, 3) },
+        uSphereRadius: { value: 2.25 },
+        uYOffset: { value: yOffset },
+        uSize: { value: size },
+        uUseGradient: { value: colorMode === "gradient" ? 1.0 : 0.0 },
+        uColorSingle: { value: new THREE.Color(singleColor) },
+        uColorStart: { value: new THREE.Color(gradientStart) },
+        uColorEnd: { value: new THREE.Color(gradientEnd) },
+        uGradDir: { value: new THREE.Vector2(Math.cos(rad), Math.sin(rad)) },
+        uGradSpread: { value: gradientSpread },
+        uDotGradStrength: { value: dotGradientStrength },
+      },
+      vertexShader,
+      fragmentShader,
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  // Keep size / color / yOffset in sync without rebuilding material
+  // Keep size / colors / gradient uniforms in sync without rebuilding material
   useEffect(() => {
     material.uniforms.uSize.value = size;
-    material.uniforms.uColor.value.set(color);
     material.uniforms.uYOffset.value = yOffset;
-  }, [size, color, yOffset, material]);
+    material.uniforms.uUseGradient.value = colorMode === "gradient" ? 1.0 : 0.0;
+    material.uniforms.uColorSingle.value.set(singleColor);
+    material.uniforms.uColorStart.value.set(gradientStart);
+    material.uniforms.uColorEnd.value.set(gradientEnd);
+    const rad = (gradientAngle * Math.PI) / 180;
+    material.uniforms.uGradDir.value.set(Math.cos(rad), Math.sin(rad));
+    material.uniforms.uGradSpread.value = gradientSpread;
+    material.uniforms.uDotGradStrength.value = dotGradientStrength;
+  }, [
+    size,
+    yOffset,
+    colorMode,
+    singleColor,
+    gradientStart,
+    gradientEnd,
+    gradientAngle,
+    gradientSpread,
+    dotGradientStrength,
+    material,
+  ]);
+
+  // Adjust blending to match theme elevation & contrast
+  useEffect(() => {
+    material.blending = isDark ? THREE.AdditiveBlending : THREE.NormalBlending;
+    material.needsUpdate = true;
+  }, [isDark, material]);
 
   // ---- re-sample after fonts load (better quality) -----------------------
   useEffect(() => {
@@ -455,10 +619,19 @@ function ParticlesScene({
 export default function ParticleBackground({
   text = "{}",
   count,
-  color = "#4d80ff",
+  particleCount,
+  colorMode = PARTICLE_CONFIG.colorMode,
+  color,
+  singleColor = PARTICLE_CONFIG.singleColor,
+  gradientStart = PARTICLE_CONFIG.gradientStart,
+  gradientEnd = PARTICLE_CONFIG.gradientEnd,
+  gradientAngle = PARTICLE_CONFIG.gradientAngle,
+  gradientSpread = PARTICLE_CONFIG.gradientSpread,
+  dotGradientStrength = PARTICLE_CONFIG.dotGradientStrength,
   font = "bold 220px Arial, sans-serif",
   scale = 50,
-  size = 3.8,
+  size,
+  particleSize,
   yOffset = 0,
   className = "",
 }: ParticleBackgroundProps) {
@@ -469,26 +642,38 @@ export default function ParticleBackground({
     y: 0,
   });
 
-  // Responsive particle count - reduced for clean, distinct particle definition
+  // If a single `color` shortcut prop is passed, treat as single color mode
+  const resolvedMode = color ? "single" : colorMode;
+  const resolvedSingle = color || singleColor;
+  const resolvedSize = size ?? particleSize ?? PARTICLE_CONFIG.particleSize;
+  const resolvedCountProp = count ?? particleCount;
+
+  // Responsive particle count - uses PARTICLE_CONFIG defaults or user override
   const [resolvedCount, setResolvedCount] = useState<number>(() => {
-    if (count !== undefined) return count;
+    if (resolvedCountProp !== undefined) return resolvedCountProp;
     if (typeof window !== "undefined") {
-      return window.innerWidth < 768 ? 800 : 2000;
+      return window.innerWidth < 768
+        ? PARTICLE_CONFIG.particleCountMobile
+        : PARTICLE_CONFIG.particleCountDesktop;
     }
-    return 2000;
+    return PARTICLE_CONFIG.particleCountDesktop;
   });
 
   useEffect(() => {
-    if (count !== undefined) {
-      setResolvedCount(count);
+    if (resolvedCountProp !== undefined) {
+      setResolvedCount(resolvedCountProp);
       return;
     }
     const onResize = () =>
-      setResolvedCount(window.innerWidth < 768 ? 800 : 2000);
+      setResolvedCount(
+        window.innerWidth < 768
+          ? PARTICLE_CONFIG.particleCountMobile
+          : PARTICLE_CONFIG.particleCountDesktop
+      );
     onResize();
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
-  }, [count]);
+  }, [resolvedCountProp]);
 
   // Attach pointer events to the PARENT of the wrapper div (the hero section),
   // not to the pointer-events-none canvas overlay.
@@ -539,10 +724,16 @@ export default function ParticleBackground({
           hoverRef={hoverRef}
           text={text}
           count={resolvedCount}
-          color={color}
+          colorMode={resolvedMode}
+          singleColor={resolvedSingle}
+          gradientStart={gradientStart}
+          gradientEnd={gradientEnd}
+          gradientAngle={gradientAngle}
+          gradientSpread={gradientSpread}
+          dotGradientStrength={dotGradientStrength}
           font={font}
           scale={scale}
-          size={size}
+          size={resolvedSize}
           yOffset={yOffset}
         />
       </Canvas>

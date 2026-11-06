@@ -127,7 +127,7 @@ Defined in `src/app/globals.css`:
 - **Secondary Buttons**: Borderless frosted glass `bg-dv-surface/40 hover:bg-dv-surface/65 backdrop-blur-md text-dv-text`.
 
 ### Corner Radius Standards
-- **Buttons & Interactive CTAs**: Use `rounded-full` (pill style). All clickable buttons, action triggers, and primary/secondary CTA links across the site use `rounded-full`. Hero buttons have generous padding (`py-3.5 sm:py-4 px-7 sm:px-8`), while navbar buttons use compact pill padding (`h-10 px-4.5` on desktop).
+- **Buttons & Interactive CTAs**: Use `rounded-full` (pill style). All clickable buttons, action triggers, and primary/secondary CTA links across the site use `rounded-full`. Hero buttons have thick vertical padding with snug horizontal padding (`py-3.5 sm:py-4 px-6 sm:px-7 gap-2.5 sm:gap-3`), while navbar buttons use compact pill padding (`h-10 px-4.5` on desktop).
 - **Cards & Media Boxes**: Use `rounded-lg` (8px / 0.5rem). Never leave card corners aggressively sharp (`rounded-none`, `rounded-[4px]`) or overly round (`rounded-2xl`, `rounded-full`). `rounded-lg` provides a modern, refined curvature without compromising the architectural look.
 - **Badges, Tags & Tech Pills**: Use `rounded-md` (6px) or `rounded-lg` (8px).
 - **Circular Indicators**: Status dots use `rounded-full`.
