@@ -41,7 +41,6 @@ export default function PricingFAQ() {
       inquiryDescription="Every project is unique. If our standard packages don't match your scope or timeline, we're happy to discuss your specific requirements and explore practical phases."
       buttonText="Discuss your project"
       buttonHref="/#contact"
-      bgVariant="card"
     />
   );
 }

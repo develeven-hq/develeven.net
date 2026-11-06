@@ -51,8 +51,8 @@ This file serves as the persistent source of truth for all AI agents working on 
 ### Full-Bleed Two-Tier Layout Pattern
 Every section must follow this two-tier container structure:
 ```tsx
-{/* 1. Outer Viewport Container: stretches 100vw, full-bleed background & border */}
-<section className="w-full bg-[#101211] border-b border-[#2A3029]">
+{/* 1. Outer Viewport Container: stretches 100vw, full-bleed background */}
+<section className="w-full bg-[#101211]">
   {/* 2. Inner Content Wrapper: standard Tailwind max-width with generous padding */}
   <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24">
     {/* Page content */}
@@ -60,7 +60,8 @@ Every section must follow this two-tier container structure:
 </section>
 ```
 
-- **No Hard Caps on Outer Containers**: Never apply `max-w-[...]` to the outer `<section>` or background wrapper. Background colors (`#101211`, `#191C19`, `#E8EDE1`, `#CEFF69`) and section borders must extend full-width without cutoff on ultrawide monitors.
+- **No Hard Caps on Outer Containers**: Never apply `max-w-[...]` to the outer `<section>` or background wrapper. Background colors (`#101211`, `#191C19`, `#E8EDE1`, `#CEFF69`) must extend full-width without cutoff on ultrawide monitors.
+- **No Top/Bottom Section Borders**: Sections must never use `border-t`, `border-b`, `border-y`, or outline rules. Separate adjacent sections through surface elevation contrast (`bg-dv-bg` vs `bg-dv-card`) and spacing alone. Borders remain allowed for internal dividers inside cards, lists, and content blocks, and for the fixed header and footer chrome.
 - **Inner Content Container**: Use standard Tailwind `max-w-8xl` (1440px / 90rem, configured via `--container-8xl: 90rem` in `@theme`), providing the ideal modern desktop middleground between 1280px and 1536px, centered with `mx-auto` and `px-6 sm:px-8 lg:px-16`.
 - **Fluid & Responsive Layouts**: Use fluid grids (`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3/4`) and flex layouts. Never use hardcoded pixel widths (`w-[760px]`, `w-[380px]`) that break mobile viewports or create horizontal scrollbars.
 

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import React from "react";
 import HeroSection from "@/components/sections/home/HeroSection";
-import ServicesBar from "@/components/sections/home/ServicesBar";
 import ServicesGrid from "@/components/sections/home/ServicesGrid";
 import WorkShowcase from "@/components/sections/home/WorkShowcase";
 import ApproachSection from "@/components/sections/home/ApproachSection";
@@ -21,7 +20,6 @@ export default function HomePage() {
   return (
     <div className="w-full flex flex-col items-center bg-dv-bg">
       <HeroSection />
-      <ServicesBar />
       <ServicesGrid />
       <WorkShowcase />
       <ApproachSection />

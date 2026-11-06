@@ -49,20 +49,13 @@ function StepCard({ step }: StepCardProps) {
   return (
     <div className="w-full h-full p-6 sm:p-8 lg:p-10 bg-dv-surface/80 rounded-lg flex flex-col justify-between gap-6 hover:bg-dv-surface transition-colors duration-200">
       <div className="flex flex-col gap-5">
-        {/* Top Header Row */}
-        <div className="w-full flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-md bg-zinc-700/60 flex items-center justify-center text-dv-lime shrink-0">
-              {step.icon}
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-dv-lime text-base sm:text-lg font-bold font-sans">
-                {step.number}
-              </span>
-            </div>
+        {/* Header Row */}
+        <div className="w-full flex items-center gap-3">
+          <div className="w-9 h-9 rounded-md bg-zinc-700/60 flex items-center justify-center text-dv-lime shrink-0">
+            {step.icon}
           </div>
-          <span className="px-3 py-1 rounded-md bg-zinc-700/60 text-zinc-200 text-xs sm:text-sm font-medium font-sans tracking-normal">
-            {step.deliverable}
+          <span className="text-dv-lime text-base sm:text-lg font-bold font-sans">
+            {step.number}
           </span>
         </div>
 
@@ -77,17 +70,10 @@ function StepCard({ step }: StepCardProps) {
         </p>
       </div>
 
-      {/* Bottom Timeline Milestone Indicator */}
-      <div className="w-full pt-4 border-t border-zinc-700/50 flex items-center justify-between">
-        <span className="text-dv-muted text-sm font-medium font-sans">
-          Phase {step.number} Milestone
-        </span>
-        <div className="flex items-center gap-1.5">
-          <span className="text-dv-lime text-sm font-medium font-sans">
-            Learn More
-          </span>
-        </div>
-      </div>
+      {/* Deliverable */}
+      <span className="w-full text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-normal leading-relaxed">
+        {step.deliverable}
+      </span>
     </div>
   );
 }
