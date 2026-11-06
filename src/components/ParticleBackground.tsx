@@ -41,7 +41,7 @@ export const PARTICLE_CONFIG = {
   particleSize: 4,
 
   // Particle count (density for desktop and mobile screens)
-  particleCountDesktop: 1200,
+  particleCountDesktop: 1500,
   particleCountMobile: 800,
 };
 
