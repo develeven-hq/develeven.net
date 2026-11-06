@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import ArrowIcon from "@/components/ui/ArrowIcon";
 import { MenuIcon, CloseIcon, BrandLogo } from "@/components/ui/Icons";
 import ThemeToggle from "@/components/ui/ThemeToggle";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 interface NavLinkItem {
   label: string;
@@ -165,8 +166,8 @@ export default function Navbar() {
             className="flex items-center gap-3 overflow-hidden group"
           >
             <BrandLogo
-              size={28}
-              className="w-6 h-6 sm:w-7 sm:h-7 shrink-0 transition-transform duration-200 group-hover:scale-105"
+              size={24}
+              className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 transition-transform duration-200 group-hover:scale-105"
             />
             <span className="text-dv-text text-xl font-medium font-sans tracking-tight">
               DevEleven
@@ -186,7 +187,7 @@ export default function Navbar() {
                   className={`text-base font-medium tracking-[0.24px] font-sans transition-colors ${
                     isActive
                       ? "text-dv-lime"
-                      : "text-dv-text hover:text-dv-lime"
+                      : "text-dv-lead hover:text-dv-text"
                   }`}
                 >
                   {link.label}
@@ -196,9 +197,10 @@ export default function Navbar() {
           </nav>
         </div>
 
-        {/* Desktop Actions (Theme Toggle + CTA Button) */}
+        {/* Desktop Actions (Theme Toggle + Language Switcher + CTA Button) */}
         <div className="hidden lg:flex items-center gap-3">
           <ThemeToggle />
+          <LanguageSwitcher />
           <Link
             href="/#contact"
             onClick={(e) => handleNavClick(e, "/#contact", "contact")}
@@ -211,13 +213,14 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Controls (Theme Toggle + CTA + Hamburger) */}
-        <div className="flex lg:hidden items-center gap-2 sm:gap-3">
+        {/* Mobile Controls (Theme Toggle + Language Switcher + CTA + Hamburger) */}
+        <div className="flex lg:hidden items-center gap-2 sm:gap-2.5">
           <ThemeToggle />
+          <LanguageSwitcher />
           <Link
             href="/#contact"
             onClick={(e) => handleNavClick(e, "/#contact", "contact")}
-            className="px-4 py-2 bg-dv-btn-primary-bg text-dv-btn-primary-text rounded-full flex items-center gap-2 hover:bg-dv-btn-primary-hover transition-colors cursor-pointer"
+            className="px-3.5 py-2 bg-dv-btn-primary-bg text-dv-btn-primary-text rounded-full flex items-center gap-1.5 hover:bg-dv-btn-primary-hover transition-colors cursor-pointer"
           >
             <span className="text-xs sm:text-sm font-medium font-sans">
               Talk
@@ -228,7 +231,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="w-10 h-10 rounded-full bg-dv-card flex items-center justify-center text-dv-text transition-colors cursor-pointer hover:bg-dv-surface border border-dv-border"
+            className="w-10 h-10 rounded-full bg-dv-card flex items-center justify-center text-dv-text transition-colors cursor-pointer hover:bg-dv-surface border border-dv-border shrink-0"
             aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMobileMenuOpen}
           >
@@ -250,7 +253,7 @@ export default function Navbar() {
             : "opacity-0 -translate-y-2 pointer-events-none"
         }`}
       >
-        <nav className="w-full flex flex-col px-6 sm:px-8 pt-4">
+        <nav className="w-full flex flex-col px-6 sm:px-8 pt-4 pb-8">
           {navLinks.map((link) => {
             const isPricing = link.href === "/pricing";
             const isActive = isPricing && pathname === "/pricing";
@@ -267,6 +270,12 @@ export default function Navbar() {
               </Link>
             );
           })}
+          <div className="w-full pt-4 mt-2 border-t border-dv-border flex items-center justify-between">
+            <span className="text-xs font-medium font-sans text-dv-muted tracking-wide">
+              Language
+            </span>
+            <LanguageSwitcher showLabelOnMobile />
+          </div>
         </nav>
       </div>
 

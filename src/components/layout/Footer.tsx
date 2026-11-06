@@ -2,9 +2,8 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import {
-  GlobeIcon,
-  ChevronDownIcon,
   LinkedInIcon,
   InstagramIcon,
   YouTubeIcon,
@@ -88,14 +87,10 @@ const socialLinks = [
   },
 ];
 
-const languages = ["English", "Deutsch", "Español", "Français", "日本語"];
-
 export default function Footer() {
   const [showSubscribeInput, setShowSubscribeInput] = useState(false);
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
-  const [langOpen, setLangOpen] = useState(false);
-  const [selectedLang, setSelectedLang] = useState("English");
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -300,46 +295,7 @@ export default function Footer() {
             </div>
 
             {/* Language Selector Button */}
-            <div className="relative">
-              <button
-                type="button"
-                onClick={() => setLangOpen(!langOpen)}
-                className="h-8 px-3 rounded-md bg-dv-card hover:bg-dv-surface border border-dv-border text-dv-text flex items-center gap-2 text-xs sm:text-sm font-medium font-sans transition-colors cursor-pointer"
-                aria-expanded={langOpen}
-                aria-label={`${selectedLang} - Select language`}
-              >
-                <GlobeIcon size={16} className="text-dv-text" />
-                <span>{selectedLang}</span>
-                <ChevronDownIcon
-                  size={16}
-                  className={`text-dv-text transition-transform duration-150 ${
-                    langOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              {langOpen && (
-                <div className="absolute right-0 bottom-full mb-2 w-36 py-1 bg-dv-card border border-dv-border rounded-md shadow-2xl z-50 flex flex-col overflow-hidden">
-                  {languages.map((lang) => (
-                    <button
-                      key={lang}
-                      type="button"
-                      onClick={() => {
-                        setSelectedLang(lang);
-                        setLangOpen(false);
-                      }}
-                      className={`px-3 py-1.5 text-xs sm:text-sm text-left font-sans transition-colors cursor-pointer ${
-                        selectedLang === lang
-                          ? "text-dv-lime bg-dv-surface font-medium"
-                          : "text-dv-text hover:bg-dv-surface"
-                      }`}
-                    >
-                      {lang}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+            <LanguageSwitcher direction="up" className="h-8 px-3 rounded-md" showLabelOnMobile />
           </div>
         </div>
       </div>
