@@ -5,39 +5,108 @@
   --font-mono: var(--font-mona-sans);
 }
 
+:root {
+  color-scheme: light;
+
+  /* DevEleven Light Theme Tokens (Default) */
+  --dv-bg: var(--color-zinc-100);
+  --dv-card: #ffffff;
+  --dv-surface: var(--color-zinc-100);
+  --dv-border: var(--color-zinc-200);
+  --dv-surface-border: var(--color-zinc-300);
+
+  --dv-text: var(--color-zinc-950);
+  --dv-muted: var(--color-zinc-600);
+  --dv-lead: var(--color-zinc-700);
+
+  --dv-lime: var(--color-sky-600);
+  --dv-lime-hover: var(--color-sky-700);
+
+  --dv-dark: #ffffff;
+  --dv-dark-hover: var(--color-zinc-100);
+
+  /* Primary Button Tokens: Dark in Light mode, White in Dark mode */
+  --dv-btn-primary-bg: var(--color-zinc-950);
+  --dv-btn-primary-hover: var(--color-zinc-800);
+  --dv-btn-primary-text: #ffffff;
+
+  /* Aliases for direct var(--color-dv-*) usage in inline styles or Icons */
+  --color-dv-bg: var(--dv-bg);
+  --color-dv-card: var(--dv-card);
+  --color-dv-surface: var(--dv-surface);
+  --color-dv-border: var(--dv-border);
+  --color-dv-surface-border: var(--dv-surface-border);
+  --color-dv-text: var(--dv-text);
+  --color-dv-muted: var(--dv-muted);
+  --color-dv-lead: var(--dv-lead);
+  --color-dv-lime: var(--dv-lime);
+  --color-dv-lime-hover: var(--dv-lime-hover);
+  --color-dv-dark: var(--dv-dark);
+  --color-dv-dark-hover: var(--dv-dark-hover);
+  --color-dv-btn-primary-bg: var(--dv-btn-primary-bg);
+  --color-dv-btn-primary-hover: var(--dv-btn-primary-hover);
+  --color-dv-btn-primary-text: var(--dv-btn-primary-text);
+}
+
+[data-theme="dark"],
+.dark {
+  color-scheme: dark;
+
+  /* DevEleven Dark Theme Tokens */
+  --dv-bg: var(--color-zinc-950);
+  --dv-card: var(--color-zinc-900);
+  --dv-surface: var(--color-zinc-800);
+  --dv-border: var(--color-zinc-800);
+  --dv-surface-border: var(--color-zinc-700);
+
+  --dv-text: var(--color-white);
+  --dv-muted: var(--color-zinc-400);
+  --dv-lead: var(--color-zinc-300);
+
+  --dv-lime: var(--color-sky-300);
+  --dv-lime-hover: var(--color-sky-200);
+
+  --dv-dark: var(--color-zinc-950);
+  --dv-dark-hover: var(--color-zinc-900);
+
+  /* Primary Button Tokens in Dark Mode: White with dark text */
+  --dv-btn-primary-bg: #ffffff;
+  --dv-btn-primary-hover: var(--color-zinc-200);
+  --dv-btn-primary-text: var(--color-zinc-950);
+}
+
 @theme {
   /* Layout & Container Standards */
   --container-8xl: 90rem; /* 1440px desktop standard middleground */
 
-  /* === DevEleven Design Tokens === */
+  /* DevEleven Theme Colors mapped to dynamic CSS properties */
+  --color-dv-bg: var(--dv-bg);
+  --color-dv-card: var(--dv-card);
+  --color-dv-surface: var(--dv-surface);
+  --color-dv-border: var(--dv-border);
+  --color-dv-surface-border: var(--dv-surface-border);
 
-  /* Dark Theme Surfaces */
-  --color-dv-bg: var(--color-zinc-950);            /* Page and dark section background */
-  --color-dv-card: var(--color-zinc-900);          /* Card and alternate section background */
-  --color-dv-surface: var(--color-zinc-800);       /* Elevated dark surface / secondary button bg */
-  --color-dv-border: var(--color-zinc-800);        /* Default borders, dividers, outlines */
-  --color-dv-surface-border: var(--color-zinc-700); /* Elevated surface dividers */
+  --color-dv-text: var(--dv-text);
+  --color-dv-muted: var(--dv-muted);
+  --color-dv-lead: var(--dv-lead);
 
-  /* Dark Theme Typography */
-  --color-dv-text: var(--color-white);          /* Primary headings and bold text */
-  --color-dv-muted: var(--color-zinc-400);         /* Secondary and muted body text */
-  --color-dv-lead: var(--color-zinc-300);          /* Lead paragraph and narrative text */
+  --color-dv-lime: var(--dv-lime);
+  --color-dv-lime-hover: var(--dv-lime-hover);
 
-  /* Primary Accent (Lime) */
-  --color-dv-lime: var(--color-sky-300);          /* Signature accent lime */
-  --color-dv-lime-hover: var(--color-sky-200);    /* Interactive hover state for lime */
+  --color-dv-dark: var(--dv-dark);
+  --color-dv-dark-hover: var(--dv-dark-hover);
 
-  /* Dark Elements (on Light & Lime backgrounds) */
-  --color-dv-dark: var(--color-zinc-950);          /* Charcoal text on lime & dark CTA button */
-  --color-dv-dark-hover: var(--color-zinc-900);    /* Hover state for dark CTA button */
+  --color-dv-btn-primary-bg: var(--dv-btn-primary-bg);
+  --color-dv-btn-primary-hover: var(--dv-btn-primary-hover);
+  --color-dv-btn-primary-text: var(--dv-btn-primary-text);
 
-  /* Light Theme Sections (WorkShowcase, PricingProcess) */
-  --color-dv-light-bg: var(--color-zinc-100);      /* Light section background */
-  --color-dv-light-text: var(--color-zinc-950);    /* Dark headings and primary text */
-  --color-dv-light-lead: var(--color-zinc-700);     /* Lead paragraph text on light background */
-  --color-dv-light-body: var(--color-zinc-800);    /* Description body text on light background */
-  --color-dv-light-label: var(--color-zinc-800);   /* Kicker and phase numbers on light background */
-  --color-dv-light-border: var(--color-red-300);  /* Dividers and borders on light background */
+  /* Light Theme Sections (legacy compat) */
+  --color-dv-light-bg: var(--color-zinc-100);
+  --color-dv-light-text: var(--color-zinc-950);
+  --color-dv-light-lead: var(--color-zinc-700);
+  --color-dv-light-body: var(--color-zinc-800);
+  --color-dv-light-label: var(--color-zinc-800);
+  --color-dv-light-border: var(--color-zinc-300);
 }
 
 * {

@@ -38,11 +38,11 @@ interface StepCardProps {
 
 function StepCard({ step }: StepCardProps) {
   return (
-    <div className="w-full h-full p-6 sm:p-8 lg:p-10 bg-dv-surface/80 rounded-lg flex flex-col justify-between gap-6 hover:bg-dv-surface transition-colors duration-200">
+    <div className="w-full h-full p-6 sm:p-8 lg:p-10 bg-dv-surface rounded-lg flex flex-col justify-between gap-6 hover:bg-dv-surface/90 transition-colors duration-200">
       <div className="flex flex-col gap-5">
         {/* Header Row */}
         <div className="w-full flex items-center gap-3">
-          <div className="w-9 h-9 rounded-md bg-zinc-700/60 flex items-center justify-center text-dv-lime shrink-0">
+          <div className="w-9 h-9 rounded-md bg-dv-border flex items-center justify-center text-dv-lime shrink-0">
             {step.icon}
           </div>
           <span className="text-dv-lime text-base sm:text-lg font-bold font-sans">
@@ -87,18 +87,18 @@ export default function PricingProcess() {
 
             {/* Horizontal Timeline Connector: 01 -> 02 */}
             <div className="absolute left-[calc(33.333%-0.5rem)] top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 lg:w-12 flex items-center justify-center z-20 pointer-events-none">
-              <svg viewBox="0 0 48 20" className="w-full overflow-visible" fill="none">
-                <circle cx="2" cy="10" r="3" fill="#4ade80" />
+              <svg viewBox="0 0 48 20" className="w-full overflow-visible text-dv-lime" fill="none">
+                <circle cx="2" cy="10" r="3" fill="currentColor" />
                 <line
                   x1="2"
                   y1="10"
                   x2="38"
                   y2="10"
-                  stroke="#4ade80"
+                  stroke="currentColor"
                   strokeWidth="2"
                   strokeDasharray="4 3"
                 />
-                <polygon points="36,6 46,10 36,14" fill="#4ade80" />
+                <polygon points="36,6 46,10 36,14" fill="currentColor" />
               </svg>
             </div>
 
@@ -107,18 +107,18 @@ export default function PricingProcess() {
 
             {/* Horizontal Timeline Connector: 02 -> 03 */}
             <div className="absolute left-[calc(66.667%+0.5rem)] top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 lg:w-12 flex items-center justify-center z-20 pointer-events-none">
-              <svg viewBox="0 0 48 20" className="w-full overflow-visible" fill="none">
-                <circle cx="2" cy="10" r="3" fill="#4ade80" />
+              <svg viewBox="0 0 48 20" className="w-full overflow-visible text-dv-lime" fill="none">
+                <circle cx="2" cy="10" r="3" fill="currentColor" />
                 <line
                   x1="2"
                   y1="10"
                   x2="38"
                   y2="10"
-                  stroke="#4ade80"
+                  stroke="currentColor"
                   strokeWidth="2"
                   strokeDasharray="4 3"
                 />
-                <polygon points="36,6 46,10 36,14" fill="#4ade80" />
+                <polygon points="36,6 46,10 36,14" fill="currentColor" />
               </svg>
             </div>
 
@@ -132,18 +132,18 @@ export default function PricingProcess() {
 
             {/* Mobile Connector: 01 -> 02 */}
             <div className="w-full flex justify-center items-center py-2 pointer-events-none">
-              <svg viewBox="0 0 20 40" className="w-5 h-8 overflow-visible" fill="none">
-                <circle cx="10" cy="2" r="3" fill="#4ade80" />
+              <svg viewBox="0 0 20 40" className="w-5 h-8 overflow-visible text-dv-lime" fill="none">
+                <circle cx="10" cy="2" r="3" fill="currentColor" />
                 <line
                   x1="10"
                   y1="2"
                   x2="10"
                   y2="30"
-                  stroke="#4ade80"
+                  stroke="currentColor"
                   strokeWidth="2"
                   strokeDasharray="4 3"
                 />
-                <polygon points="5,28 10,38 15,28" fill="#4ade80" />
+                <polygon points="5,28 10,38 15,28" fill="currentColor" />
               </svg>
             </div>
 
@@ -151,18 +151,18 @@ export default function PricingProcess() {
 
             {/* Mobile Connector: 02 -> 03 */}
             <div className="w-full flex justify-center items-center py-2 pointer-events-none">
-              <svg viewBox="0 0 20 40" className="w-5 h-8 overflow-visible" fill="none">
-                <circle cx="10" cy="2" r="3" fill="#4ade80" />
+              <svg viewBox="0 0 20 40" className="w-5 h-8 overflow-visible text-dv-lime" fill="none">
+                <circle cx="10" cy="2" r="3" fill="currentColor" />
                 <line
                   x1="10"
                   y1="2"
                   x2="10"
                   y2="30"
-                  stroke="#4ade80"
+                  stroke="currentColor"
                   strokeWidth="2"
                   strokeDasharray="4 3"
                 />
-                <polygon points="5,28 10,38 15,28" fill="#4ade80" />
+                <polygon points="5,28 10,38 15,28" fill="currentColor" />
               </svg>
             </div>
 

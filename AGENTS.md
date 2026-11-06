@@ -123,9 +123,12 @@ Defined in `src/app/globals.css`:
 - **Secondary / Muted Text**: `--color-dv-muted: var(--color-zinc-400)` (`text-dv-muted`)
 - **Lead Text**: `--color-dv-lead: var(--color-zinc-300)` (`text-dv-lead` for high-contrast narrative leads)
 - **Dark Accents (Text & Buttons)**: `--color-dv-dark: var(--color-zinc-950)` (`text-dv-dark`, `bg-dv-dark`), hover: `--color-dv-dark-hover: var(--color-zinc-900)` (`hover:bg-dv-dark-hover`)
+- **Primary Buttons (Theme-Inverting)**: `--dv-btn-primary-bg` (White `#ffffff` in dark mode, dark `zinc-950` in light mode), `--dv-btn-primary-text` (`zinc-950` in dark mode, `#ffffff` in light mode), hover: `--dv-btn-primary-hover` (`zinc-200` in dark mode, `zinc-800` in light mode).
+- **Secondary Buttons**: Borderless frosted glass `bg-dv-surface/40 hover:bg-dv-surface/65 backdrop-blur-md text-dv-text`.
 
 ### Corner Radius Standards
-- **Cards, Buttons & Media Boxes**: Use `rounded-lg` (8px / 0.5rem). Never leave corners aggressively sharp (`rounded-none`, `rounded-[4px]`) or overly round (`rounded-2xl`, `rounded-full`). `rounded-lg` provides a modern, refined curvature without compromising the architectural look.
+- **Buttons & Interactive CTAs**: Use `rounded-full` (pill style). All clickable buttons, action triggers, and primary/secondary CTA links across the site use `rounded-full`. Hero buttons have generous padding (`py-3.5 sm:py-4 px-7 sm:px-8`), while navbar buttons use compact pill padding (`h-10 px-4.5` on desktop).
+- **Cards & Media Boxes**: Use `rounded-lg` (8px / 0.5rem). Never leave card corners aggressively sharp (`rounded-none`, `rounded-[4px]`) or overly round (`rounded-2xl`, `rounded-full`). `rounded-lg` provides a modern, refined curvature without compromising the architectural look.
 - **Badges, Tags & Tech Pills**: Use `rounded-md` (6px) or `rounded-lg` (8px).
 - **Circular Indicators**: Status dots use `rounded-full`.
 
@@ -138,7 +141,7 @@ Defined in `src/app/globals.css`:
   - Automatically hides when scrolling down past 80px (`-translate-y-full`).
   - Smoothly reveals when scrolling back up anywhere on the page using accumulated delta or when at the top of the page (`translate-y-0`).
   - Remains visible whenever the mobile menu drawer is open.
-  - Backdrop blur with subtle border: `bg-dv-bg/95 backdrop-blur-md border-b border-dv-border`.
+  - Backdrop blur: `bg-dv-bg/40 backdrop-blur-md` (borderless frosted glass).
 - **Mobile Menu Drawer**:
   - Full-featured mobile drawer on `<lg` screens (`fixed inset-x-0 top-20 bottom-0`).
   - Backdrop blur: `bg-dv-bg/98 backdrop-blur-md border-t border-dv-border`.

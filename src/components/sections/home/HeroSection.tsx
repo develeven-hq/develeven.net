@@ -1,6 +1,14 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import Button from "@/components/ui/Button";
+
+const ParticleBackground = dynamic(
+  () => import("@/components/ParticleBackground"),
+  { ssr: false }
+);
 
 const stats = [
   {
@@ -27,8 +35,9 @@ const stats = [
 
 export default function HeroSection() {
   return (
-    <section className="w-full bg-dv-bg">
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-16 flex flex-col gap-14 lg:gap-16 overflow-hidden">
+    <section className="relative w-full bg-dv-bg overflow-hidden">
+      <ParticleBackground />
+      <div className="relative z-10 w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-16 flex flex-col gap-14 lg:gap-16">
         {/* Hero Row */}
         <div className="w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
           {/* Left Column */}
@@ -38,11 +47,11 @@ export default function HeroSection() {
             </span>
 
             <h1 className="w-full text-dv-text text-6xl lg:text-7xl font-medium font-sans leading-[1.02] tracking-tight pb-2">
-              Ambitious ideas.
+              Ambitious ideas
               <br />
               Precisely
               <br />
-              engineered.
+              engineered
             </h1>
 
             <div className="w-full max-w-xl flex flex-col items-start">

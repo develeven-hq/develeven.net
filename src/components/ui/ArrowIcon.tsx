@@ -14,7 +14,7 @@ export default function ArrowIcon({
 }: ArrowIconProps) {
   const strokeColor =
     color === "dark"
-      ? "var(--color-dv-dark)"
+      ? "var(--color-dv-btn-primary-text)"
       : color === "light"
         ? "var(--color-dv-text)"
         : color === "dim"

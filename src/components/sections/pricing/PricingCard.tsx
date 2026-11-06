@@ -63,9 +63,9 @@ export default function PricingCard({
         {/* Bottom CTA Button */}
         <Link
           href="/#contact"
-          className={`w-full h-12 mt-2 px-5 rounded-lg flex items-center justify-between transition-colors group cursor-pointer ${featured
-            ? "bg-dv-lime text-dv-dark hover:bg-dv-lime-hover font-semibold"
-            : "bg-dv-surface hover:bg-dv-surface/80 text-dv-text hover:outline-dv-muted font-medium"
+          className={`w-full mt-2 py-3 px-6 rounded-full flex items-center justify-between transition-colors group cursor-pointer ${featured
+            ? "bg-dv-btn-primary-bg text-dv-btn-primary-text hover:bg-dv-btn-primary-hover font-semibold"
+            : "bg-dv-surface hover:bg-dv-surface/80 text-dv-text font-medium"
             }`}
         >
           <span className="text-sm font-sans tracking-normal">

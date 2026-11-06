@@ -21,7 +21,7 @@ export default function PartnershipBanner() {
 
         <Link
           href="/#contact"
-          className="h-14 px-7 rounded-lg bg-dv-lime text-dv-dark hover:bg-dv-lime-hover flex items-center justify-between gap-4 transition-colors group cursor-pointer shrink-0"
+          className="px-7 py-3 rounded-full bg-dv-btn-primary-bg text-dv-btn-primary-text hover:bg-dv-btn-primary-hover flex items-center justify-between gap-4 transition-colors group cursor-pointer shrink-0"
         >
           <span className="text-sm sm:text-base font-medium font-sans">
             Discuss a partnership

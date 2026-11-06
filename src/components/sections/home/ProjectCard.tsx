@@ -42,10 +42,10 @@ export default function ProjectCard({
   return (
     <Link
       href={href}
-      className="w-full flex flex-col h-full bg-dv-surface/80 rounded-lg overflow-hidden group cursor-pointer transition-colors duration-300 hover:bg-zinc-800"
+      className="w-full flex flex-col h-full bg-dv-surface rounded-lg overflow-hidden group cursor-pointer transition-colors duration-300 hover:bg-dv-surface/90"
     >
       {/* Clean Media Presentation Frame */}
-      <div className="w-full relative aspect-16/10 sm:aspect-video bg-zinc-900 overflow-hidden">
+      <div className="w-full relative aspect-16/10 sm:aspect-video bg-dv-card overflow-hidden">
         <Image
           src={imageSrc}
           alt={imageAlt}
@@ -68,10 +68,10 @@ export default function ProjectCard({
               )}
               <span>{title}</span>
             </h3>
-            <div className="w-8 h-8 rounded-md bg-zinc-700/50 flex items-center justify-center shrink-0 group-hover:bg-dv-lime group-hover:text-dv-dark transition-all">
+            <div className="w-8 h-8 rounded-md bg-dv-border flex items-center justify-center shrink-0 group-hover:bg-dv-lime group-hover:text-dv-dark transition-all">
               <ArrowUpRight
                 size={18}
-                className="text-zinc-200 group-hover:text-dv-dark group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                className="text-dv-text group-hover:text-dv-dark group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
               />
             </div>
           </div>
@@ -113,7 +113,7 @@ export default function ProjectCard({
                 {/* Floating tooltip */}
                 <span
                   aria-hidden="true"
-                  className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-zinc-950 text-zinc-100 text-xs font-medium font-sans rounded opacity-0 group-hover/tech:opacity-100 transition-opacity duration-150 whitespace-nowrap shadow-md z-10"
+                  className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-dv-text text-dv-bg text-xs font-medium font-sans rounded opacity-0 group-hover/tech:opacity-100 transition-opacity duration-150 whitespace-nowrap shadow-md z-10"
                 >
                   {tech.name}
                 </span>
@@ -125,7 +125,7 @@ export default function ProjectCard({
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="px-2.5 py-1 rounded-md bg-zinc-700/70 text-zinc-100 text-xs font-medium font-sans tracking-wide"
+                className="px-2.5 py-1 rounded-md bg-dv-border text-dv-text text-xs font-medium font-sans tracking-wide"
               >
                 {tag}
               </span>
