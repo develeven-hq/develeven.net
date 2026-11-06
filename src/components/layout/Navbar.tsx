@@ -5,7 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import ArrowIcon from "@/components/ui/ArrowIcon";
-import { MenuIcon, CloseIcon } from "@/components/ui/Icons";
+import { MenuIcon, CloseIcon, BrandLogo } from "@/components/ui/Icons";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 interface NavLinkItem {
   label: string;
@@ -150,11 +151,11 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`w-full fixed top-0 left-0 right-0 z-50 bg-dv-bg/90 backdrop-blur-xl border-b border-dv-border/60 transition-transform duration-300 ease-in-out ${
+        className={`w-full fixed top-0 left-0 right-0 z-50 bg-dv-bg/40 backdrop-blur-md transition-transform duration-300 ease-in-out ${
           isVisible || isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-      <div className="w-full max-w-8xl mx-auto h-20 lg:h-20 px-6 sm:px-8 lg:px-16 flex justify-between items-center">
+      <div className="w-full max-w-8xl mx-auto h-18 lg:h-18 px-6 sm:px-8 lg:px-16 flex justify-between items-center">
         {/* Left container: Brand Logo & Desktop Navigation */}
         <div className="flex items-center gap-8 xl:gap-12">
           {/* Logo */}
@@ -163,13 +164,9 @@ export default function Navbar() {
             onClick={(e) => handleNavClick(e, "/")}
             className="flex items-center gap-3 overflow-hidden group"
           >
-            <Image
-              src="/E%20Cyan%2045%20Degree.svg"
-              alt="DevEleven logo"
-              width={28}
-              height={28}
-              priority
-              className="w-6 h-6 sm:w-7 sm:h-7 shrink-0 object-contain transition-transform duration-200 group-hover:scale-105"
+            <BrandLogo
+              size={28}
+              className="w-6 h-6 sm:w-7 sm:h-7 shrink-0 transition-transform duration-200 group-hover:scale-105"
             />
             <span className="text-dv-text text-xl font-medium font-sans tracking-tight">
               DevEleven
@@ -199,26 +196,30 @@ export default function Navbar() {
           </nav>
         </div>
 
-        {/* Desktop CTA Button */}
-        <Link
-          href="/#contact"
-          onClick={(e) => handleNavClick(e, "/#contact", "contact")}
-          className="hidden lg:flex h-12 px-6 bg-dv-lime rounded-lg items-center gap-6 overflow-hidden hover:bg-dv-lime-hover transition-colors group cursor-pointer"
-        >
-          <span className="text-dv-dark text-sm sm:text-base font-medium font-sans">
-            Let's talk
-          </span>
-          <ArrowIcon color="dark" />
-        </Link>
-
-        {/* Mobile Controls (CTA + Hamburger) */}
-        <div className="flex lg:hidden items-center gap-3">
+        {/* Desktop Actions (Theme Toggle + CTA Button) */}
+        <div className="hidden lg:flex items-center gap-3">
+          <ThemeToggle />
           <Link
             href="/#contact"
             onClick={(e) => handleNavClick(e, "/#contact", "contact")}
-            className="h-10 px-4 bg-dv-lime rounded-lg flex items-center gap-2 hover:bg-dv-lime-hover transition-colors cursor-pointer"
+            className="h-10 px-4.5 bg-dv-btn-primary-bg text-dv-btn-primary-text rounded-full flex items-center gap-2.5 overflow-hidden hover:bg-dv-btn-primary-hover transition-colors group cursor-pointer"
           >
-            <span className="text-dv-dark text-xs sm:text-sm font-medium font-sans">
+            <span className="text-sm font-medium font-sans">
+              Let's talk
+            </span>
+            <ArrowIcon color="dark" size="md" />
+          </Link>
+        </div>
+
+        {/* Mobile Controls (Theme Toggle + CTA + Hamburger) */}
+        <div className="flex lg:hidden items-center gap-2 sm:gap-3">
+          <ThemeToggle />
+          <Link
+            href="/#contact"
+            onClick={(e) => handleNavClick(e, "/#contact", "contact")}
+            className="px-4 py-2 bg-dv-btn-primary-bg text-dv-btn-primary-text rounded-full flex items-center gap-2 hover:bg-dv-btn-primary-hover transition-colors cursor-pointer"
+          >
+            <span className="text-xs sm:text-sm font-medium font-sans">
               Talk
             </span>
             <ArrowIcon color="dark" size="md" />
@@ -227,7 +228,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="w-10 h-10 rounded-lg bg-dv-card flex items-center justify-center text-dv-text transition-colors cursor-pointer hover:bg-dv-surface"
+            className="w-10 h-10 rounded-full bg-dv-card flex items-center justify-center text-dv-text transition-colors cursor-pointer hover:bg-dv-surface border border-dv-border"
             aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMobileMenuOpen}
           >

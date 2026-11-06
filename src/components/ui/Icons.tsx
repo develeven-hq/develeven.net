@@ -28,6 +28,8 @@ import {
   Users,
   TrendingUp,
   AppWindow,
+  Sun as LucideSun,
+  Moon as LucideMoon,
 } from "lucide-react";
 
 interface IconProps {
@@ -719,5 +721,44 @@ export function getProjectTypeIcon(
   }
   return null;
 }
+
+/** Sun Icon for theme toggle (switch to light mode) */
+export function SunIcon({
+  className = "",
+  size = 18,
+  color = "currentColor",
+  strokeWidth = 1.5,
+}: IconProps) {
+  return (
+    <LucideSun
+      size={size}
+      color={color}
+      strokeWidth={strokeWidth}
+      className={`shrink-0 ${className}`}
+    />
+  );
+}
+
+/** Moon Icon for theme toggle (switch to dark mode) */
+export function MoonIcon({
+  className = "",
+  size = 18,
+  color = "currentColor",
+  strokeWidth = 1.5,
+}: IconProps) {
+  return (
+    <LucideMoon
+      size={size}
+      color={color}
+      strokeWidth={strokeWidth}
+      className={`shrink-0 ${className}`}
+    />
+  );
+}
+
+export { default as BrandLogo } from "./BrandLogo";
+export type { BrandLogoProps } from "./BrandLogo";
+
+
 
 

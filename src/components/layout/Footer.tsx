@@ -12,6 +12,7 @@ import {
   TikTokIcon,
   TwitchIcon,
   GitHubIcon,
+  BrandLogo,
 } from "@/components/ui/Icons";
 
 const serviceLinks = [
@@ -130,12 +131,12 @@ export default function Footer() {
             <button
               type="button"
               onClick={() => setShowSubscribeInput(true)}
-              className="mt-1 px-5 py-2.5 bg-dv-lime hover:bg-dv-lime-hover text-dv-dark font-medium text-sm sm:text-base font-sans rounded-lg transition-colors cursor-pointer"
+              className="mt-1 px-6 py-2.5 inline-flex items-center justify-center bg-dv-btn-primary-bg hover:bg-dv-btn-primary-hover text-dv-btn-primary-text font-medium text-sm sm:text-base font-sans rounded-full transition-colors cursor-pointer"
             >
               Subscribe
             </button>
           ) : subscribed ? (
-            <div className="mt-1 px-4 py-2 bg-dv-card border border-dv-lime/40 text-dv-lime text-sm sm:text-base font-medium font-sans rounded-lg flex items-center gap-2">
+            <div className="mt-1 px-5 py-2.5 bg-dv-card border border-dv-lime/40 text-dv-lime text-sm sm:text-base font-medium font-sans rounded-full inline-flex items-center gap-2">
               <span>✓ You&apos;re subscribed to the newsletter!</span>
             </div>
           ) : (
@@ -149,11 +150,11 @@ export default function Footer() {
                 placeholder="Enter your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 h-11 px-3.5 rounded-lg bg-dv-card border border-dv-border text-dv-text placeholder:text-dv-muted text-sm sm:text-base font-sans focus:outline-none focus:border-dv-lime transition-colors"
+                className="flex-1 px-4 py-2.5 rounded-full bg-dv-card border border-dv-border text-dv-text placeholder:text-dv-muted text-sm sm:text-base font-sans focus:outline-none focus:border-dv-lime transition-colors"
               />
               <button
                 type="submit"
-                className="h-11 px-5 bg-dv-lime hover:bg-dv-lime-hover text-dv-dark font-medium text-sm sm:text-base font-sans rounded-lg transition-colors cursor-pointer shrink-0"
+                className="px-6 py-2.5 bg-dv-btn-primary-bg hover:bg-dv-btn-primary-hover text-dv-btn-primary-text font-medium text-sm sm:text-base font-sans rounded-full transition-colors cursor-pointer shrink-0 inline-flex items-center justify-center"
               >
                 Subscribe
               </button>
@@ -244,7 +245,13 @@ export default function Footer() {
         <div className="w-full pt-8 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 border-t border-dv-border/40">
           {/* Left: Copyright & Legal */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-dv-muted text-xs sm:text-sm font-medium font-sans">
-            <span>© 2026 DevEleven, Inc.</span>
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-dv-muted hover:text-dv-text transition-colors group"
+            >
+              <BrandLogo size={18} className="w-4.5 h-4.5 transition-transform group-hover:scale-105" />
+              <span>© 2026 DevEleven, Inc.</span>
+            </Link>
             <Link
               href="/terms"
               className="hover:text-dv-text transition-colors"
@@ -284,7 +291,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={item.label}
-                    className="hover:text-[#f0f6fc] transition-colors p-0.5 flex items-center justify-center"
+                    className="hover:text-dv-text transition-colors p-0.5 flex items-center justify-center"
                   >
                     <IconComponent size={item.size} />
                   </a>
@@ -297,22 +304,22 @@ export default function Footer() {
               <button
                 type="button"
                 onClick={() => setLangOpen(!langOpen)}
-                className="h-8 px-3 rounded-md bg-[#21262d] hover:bg-[#30363d] border border-[rgba(240,246,252,0.1)] text-[#f0f6fc] flex items-center gap-2 text-xs sm:text-sm font-medium font-sans transition-colors cursor-pointer"
+                className="h-8 px-3 rounded-md bg-dv-card hover:bg-dv-surface border border-dv-border text-dv-text flex items-center gap-2 text-xs sm:text-sm font-medium font-sans transition-colors cursor-pointer"
                 aria-expanded={langOpen}
                 aria-label={`${selectedLang} - Select language`}
               >
-                <GlobeIcon size={16} className="text-[#f0f6fc]" />
+                <GlobeIcon size={16} className="text-dv-text" />
                 <span>{selectedLang}</span>
                 <ChevronDownIcon
                   size={16}
-                  className={`text-[#f0f6fc] transition-transform duration-150 ${
+                  className={`text-dv-text transition-transform duration-150 ${
                     langOpen ? "rotate-180" : ""
                   }`}
                 />
               </button>
 
               {langOpen && (
-                <div className="absolute right-0 bottom-full mb-2 w-36 py-1 bg-[#21262d] border border-[#30363d] rounded-md shadow-2xl z-50 flex flex-col overflow-hidden">
+                <div className="absolute right-0 bottom-full mb-2 w-36 py-1 bg-dv-card border border-dv-border rounded-md shadow-2xl z-50 flex flex-col overflow-hidden">
                   {languages.map((lang) => (
                     <button
                       key={lang}
@@ -323,8 +330,8 @@ export default function Footer() {
                       }}
                       className={`px-3 py-1.5 text-xs sm:text-sm text-left font-sans transition-colors cursor-pointer ${
                         selectedLang === lang
-                          ? "text-dv-lime bg-[#30363d] font-medium"
-                          : "text-[#f0f6fc] hover:bg-[#30363d]"
+                          ? "text-dv-lime bg-dv-surface font-medium"
+                          : "text-dv-text hover:bg-dv-surface"
                       }`}
                     >
                       {lang}

@@ -15,7 +15,7 @@ export default function CTABanner({
   headline,
   headlineSize = "8xl",
   description,
-  buttonHeight = "h-14",
+  buttonHeight = "",
   buttonText = "Discuss your project",
   ctaHref = "/#contact",
 }: CTABannerProps) {
@@ -43,9 +43,9 @@ export default function CTABanner({
 
             <a
               href={ctaHref}
-              className={`w-full ${buttonHeight} px-6 rounded-lg bg-dv-dark flex items-center justify-between overflow-hidden hover:bg-dv-dark-hover transition-colors group cursor-pointer`}
+              className={`w-full py-3.5 px-7 rounded-full bg-dv-dark flex items-center justify-between overflow-hidden hover:bg-dv-dark-hover transition-colors group cursor-pointer ${buttonHeight}`}
             >
-              <span className="text-dv-text text-sm font-semibold font-sans">
+              <span className="text-dv-text text-sm sm:text-base font-semibold font-sans">
                 {buttonText}
               </span>
               <ArrowIcon

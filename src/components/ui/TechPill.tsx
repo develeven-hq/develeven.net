@@ -44,7 +44,7 @@ export default function TechPill({
         <div
           role="img"
           aria-label={displayName}
-          className="px-3 py-1.5 rounded-lg bg-dv-surface hover:bg-zinc-700 transition-colors flex items-center gap-2 cursor-default select-none"
+          className="px-3 py-1.5 rounded-lg bg-dv-surface hover:bg-dv-border transition-colors flex items-center gap-2 cursor-default select-none"
         >
           <span className="flex items-center justify-center shrink-0">
             {renderIcon()}
@@ -71,7 +71,7 @@ export default function TechPill({
         {/* Clean floating tooltip on hover */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-zinc-950 text-zinc-100 text-xs font-medium font-sans rounded opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-150 whitespace-nowrap shadow-xl z-20"
+          className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-dv-text text-dv-bg text-xs font-medium font-sans rounded opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-150 whitespace-nowrap shadow-xl z-20"
         >
           {displayName}
         </span>

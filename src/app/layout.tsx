@@ -28,8 +28,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={monaSans.variable}
     >
+      <head>
+        <meta name="color-scheme" content="light dark" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");var theme=t==="dark"?"dark":"light";document.documentElement.setAttribute("data-theme",theme);if(theme==="dark"){document.documentElement.classList.add("dark");}else{document.documentElement.classList.remove("dark");}var m=document.querySelector('meta[name="color-scheme"]');if(m)m.content=theme;}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className="bg-dv-bg text-dv-text antialiased min-h-screen flex flex-col font-sans">
         <Navbar />
         <main className="flex-1 flex flex-col items-center w-full">

@@ -67,8 +67,8 @@ export default function FAQSection({
     ? "border-dv-surface-border"
     : "border-dv-border";
   const toggleBg = isCardVariant
-    ? "bg-zinc-700 group-hover:bg-zinc-600"
-    : "bg-dv-surface group-hover:bg-zinc-700";
+    ? "bg-dv-border group-hover:bg-dv-surface-border"
+    : "bg-dv-surface group-hover:bg-dv-border";
 
   return (
     <section id={id} className={`w-full ${sectionBg}`}>
