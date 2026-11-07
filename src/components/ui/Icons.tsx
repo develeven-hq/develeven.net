@@ -30,6 +30,7 @@ import {
   AppWindow,
   Sun as LucideSun,
   Moon as LucideMoon,
+  Loader,
 } from "lucide-react";
 
 interface IconProps {
@@ -748,6 +749,23 @@ export function MoonIcon({
 }: IconProps) {
   return (
     <LucideMoon
+      size={size}
+      color={color}
+      strokeWidth={strokeWidth}
+      className={`shrink-0 ${className}`}
+    />
+  );
+}
+
+/** Radial loader icon for submitted / generating prompt states */
+export function SpinnerIcon({
+  className = "",
+  size = 18,
+  color = "currentColor",
+  strokeWidth = 1.5,
+}: IconProps) {
+  return (
+    <Loader
       size={size}
       color={color}
       strokeWidth={strokeWidth}

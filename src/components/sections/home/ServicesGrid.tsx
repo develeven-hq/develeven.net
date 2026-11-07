@@ -1,5 +1,40 @@
 import React from "react";
 import Image from "next/image";
+import Button from "@/components/ui/Button";
+import {
+  WebDevIcon,
+  CustomSoftwareIcon,
+  GameDevIcon,
+  MaintenanceIcon,
+  SpinnerIcon,
+} from "@/components/ui/Icons";
+
+const BOTTOM_SERVICES = [
+  {
+    icon: <WebDevIcon size={24} />,
+    label: "Website development",
+    description:
+      "Fast, accessible websites and web apps built for performance, search, and scale.",
+  },
+  {
+    icon: <CustomSoftwareIcon size={24} />,
+    label: "Custom software",
+    description:
+      "Purpose-built tools, client platforms, and SaaS products tailored to how you operate.",
+  },
+  {
+    icon: <GameDevIcon size={24} />,
+    label: "Game development",
+    description:
+      "Compelling worlds, responsive mechanics, and solid technical foundations from prototype to release.",
+  },
+  {
+    icon: <MaintenanceIcon size={24} />,
+    label: "Website maintenance",
+    description:
+      "Proactive security, uptime monitoring, and continuous updates without the technical overhead.",
+  },
+];
 
 export default function ServicesGrid() {
   return (
@@ -14,92 +49,113 @@ export default function ServicesGrid() {
         <div className="w-full flex flex-col gap-4">
           {/* Row 1: Two Columns (Cards) */}
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-            {/* Card 1: AI-Driven Development with Terminal Mockup */}
-            <div className="w-full relative min-h-128 sm:min-h-144 bg-dv-card rounded-2xl overflow-hidden flex flex-col justify-between">
-              {/* Abstract cyan background image */}
+            {/* Card 1: AI-Driven Development with Antigravity Screenshot */}
+            <div className="w-full relative min-h-112 sm:min-h-128 lg:min-h-136 bg-dv-card rounded-2xl overflow-hidden flex flex-col justify-between">
+              {/* Abstract cyan background image - darkened via image filter, no dark div overlay */}
               <Image
                 src="/images/abstract-cyan.jpg"
                 alt="Abstract background"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
+                className="object-cover brightness-50 contrast-125"
               />
 
-              {/* Gradient scrim for depth and text legibility */}
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-950/40 to-transparent pointer-events-none" />
+              {/* Procedural grain / noise texture overlay */}
+              <div
+                className="absolute inset-0 pointer-events-none opacity-35 mix-blend-overlay"
+                style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+                }}
+              />
 
-              {/* Floating Terminal Window (Simplified, minimal contents) */}
-              <div className="relative z-10 -mt-6 sm:-mt-8 ml-5 sm:ml-7 w-[130%] sm:w-[140%] min-w-[500px] rounded-bl-2xl border-l border-b border-zinc-700/60 bg-zinc-950/92 backdrop-blur-md shadow-2xl p-6 sm:p-7 mb-6 sm:mb-8 flex flex-col justify-between gap-6">
-                {/* Terminal Chrome Bar */}
-                <div className="flex items-center justify-between pb-3 border-b border-zinc-800/80">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs text-zinc-300 font-medium font-sans">
-                      Google Antigravity
-                    </span>
-                    <span className="text-zinc-600 font-sans">·</span>
-                    <span className="px-2 py-0.5 rounded text-xs font-sans font-medium bg-dv-lime/10 text-dv-lime border border-dv-lime/20">
-                      gemini-argon
-                    </span>
-                  </div>
-                </div>
-
-                {/* Clean Terminal Session Body */}
-                <div className="flex flex-col gap-2.5 font-sans text-xs sm:text-sm text-zinc-400">
-                  <div className="flex items-center gap-2 text-zinc-500">
-                    <span className="text-dv-lime font-medium">$</span>
-                    <span className="text-zinc-300">agy --model gemini-argon</span>
-                  </div>
-                  <p className="text-zinc-400 leading-relaxed max-w-md">
-                    Workspace connected. Deep-thinking agent active with verified toolchain access.
+              {/* Solid floating window container - soft off-white light theme */}
+              <div className="relative z-10 -mt-6 sm:-mt-8 ml-5 sm:ml-7 w-[120%] sm:w-[130%] min-h-72 sm:min-h-88 lg:min-h-96 mb-12 sm:mb-16 lg:mb-20 rounded-bl-2xl border-l border-b border-zinc-300/80 bg-zinc-100 shadow-2xl p-5 sm:p-6 pt-9 sm:pt-11 flex flex-col justify-between overflow-hidden text-zinc-950">
+                {/* Streaming AI Response */}
+                <div className="flex-1 flex flex-col justify-start gap-2.5 sm:gap-3 mb-4 sm:mb-5">
+                  {/* Thinking process in text */}
+                  <p className="text-zinc-500 text-xs sm:text-sm font-sans leading-relaxed">
+                    Thinking Process: Analyzing pipeline architecture and verification gates...
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400/90 text-xs sm:text-sm">
-                    <span>✓</span>
-                    <span>System ready for instruction</span>
+
+                  {/* Streaming message text */}
+                  <div className="space-y-2 text-xs sm:text-sm text-zinc-800 font-sans leading-relaxed">
+                    <p className="font-medium text-zinc-950">
+                      I will configure the autonomous agent pipeline with verified release workflows:
+                    </p>
+
+                    <div className="space-y-1.5 pl-3 border-l-2 border-zinc-300 text-zinc-700">
+                      <p>
+                        <span className="font-semibold text-zinc-950">1. Workspace Sandboxing:</span> Spin up hermetic branches with strict dependency pinning.
+                      </p>
+                      <p>
+                        <span className="font-semibold text-zinc-950">2. Verification Matrix:</span> Run automated type checks, unit coverage, and regression gates.
+                      </p>
+                      <p>
+                        <span className="font-semibold text-zinc-950">3. Release Workflow:</span> Enforce continuous telemetry and automated rollbac
+                        <span className="inline-block w-1.5 h-3.5 ml-1 bg-zinc-900 align-middle animate-pulse" />
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                {/* Prompt Input Box (Ready to send, not sent yet) */}
-                <div className="max-w-md sm:max-w-lg flex items-center justify-between gap-3 p-3 bg-zinc-900/95 rounded-xl border border-zinc-700/60 shadow-inner">
-                  <div className="flex items-center gap-2 min-w-0 flex-1">
-                    <span className="text-dv-lime font-medium text-xs sm:text-sm shrink-0">&gt;</span>
-                    <span className="text-zinc-100 text-xs sm:text-sm font-sans truncate">
-                      Build autonomous agent workflow for production release
+                {/* Imitation Prompt Input Bar */}
+                <div className="w-full max-w-md sm:max-w-lg flex items-center gap-2">
+                  <div className="flex-1 min-w-0 flex items-center gap-2 px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-white border border-zinc-300">
+                    <span className="text-zinc-800 font-sans text-xs sm:text-sm truncate font-normal">
+                      Build autonomous agent pipeline with verified release workflows...
                     </span>
-                    <span className="inline-block w-1.5 h-4 bg-dv-lime animate-pulse shrink-0" />
                   </div>
-                  <div className="shrink-0 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-zinc-800 border border-zinc-700/60 text-zinc-300 text-xs font-sans">
-                    <span>Send</span>
-                    <span className="text-xs">↵</span>
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white border border-zinc-300 flex items-center justify-center text-zinc-700 shrink-0 select-none">
+                    <SpinnerIcon size={18} />
                   </div>
                 </div>
               </div>
 
               {/* Bottom Copy Block */}
               <div className="relative z-10 px-6 sm:px-8 pb-6 sm:pb-8 flex flex-col gap-2">
-                <h3 className="text-white text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
+                <h3 className="text-zinc-300 text-base font-normal font-sans leading-snug tracking-normal">
                   AI-driven development
                 </h3>
-                <p className="text-zinc-300 text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal max-w-xl">
-                  Ship resilient software faster with autonomous agent pipelines, deep-thinking LLM architectures, and verified production code.
+                <p className="text-white text-base font-normal font-sans leading-relaxed tracking-normal max-w-xl">
+                  Pairing experienced engineers with AI tools to build and ship software in half the time.
                 </p>
               </div>
             </div>
 
-            {/* Card 2: Empty placeholder */}
-            <div className="w-full min-h-128 sm:min-h-144 p-6 sm:p-8 bg-dv-card rounded-2xl flex flex-col" />
+            {/* Card 2: Centered Slogan & All Services CTA */}
+            <div className="w-full min-h-112 sm:min-h-128 lg:min-h-136 p-8 sm:p-12 lg:p-16 bg-dv-card rounded-2xl flex flex-col items-center justify-center text-center gap-6 sm:gap-8">
+              <h3 className="max-w-md text-dv-text text-2xl sm:text-3xl lg:text-4xl font-medium font-sans tracking-tight leading-snug">
+                Every development solution in one place
+              </h3>
+              <Button href="#services" variant="primary">
+                All services
+              </Button>
+            </div>
           </div>
 
-          {/* Row 2: Four Columns (Cards) */}
+          {/* Row 2: Four Columns (Cards matching reference layout) */}
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="w-full min-h-64 sm:min-h-72 p-6 sm:p-8 bg-dv-card rounded-2xl flex flex-col" />
-            <div className="w-full min-h-64 sm:min-h-72 p-6 sm:p-8 bg-dv-card rounded-2xl flex flex-col" />
-            <div className="w-full min-h-64 sm:min-h-72 p-6 sm:p-8 bg-dv-card rounded-2xl flex flex-col" />
-            <div className="w-full min-h-64 sm:min-h-72 p-6 sm:p-8 bg-dv-card rounded-2xl flex flex-col" />
+            {BOTTOM_SERVICES.map((service) => (
+              <div
+                key={service.label}
+                className="w-full min-h-64 sm:min-h-72 p-6 sm:p-7 lg:p-8 bg-dv-card rounded-2xl flex flex-col justify-between"
+              >
+                {/* Top: Service Icon */}
+                <div className="size-10 flex items-center justify-center text-dv-lime border border-dv-border rounded-lg">
+                  {service.icon}
+                </div>
+
+                {/* Bottom: Label & Description */}
+                <div className="flex flex-col gap-2.5">
+                  <span className="text-dv-muted text-base font-normal font-sans tracking-normal">
+                    {service.label}
+                  </span>
+                  <p className="text-dv-text text-base sm:text-lg font-normal sm:font-normal font-sans leading-snug tracking-normal">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
