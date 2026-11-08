@@ -9,9 +9,9 @@
   color-scheme: light;
 
   /* DevEleven Light Theme Tokens (Default) */
-  --dv-bg: var(--color-zinc-100);
-  --dv-card: #ffffff;
-  --dv-surface: var(--color-zinc-100);
+  --dv-bg: #ffffff;
+  --dv-card: var(--color-zinc-100); 
+  --dv-surface: #ffffff;
   --dv-border: var(--color-zinc-200);
   --dv-surface-border: var(--color-zinc-300);
 
@@ -22,8 +22,8 @@
   --dv-lime: var(--color-sky-600);
   --dv-lime-hover: var(--color-sky-700);
 
-  --dv-dark: #ffffff;
-  --dv-dark-hover: var(--color-zinc-100);
+  --dv-dark: var(--color-zinc-100); 
+  --dv-dark-hover: #ffffff;
 
   /* Primary Button Tokens: Dark in Light mode, White in Dark mode */
   --dv-btn-primary-bg: var(--color-zinc-950);

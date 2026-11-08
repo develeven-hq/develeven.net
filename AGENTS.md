@@ -128,7 +128,7 @@ Defined in `src/app/globals.css`:
 
 ### Corner Radius Standards
 - **Buttons & Interactive CTAs**: Use `rounded-full` (pill style). All clickable buttons, action triggers, and primary/secondary CTA links across the site use `rounded-full`. Hero buttons have thick vertical padding with snug horizontal padding (`py-3.5 sm:py-4 px-6 sm:px-7 gap-2.5 sm:gap-3`), while navbar buttons use compact pill padding (`h-10 px-4.5` on desktop).
-- **Cards & Media Boxes**: Use `rounded-lg` (8px / 0.5rem). Never leave card corners aggressively sharp (`rounded-none`, `rounded-[4px]`) or overly round (`rounded-2xl`, `rounded-full`). `rounded-lg` provides a modern, refined curvature without compromising the architectural look.
+- **Cards & Media Boxes**: Use `rounded-2xl` (16px / 1rem). All cards across the site must follow this increased roundness standard for a modern, softer container silhouette while maintaining structural clarity. Avoid sharp corners (`rounded-none`, `rounded-sm`) or full pill shapes on content cards.
 - **Badges, Tags & Tech Pills**: Use `rounded-md` (6px) or `rounded-lg` (8px).
 - **Circular Indicators**: Status dots use `rounded-full`.
 
