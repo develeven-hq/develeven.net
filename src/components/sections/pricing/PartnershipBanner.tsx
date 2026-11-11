@@ -1,34 +1,15 @@
 import React from "react";
-import Link from "next/link";
-import ArrowIcon from "@/components/ui/ArrowIcon";
+import Button from "@/components/ui/Button";
 
 export default function PartnershipBanner() {
   return (
-    <section className="w-full bg-dv-bg">
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-14 lg:py-16 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 lg:gap-12">
-        <div className="max-w-3xl flex flex-col items-start gap-3">
-          <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-wide">
-            Partnership & capacity
-          </span>
-          <h3 className="text-dv-text text-2xl sm:text-3xl font-normal font-sans tracking-normal leading-snug">
-            Need engineering capacity, not a standalone project?
-          </h3>
-          {/* <p className="w-full text-dv-lead text-base sm:text-lg font-normal font-sans leading-relaxed">
-            A dedicated partnership can flex around your roadmap. Team size,
-            allocation, and monthly budget are agreed after discovery.
-          </p> */}
-        </div>
-
-        <Link
-          href="/#contact"
-          className="px-7 py-3 rounded-full bg-dv-btn-primary-bg text-dv-btn-primary-text hover:bg-dv-btn-primary-hover flex items-center justify-between gap-4 transition-colors group cursor-pointer shrink-0"
-        >
-          <span className="text-sm sm:text-base font-medium font-sans">
-            Discuss a partnership
-          </span>
-          <ArrowIcon color="dark" size="md" />
-        </Link>
-      </div>
-    </section>
+    <div id="partnership" className="w-full min-h-128 sm:min-h-144 lg:min-h-160 py-20 sm:py-28 lg:py-36 px-6 sm:px-12 lg:px-16 bg-dv-card rounded-2xl flex flex-col items-center justify-center text-center gap-8 sm:gap-10">
+      <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-normal font-sans tracking-tight leading-tight text-center">
+        Need a dedicated team, not just a single project?
+      </h2>
+      <Button href="/#contact" variant="primary">
+        Work with us
+      </Button>
+    </div>
   );
 }

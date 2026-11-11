@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import React from "react";
 import PricingHero from "@/components/sections/pricing/PricingHero";
 import WebsitePricing from "@/components/sections/pricing/WebsitePricing";
-import PartnershipBanner from "@/components/sections/pricing/PartnershipBanner";
-import PricingProcess from "@/components/sections/pricing/PricingProcess";
+// import PricingProcess from "@/components/sections/pricing/PricingProcess";
 import PricingFAQ from "@/components/sections/pricing/PricingFAQ";
 import CTABanner from "@/components/sections/home/CTABanner";
 
@@ -16,13 +15,9 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <div className="w-full flex flex-col items-center bg-dv-bg">
-      {/* First-look viewport container: ensures subsequent sections stay below the fold */}
-      <div className="w-full min-h-[calc(100vh-5rem)] lg:min-h-[calc(100vh-6rem)] flex flex-col justify-center py-6 sm:py-8 lg:py-10">
-        <PricingHero />
-        <WebsitePricing />
-      </div>
-      <PartnershipBanner />
-      <PricingProcess />
+      <PricingHero />
+      <WebsitePricing />
+      {/* <PricingProcess /> */}
       <PricingFAQ />
       <CTABanner
         headline={
@@ -32,10 +27,7 @@ export default function PricingPage() {
             Let’s define the build.
           </>
         }
-        headlineSize="7xl"
-        description="Tell us your goals, your budget range and your ideal launch date. We’ll work out a practical next step."
-        buttonText="Discuss your project"
-        note="No sales script. Just a good conversation."
+        buttonText="Let’s talk"
       />
     </div>
   );

@@ -1,10 +1,10 @@
 import React from "react";
-import ArrowIcon from "@/components/ui/ArrowIcon";
+import { ArrowUpRight } from "@/components/ui/Icons";
 
 interface CTABannerProps {
   headline: React.ReactNode;
   headlineSize?: "8xl" | "7xl" | "88px" | "80px";
-  description: string;
+  description?: string;
   buttonHeight?: string;
   buttonText?: string;
   note?: string;
@@ -13,48 +13,25 @@ interface CTABannerProps {
 
 export default function CTABanner({
   headline,
-  headlineSize = "8xl",
-  description,
-  buttonHeight = "",
-  buttonText = "Discuss your project",
+  buttonText = "Let’s talk",
   ctaHref = "/#contact",
 }: CTABannerProps) {
-  const isLarge = headlineSize === "8xl" || headlineSize === "88px";
-
   return (
-    <section id="contact" className="w-full bg-dv-lime">
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-16 lg:py-20 flex flex-col items-start gap-12 overflow-hidden">
-        {/* Bottom Row */}
-        <div className="w-full flex flex-col lg:flex-row justify-start items-start lg:items-end gap-10 lg:gap-14 xl:gap-16">
-          <h2
-            className={`text-dv-dark font-normal font-sans tracking-tight flex-1 pb-2 ${
-              isLarge
-                ? "text-5xl sm:text-7xl lg:text-8xl leading-tight lg:leading-[1.02]"
-                : "text-4xl sm:text-6xl lg:text-7xl leading-tight lg:leading-[1.05]"
-            }`}
-          >
-            {headline}
-          </h2>
-
-          <div className="w-full lg:max-w-sm xl:max-w-md shrink-0 flex flex-col items-start gap-7 pb-2">
-            <p className="w-full text-dv-dark text-base font-medium font-sans leading-relaxed">
-              {description}
-            </p>
-
-            <a
-              href={ctaHref}
-              className={`w-full py-3.5 px-7 rounded-full bg-dv-dark flex items-center justify-between overflow-hidden hover:bg-dv-dark-hover transition-colors group cursor-pointer ${buttonHeight}`}
-            >
-              <span className="text-dv-text text-sm sm:text-base font-semibold font-sans">
-                {buttonText}
-              </span>
-              <ArrowIcon
-                color="light"
-                size="md"
-              />
-            </a>
-          </div>
-        </div>
+    <section id="contact" className="w-full bg-dv-bg px-1.5 sm:px-2 py-6 sm:py-8 lg:py-10">
+      <div className="w-full min-h-128 sm:min-h-144 lg:min-h-160 py-20 sm:py-28 lg:py-36 px-6 sm:px-12 lg:px-20 bg-black text-white rounded-2xl sm:rounded-3xl flex flex-col items-start justify-center text-left gap-8 sm:gap-10">
+        <h2 className="max-w-4xl text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal font-sans tracking-tight leading-tight lg:leading-[1.02] text-left">
+          {headline}
+        </h2>
+        <a
+          href={ctaHref}
+          className="px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-white text-zinc-950 hover:bg-zinc-200 transition-colors duration-200 group inline-flex items-center justify-center gap-2.5 font-sans text-sm sm:text-base font-medium cursor-pointer shrink-0"
+        >
+          <span>{buttonText}</span>
+          <ArrowUpRight
+            size={18}
+            className="text-zinc-950 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          />
+        </a>
       </div>
     </section>
   );
