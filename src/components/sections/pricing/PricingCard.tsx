@@ -59,15 +59,12 @@ export default function PricingCard({
         {/* Bottom CTA Button */}
         <Link
           href="/#contact"
-          className={`w-full mt-2 py-3 px-6 rounded-full flex items-center justify-center gap-2.5 transition-colors group cursor-pointer ${featured
-            ? "bg-dv-btn-primary-bg text-dv-btn-primary-text hover:bg-dv-btn-primary-hover font-semibold"
-            : "bg-dv-surface hover:bg-dv-surface/80 text-dv-text font-medium"
-            }`}
+          className="w-full mt-2 py-3 px-6 rounded-full flex items-center justify-center gap-2.5 transition-colors group cursor-pointer bg-dv-btn-primary-bg text-dv-btn-primary-text hover:bg-dv-btn-primary-hover font-medium"
         >
           <span className="text-sm font-sans tracking-normal">
             {buttonText}
           </span>
-          <ArrowIcon color={featured ? "dark" : "light"} />
+          <ArrowIcon color="dark" />
         </Link>
 
         {/* 1px Divider */}
