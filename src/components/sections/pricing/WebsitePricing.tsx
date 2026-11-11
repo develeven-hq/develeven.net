@@ -12,7 +12,7 @@ const pricingTiers: PricingCardProps[] = [
   {
     name: "Starter",
     icon: <WebDevIcon size={24} />,
-    price: "$200",
+    price: "$99",
     features: [
       "Up to 5 custom pages",
       "Mobile & tablet responsive",
@@ -27,7 +27,7 @@ const pricingTiers: PricingCardProps[] = [
     badge: "Most popular",
     featured: true,
     icon: <LayersIcon size={24} />,
-    price: "$400",
+    price: "$249",
     features: [
       "Up to 12 custom pages",
       "Easy CMS to edit text & images",
@@ -40,7 +40,7 @@ const pricingTiers: PricingCardProps[] = [
   {
     name: "Store",
     icon: <CommerceIcon size={24} />,
-    price: "$1,000",
+    price: "$789",
     features: [
       "Storefront for up to 50 products",
       "Cart, checkout & payment setup",
@@ -53,7 +53,7 @@ const pricingTiers: PricingCardProps[] = [
   {
     name: "Custom",
     icon: <BracesIcon size={24} />,
-    price: "$1,500",
+    price: "$1,249",
     features: [
       "Custom web apps & SaaS platforms",
       "Game development & prototypes",
