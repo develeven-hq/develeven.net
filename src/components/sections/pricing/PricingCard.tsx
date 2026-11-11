@@ -76,7 +76,7 @@ export default function PricingCard({
         {/* Features Checklist */}
         <div className="w-full flex flex-col items-start gap-3">
           <span className="text-dv-text text-sm lg:text-base font-medium font-sans tracking-wide">
-            What&apos;s included:
+            Plan includes:
           </span>
           <div className="w-full flex flex-col items-start gap-2.5">
             {features.map((feature) => (

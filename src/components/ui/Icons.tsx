@@ -79,7 +79,7 @@ export function CheckIcon({
   className = "",
   size = 16,
   color = "currentColor",
-  strokeWidth = 3,
+  strokeWidth = 2,
 }: IconProps) {
   return (
     <LucideCheck
