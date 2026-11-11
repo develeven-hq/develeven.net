@@ -40,9 +40,10 @@ export const PARTICLE_CONFIG = {
   // Particle size (render diameter in 3D world space)
   particleSize: 4,
 
-  // Particle count (density for desktop and mobile screens)
-  particleCountDesktop: 1500,
-  particleCountMobile: 800,
+  // Particle count - smaller dots + higher density fills the sphere silhouette
+  // fully, making it read as a larger presence without changing its screen radius.
+  particleCountDesktop: 1400,
+  particleCountMobile: 650,
 };
 
 export interface ParticleBackgroundProps {
@@ -108,11 +109,11 @@ const vertexShader = /* glsl */ `
       sin(uTime * speedZ + aSeed.x * 6.28318) * 0.20
     );
 
-    // ---- float position: 3D rotating sphere in the beginning ------------
+    // ---- slowly rotating sphere -----------------------------------------
     float rotYAngle = uTime * 0.16;
     mat2 rotY = mat2(cos(rotYAngle), sin(rotYAngle), -sin(rotYAngle), cos(rotYAngle));
 
-    float rotXAngle = 0.28 + sin(uTime * 0.08) * 0.08;
+    float rotXAngle = 0.28;
     mat2 rotX = mat2(cos(rotXAngle), sin(rotXAngle), -sin(rotXAngle), cos(rotXAngle));
 
     vec3 spherePos = position * uSphereRadius;
@@ -120,8 +121,8 @@ const vertexShader = /* glsl */ `
     spherePos.xz = rotY * spherePos.xz;
     spherePos.y += uYOffset;
 
-    // Keep Y-drift minimal on the sphere so horizontal stripes stay crisp
-    vec3 floatPos = spherePos + vec3(drift.x * 0.16, drift.y * 0.04, drift.z * 0.16);
+    // Sphere dots are perfectly still; drift only applies to floaters/shape
+    vec3 floatPos = spherePos;
 
     // ---- shape position: target + tiny residual drift for shape ---------
     // Floaters keep a healthy drift so they visibly float around
@@ -139,19 +140,12 @@ const vertexShader = /* glsl */ `
     // ---- blend sphere → shape ------------------------------------------
     vec3 p = mix(floatPos, shapePos, local);
 
-    // ---- mouse repulsion (only while shape is visible) ------------------
-    vec2  diff  = p.xy - uMouse;
-    float dist  = length(diff);
-    float force = smoothstep(0.8, 0.0, dist) * local;
-    if (dist > 0.001) {
-      p.xy += normalize(diff) * force * 0.25;
-    }
-    p.z += force * 0.1;
+    // mouse interaction disabled - to be revisited later
 
     // ---- alpha ----------------------------------------------------------
-    // Solid, vibrant opacity in sphere (0.85) matching the brace shape (0.88)
+    // Fully opaque in sphere state; shape/floater alpha unchanged
     float targetAlpha = mix(0.88, 0.45, aFloater);
-    vAlpha = mix(0.85, targetAlpha, local) + force * 0.20;
+    vAlpha = mix(1.0, targetAlpha, local);
 
     // ---- output ---------------------------------------------------------
     vec4 mv = modelViewMatrix * vec4(p, 1.0);
@@ -394,65 +388,49 @@ function ParticlesScene({
   const { viewport } = useThree();
   const pointsRef = useRef<THREE.Points>(null!);
 
-  const [isDark, setIsDark] = useState<boolean>(() => {
-    if (typeof document === "undefined") return true;
-    const attr = document.documentElement.getAttribute("data-theme");
-    if (attr) return attr === "dark";
-    if (document.documentElement.classList.contains("dark")) return true;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
-  });
-
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    const checkTheme = () => {
-      const attr = document.documentElement.getAttribute("data-theme");
-      const dark = attr
-        ? attr === "dark"
-        : document.documentElement.classList.contains("dark") ||
-          window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setIsDark(dark);
-    };
-    checkTheme();
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class", "data-theme"],
-    });
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-    media.addEventListener("change", checkTheme);
-    return () => {
-      observer.disconnect();
-      media.removeEventListener("change", checkTheme);
-    };
-  }, []);
-
   // ---- build geometry once (or when count / text / font / scale changes) --
   const geometry = useMemo(() => {
     const geo = new THREE.BufferGeometry();
     const pos = new Float32Array(count * 3);
     const seeds = new Float32Array(count * 3);
 
-    // Arrange particles into distinct horizontal stripes (latitude rings) across the sphere
-    const numStripes = 13;
-    const bandSpan = 1.76; // covers Y from -0.88 to +0.88
-    const bandThickness = (bandSpan / numStripes) * 0.28; // tight band with clear gaps
+    // Sunflower phyllotaxis projected onto sphere hemispheres:
+    //
+    // A flat sunflower disk places each dot at:
+    //   r = sqrt(i / N)   ← equal-area radial steps (like actual sunflower seeds)
+    //   θ = i × golden_angle
+    //
+    // Projecting that flat disk onto the sphere surface gives:
+    //   x, y  - same as the flat disk (r*cos theta, r*sin theta)
+    //   z     - derived from the sphere equation sqrt(1 - x^2 - y^2)
+    //
+    // This keeps the full 3D depth (z varies from 1.0 at the center to 0.0
+    // at the equator on the front, and 0.0 -> -1.0 on the back), so the
+    // perspective size-scaling and occlusion keep it reading as a solid sphere,
+    // while the face-on view reveals clear Fibonacci spiral arms.
+    //
+    // We run two independent sunflowers - one for each hemisphere - so both
+    // halves carry the full spiral pattern.
+    const goldenAngle = Math.PI * (3.0 - Math.sqrt(5.0)); // ≈ 2.39996 rad
+    const halfCount = Math.floor(count / 2);
 
     for (let i = 0; i < count; i++) {
-      const stripeIndex = i % numStripes;
-      const stripeNorm = (stripeIndex + 0.5) / numStripes;
-      const yCenter = (stripeNorm * 2.0 - 1.0) * 0.88;
-      const y = yCenter + (Math.random() - 0.5) * bandThickness;
+      const isBack  = i >= halfCount;
+      const j       = isBack ? i - halfCount : i;
+      const n       = isBack ? count - halfCount : halfCount;
 
-      // Circle radius at height y on unit sphere
-      const ringRadius = Math.sqrt(Math.max(0.04, 1.0 - y * y));
-      const theta = Math.random() * 2.0 * Math.PI;
+      // Equal-area radial step - produces the characteristic sunflower spacing
+      const r     = Math.sqrt((j + 0.5) / n); // [0, 1)
+      const theta = goldenAngle * j;
 
-      // Subtle thickness so dots have slight depth along the stripe
-      const r = ringRadius * (0.97 + 0.06 * Math.random());
+      const xf = r * Math.cos(theta);
+      const yf = r * Math.sin(theta);
+      // Project onto sphere: z is real (not zero) for every dot except equator
+      const zf = Math.sqrt(Math.max(0.0, 1.0 - xf * xf - yf * yf));
 
-      pos[i * 3 + 0] = r * Math.cos(theta);
-      pos[i * 3 + 1] = y;
-      pos[i * 3 + 2] = r * Math.sin(theta);
+      pos[i * 3 + 0] = xf;
+      pos[i * 3 + 1] = yf;
+      pos[i * 3 + 2] = isBack ? -zf : zf;
 
       seeds[i * 3 + 0] = Math.random();
       seeds[i * 3 + 1] = Math.random();
@@ -494,7 +472,7 @@ function ParticlesScene({
       fragmentShader,
       transparent: true,
       depthWrite: false,
-      blending: THREE.AdditiveBlending,
+      blending: THREE.NormalBlending,
     });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -523,12 +501,6 @@ function ParticlesScene({
     dotGradientStrength,
     material,
   ]);
-
-  // Adjust blending to match theme elevation & contrast
-  useEffect(() => {
-    material.blending = isDark ? THREE.AdditiveBlending : THREE.NormalBlending;
-    material.needsUpdate = true;
-  }, [isDark, material]);
 
   // ---- re-sample after fonts load (better quality) -----------------------
   useEffect(() => {
@@ -588,25 +560,6 @@ function ParticlesScene({
 
     // Spread matches viewport so floating particles fill the screen
     u.uSpread.value.set(viewport.width * 1.1, viewport.height * 1.1, 3.0);
-
-    // Mouse in world space
-    if (hoverRef.current.active) {
-      const wx = (hoverRef.current.x * viewport.width) / 2;
-      const wy = (hoverRef.current.y * viewport.height) / 2;
-
-      if (u.uMouse.value.x > 500) {
-        u.uMouse.value.set(wx, wy); // snap on first enter
-      } else {
-        u.uMouse.value.x = THREE.MathUtils.lerp(u.uMouse.value.x, wx, 0.1);
-        u.uMouse.value.y = THREE.MathUtils.lerp(u.uMouse.value.y, wy, 0.1);
-      }
-    } else {
-      u.uMouse.value.set(999, 999);
-    }
-
-    // Gentle sway when shape is formed
-    pointsRef.current.rotation.y =
-      Math.sin(u.uTime.value * 0.4) * 0.04 * u.uMix.value;
   });
 
   return <points ref={pointsRef} geometry={geometry} material={material} />;

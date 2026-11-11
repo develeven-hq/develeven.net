@@ -16,7 +16,10 @@ export default function HeroSection() {
       <ParticleBackground />
       <div className="relative z-10 w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-28 sm:py-32 lg:py-36 flex flex-col items-center justify-center text-center gap-10 lg:gap-12">
         {/* Eyebrow */}
-        <div className="inline-flex items-center gap-3 sm:gap-3.5">
+        <div
+          className="inline-flex items-center gap-3 sm:gap-3.5 dv-animate-fade-up"
+          style={{ animationDelay: "0.2s" }}
+        >
           <BrandLogo size={28} className="w-6 h-6 sm:w-7 sm:h-7" />
           <span className="text-dv-text text-xl sm:text-2xl font-medium font-sans tracking-tight">
             DevEleven
@@ -29,7 +32,10 @@ export default function HeroSection() {
           Precisely engineered
         </h1>
 
-        <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
+        <div
+          className="flex flex-wrap items-center justify-center gap-3 pt-4 dv-animate-fade-up"
+          style={{ animationDelay: "0.45s" }}
+        >
           <Button href="/#contact" variant="primary">
             Start a project
           </Button>
