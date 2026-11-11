@@ -50,7 +50,7 @@ export default function PricingNav() {
             key={link.label}
             href={link.href}
             onClick={(e) => handleJump(e, link.href)}
-            className="group flex items-center gap-2 text-dv-text text-xs sm:text-sm font-medium font-sans tracking-normal hover:text-dv-lime transition-colors whitespace-nowrap"
+            className="group flex items-center gap-2 text-dv-text text-xs sm:text-sm font-medium font-sans tracking-normal hover:text-dv-muted transition-colors whitespace-nowrap"
           >
             <span className="shrink-0 flex items-center justify-center">
               {link.icon}
@@ -59,7 +59,7 @@ export default function PricingNav() {
             <ArrowDown
               size={13}
               color="currentColor"
-              className="text-dv-muted group-hover:text-dv-lime transition-transform duration-200 group-hover:translate-y-0.5 shrink-0"
+              className="text-dv-muted group-hover:text-dv-text transition-transform duration-200 group-hover:translate-y-0.5 shrink-0"
             />
           </a>
         ))}

@@ -26,25 +26,21 @@ export default function PricingCard({
   featured = false,
 }: PricingCardProps) {
   return (
-    <div className="p-6 bg-dv-card rounded-lg flex flex-col justify-between items-start gap-8">
+    <div className="relative p-6 bg-dv-card rounded-2xl overflow-hidden flex flex-col justify-between items-start gap-8">
+      {badge && (
+        <div className="absolute top-0 right-0 px-3.5 py-1.5 bg-blue-600 text-white text-xs font-medium font-sans tracking-wide rounded-bl-xl select-none">
+          {badge}
+        </div>
+      )}
       <div className="w-full flex flex-col items-start gap-5">
         {/* Tier Identity Header */}
-        <div className="w-full flex justify-between items-start gap-3">
-          <div className="flex flex-col items-start gap-3 min-w-0">
-            <div className="w-6 h-6 flex items-center justify-center shrink-0">
-              {icon}
-            </div>
-            <h3 className="text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
-              {name}
-            </h3>
+        <div className="flex flex-col items-start gap-3 min-w-0">
+          <div className="w-6 h-6 flex items-center justify-center shrink-0">
+            {icon}
           </div>
-          {badge && (
-            <div className="px-2.5 py-1 bg-dv-lime rounded-md flex items-center shrink-0">
-              <span className="text-dv-dark text-xs font-medium font-sans tracking-wide">
-                {badge}
-              </span>
-            </div>
-          )}
+          <h3 className="text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
+            {name}
+          </h3>
         </div>
 
         {/* Price */}
@@ -63,7 +59,7 @@ export default function PricingCard({
         {/* Bottom CTA Button */}
         <Link
           href="/#contact"
-          className={`w-full mt-2 py-3 px-6 rounded-full flex items-center justify-between transition-colors group cursor-pointer ${featured
+          className={`w-full mt-2 py-3 px-6 rounded-full flex items-center justify-center gap-2.5 transition-colors group cursor-pointer ${featured
             ? "bg-dv-btn-primary-bg text-dv-btn-primary-text hover:bg-dv-btn-primary-hover font-semibold"
             : "bg-dv-surface hover:bg-dv-surface/80 text-dv-text font-medium"
             }`}
@@ -71,7 +67,7 @@ export default function PricingCard({
           <span className="text-sm font-sans tracking-normal">
             {buttonText}
           </span>
-          <ArrowIcon color={featured ? "dark" : "lime"} />
+          <ArrowIcon color={featured ? "dark" : "light"} />
         </Link>
 
         {/* 1px Divider */}
@@ -80,7 +76,7 @@ export default function PricingCard({
         {/* Features Checklist */}
         <div className="w-full flex flex-col items-start gap-3">
           <span className="text-dv-text text-sm lg:text-base font-medium font-sans tracking-wide">
-            What&apos;s included:
+            Plan includes:
           </span>
           <div className="w-full flex flex-col items-start gap-2.5">
             {features.map((feature) => (

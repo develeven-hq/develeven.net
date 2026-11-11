@@ -8,18 +8,16 @@ interface ArrowIconProps {
 }
 
 export default function ArrowIcon({
-  color = "lime",
+  color = "light",
   size = "md",
   className = "",
 }: ArrowIconProps) {
   const strokeColor =
     color === "dark"
       ? "var(--color-dv-btn-primary-text)"
-      : color === "light"
-        ? "var(--color-dv-text)"
-        : color === "dim"
-          ? "var(--color-dv-muted)"
-          : "var(--color-dv-lime)";
+      : color === "dim"
+        ? "var(--color-dv-muted)"
+        : "var(--color-dv-text)";
 
   const dimension = size === "lg" ? 22 : 18;
 

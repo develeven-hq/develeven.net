@@ -186,8 +186,8 @@ export default function Navbar() {
                   onClick={(e) => handleNavClick(e, link.href, link.targetId)}
                   className={`text-base font-medium tracking-[0.24px] font-sans transition-colors ${
                     isActive
-                      ? "text-dv-lime"
-                      : "text-dv-lead hover:text-dv-text"
+                      ? "text-dv-text font-semibold"
+                      : "text-dv-muted hover:text-dv-text"
                   }`}
                 >
                   {link.label}
@@ -236,7 +236,7 @@ export default function Navbar() {
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
-              <CloseIcon size={20} color="var(--color-dv-lime)" />
+              <CloseIcon size={20} color="var(--color-dv-text)" />
             ) : (
               <MenuIcon size={20} color="var(--color-dv-text)" />
             )}
@@ -263,7 +263,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href, link.targetId)}
                 className={`py-3 text-base font-medium font-sans tracking-normal transition-colors ${
-                  isActive ? "text-dv-lime" : "text-dv-text hover:text-dv-lime"
+                  isActive ? "text-dv-text font-semibold" : "text-dv-muted hover:text-dv-text"
                 }`}
               >
                 {link.label}

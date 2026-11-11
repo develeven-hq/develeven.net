@@ -78,8 +78,8 @@ export function ArrowDown({
 export function CheckIcon({
   className = "",
   size = 16,
-  color = "var(--color-dv-lime)",
-  strokeWidth = 3,
+  color = "currentColor",
+  strokeWidth = 2,
 }: IconProps) {
   return (
     <LucideCheck
@@ -95,7 +95,7 @@ export function CheckIcon({
 export function InfoIcon({
   className = "",
   size = 20,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -112,7 +112,7 @@ export function InfoIcon({
 export function WebDevIcon({
   className = "",
   size = 26,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -129,7 +129,7 @@ export function WebDevIcon({
 export function MaintenanceIcon({
   className = "",
   size = 26,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -146,7 +146,7 @@ export function MaintenanceIcon({
 export function LayersIcon({
   className = "",
   size = 26,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -163,7 +163,7 @@ export function LayersIcon({
 export function CommerceIcon({
   className = "",
   size = 26,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -180,7 +180,7 @@ export function CommerceIcon({
 export function CustomSoftwareIcon({
   className = "",
   size = 26,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -197,7 +197,7 @@ export function CustomSoftwareIcon({
 export function BracesIcon({
   className = "",
   size = 26,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -214,7 +214,7 @@ export function BracesIcon({
 export function GameDevIcon({
   className = "",
   size = 26,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -231,7 +231,7 @@ export function GameDevIcon({
 export function EngineeringIcon({
   className = "",
   size = 26,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -248,7 +248,7 @@ export function EngineeringIcon({
 export function InspectIcon({
   className = "",
   size = 26,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -265,7 +265,7 @@ export function InspectIcon({
 export function ResilienceIcon({
   className = "",
   size = 26,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -282,7 +282,7 @@ export function ResilienceIcon({
 export function FoundationIcon({
   className = "",
   size = 26,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -299,7 +299,7 @@ export function FoundationIcon({
 export function ProjectIcon({
   className = "",
   size = 24,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -316,7 +316,7 @@ export function ProjectIcon({
 export function PartnershipIcon({
   className = "",
   size = 24,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -333,7 +333,7 @@ export function PartnershipIcon({
 export function TerminalIcon({
   className = "",
   size = 24,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -350,7 +350,7 @@ export function TerminalIcon({
 export function CollaborationIcon({
   className = "",
   size = 24,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -367,7 +367,7 @@ export function CollaborationIcon({
 export function UptrendIcon({
   className = "",
   size = 24,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -386,7 +386,7 @@ export const TrendingUpIcon = UptrendIcon;
 export function FaqIcon({
   className = "",
   size = 18,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -420,7 +420,7 @@ export function PlusIcon({
 export function MinusIcon({
   className = "",
   size = 18,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -649,7 +649,7 @@ export function GitHubIcon({
 export function WebsiteProjectIcon({
   className = "",
   size = 20,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -666,7 +666,7 @@ export function WebsiteProjectIcon({
 export function ApplicationProjectIcon({
   className = "",
   size = 20,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (
@@ -683,7 +683,7 @@ export function ApplicationProjectIcon({
 export function GameProjectIcon({
   className = "",
   size = 20,
-  color = "var(--color-dv-lime)",
+  color = "currentColor",
   strokeWidth = 1.5,
 }: IconProps) {
   return (

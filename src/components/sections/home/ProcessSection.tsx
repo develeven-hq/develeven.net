@@ -47,14 +47,14 @@ interface StepCardProps {
 
 function StepCard({ step }: StepCardProps) {
   return (
-    <div className="w-full h-full p-6 sm:p-8 lg:p-10 bg-dv-surface rounded-lg flex flex-col justify-between gap-6 hover:bg-dv-surface/90 transition-colors duration-200">
+    <div className="w-full h-full p-6 sm:p-8 lg:p-10 bg-dv-card rounded-2xl flex flex-col justify-between gap-6 hover:bg-dv-card/80 transition-colors duration-200">
       <div className="flex flex-col gap-5">
         {/* Header Row */}
         <div className="w-full flex items-center gap-3">
-          <div className="w-9 h-9 rounded-md bg-dv-border flex items-center justify-center text-dv-lime shrink-0">
+          <div className="w-9 h-9 rounded-md bg-dv-border flex items-center justify-center text-dv-text shrink-0">
             {step.icon}
           </div>
-          <span className="text-dv-lime text-base sm:text-lg font-bold font-sans">
+          <span className="text-dv-text text-base sm:text-lg font-bold font-sans">
             {step.number}
           </span>
         </div>
@@ -71,7 +71,7 @@ function StepCard({ step }: StepCardProps) {
       </div>
 
       {/* Deliverable */}
-      <span className="w-full text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-normal leading-relaxed">
+      <span className="w-full text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-normal leading-relaxed">
         {step.deliverable}
       </span>
     </div>
@@ -80,7 +80,7 @@ function StepCard({ step }: StepCardProps) {
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="w-full bg-dv-card">
+    <section id="process" className="w-full bg-dv-bg">
       <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20">
         {/* Centered Heading */}
         <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-normal font-sans tracking-tight leading-tight text-center">
@@ -96,7 +96,7 @@ export default function ProcessSection() {
 
             {/* Horizontal Timeline Connector: 01 -> 02 */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 lg:w-12 flex items-center justify-center z-20 pointer-events-none">
-              <svg viewBox="0 0 48 20" className="w-full overflow-visible text-dv-lime" fill="none">
+              <svg viewBox="0 0 48 20" className="w-full overflow-visible text-dv-border" fill="none">
                 <circle cx="2" cy="10" r="3" fill="currentColor" />
                 <line
                   x1="2"
@@ -119,7 +119,7 @@ export default function ProcessSection() {
           <div className="w-full hidden md:flex justify-center items-center py-3 relative z-20 pointer-events-none">
             <svg
               viewBox="0 0 1000 64"
-              className="w-full max-w-5xl h-12 lg:h-14 overflow-visible text-dv-lime"
+              className="w-full max-w-5xl h-12 lg:h-14 overflow-visible text-dv-border"
               fill="none"
             >
               <defs>
@@ -147,7 +147,7 @@ export default function ProcessSection() {
 
             {/* Horizontal Timeline Connector: 03 -> 04 */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 lg:w-12 flex items-center justify-center z-20 pointer-events-none">
-              <svg viewBox="0 0 48 20" className="w-full overflow-visible text-dv-lime" fill="none">
+              <svg viewBox="0 0 48 20" className="w-full overflow-visible text-dv-border" fill="none">
                 <circle cx="2" cy="10" r="3" fill="currentColor" />
                 <line
                   x1="2"
@@ -172,7 +172,7 @@ export default function ProcessSection() {
 
             {/* Mobile Connector: 01 -> 02 */}
             <div className="w-full flex justify-center items-center py-2 pointer-events-none">
-              <svg viewBox="0 0 20 40" className="w-5 h-8 overflow-visible text-dv-lime" fill="none">
+              <svg viewBox="0 0 20 40" className="w-5 h-8 overflow-visible text-dv-border" fill="none">
                 <circle cx="10" cy="2" r="3" fill="currentColor" />
                 <line
                   x1="10"
@@ -191,7 +191,7 @@ export default function ProcessSection() {
 
             {/* Mobile Connector: 02 -> 03 */}
             <div className="w-full flex justify-center items-center py-2 pointer-events-none">
-              <svg viewBox="0 0 20 40" className="w-5 h-8 overflow-visible text-dv-lime" fill="none">
+              <svg viewBox="0 0 20 40" className="w-5 h-8 overflow-visible text-dv-border" fill="none">
                 <circle cx="10" cy="2" r="3" fill="currentColor" />
                 <line
                   x1="10"
@@ -210,7 +210,7 @@ export default function ProcessSection() {
 
             {/* Mobile Connector: 03 -> 04 */}
             <div className="w-full flex justify-center items-center py-2 pointer-events-none">
-              <svg viewBox="0 0 20 40" className="w-5 h-8 overflow-visible text-dv-lime" fill="none">
+              <svg viewBox="0 0 20 40" className="w-5 h-8 overflow-visible text-dv-border" fill="none">
                 <circle cx="10" cy="2" r="3" fill="currentColor" />
                 <line
                   x1="10"

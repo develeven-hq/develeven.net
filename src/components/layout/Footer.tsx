@@ -108,10 +108,10 @@ export default function Footer() {
         <div className="w-full flex flex-col items-start gap-3.5">
           <div className="flex items-center gap-2">
             <span
-              className="w-1.5 h-3.5 bg-dv-lime rounded-xs shrink-0"
+              className="w-1.5 h-3.5 bg-dv-muted rounded-xs shrink-0"
               aria-hidden="true"
             />
-            <span className="text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-wide">
+            <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-wide">
               The developer newsletter
             </span>
           </div>
@@ -131,7 +131,7 @@ export default function Footer() {
               Subscribe
             </button>
           ) : subscribed ? (
-            <div className="mt-1 px-5 py-2.5 bg-dv-card border border-dv-lime/40 text-dv-lime text-sm sm:text-base font-medium font-sans rounded-full inline-flex items-center gap-2">
+            <div className="mt-1 px-5 py-2.5 bg-dv-card border border-dv-border text-dv-text text-sm sm:text-base font-medium font-sans rounded-full inline-flex items-center gap-2">
               <span>✓ You&apos;re subscribed to the newsletter!</span>
             </div>
           ) : (
@@ -145,7 +145,7 @@ export default function Footer() {
                 placeholder="Enter your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-4 py-2.5 rounded-full bg-dv-card border border-dv-border text-dv-text placeholder:text-dv-muted text-sm sm:text-base font-sans focus:outline-none focus:border-dv-lime transition-colors"
+                className="flex-1 px-4 py-2.5 rounded-full bg-dv-card border border-dv-border text-dv-text placeholder:text-dv-muted text-sm sm:text-base font-sans focus:outline-none focus:border-dv-border transition-colors"
               />
               <button
                 type="submit"
@@ -169,7 +169,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-dv-text text-sm sm:text-base font-medium font-sans hover:text-dv-lime transition-colors"
+                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -188,7 +188,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-dv-text text-sm sm:text-base font-medium font-sans hover:text-dv-lime transition-colors"
+                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -207,7 +207,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-dv-text text-sm sm:text-base font-medium font-sans hover:text-dv-lime transition-colors"
+                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -226,7 +226,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-dv-text text-sm sm:text-base font-medium font-sans hover:text-dv-lime transition-colors"
+                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors"
                   >
                     {link.label}
                   </Link>

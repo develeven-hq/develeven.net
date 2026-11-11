@@ -131,13 +131,13 @@ export default function LanguageSwitcher({
                 onClick={() => selectLanguage(lang.label)}
                 className={`px-3.5 py-2 text-xs sm:text-sm text-left font-sans transition-colors cursor-pointer flex items-center justify-between ${
                   isSelected
-                    ? "text-dv-lime bg-dv-surface font-medium"
+                    ? "text-dv-text bg-dv-surface font-semibold"
                     : "text-dv-text hover:bg-dv-surface"
                 }`}
               >
                 <span>{lang.label}</span>
                 {isSelected && (
-                  <CheckIcon size={14} className="text-dv-lime shrink-0" />
+                  <CheckIcon size={14} className="text-dv-text shrink-0" />
                 )}
               </button>
             );

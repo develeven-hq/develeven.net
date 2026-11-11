@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Button from "@/components/ui/Button";
-import { PlusIcon, MinusIcon, FaqIcon } from "@/components/ui/Icons";
+import { PlusIcon, MinusIcon } from "@/components/ui/Icons";
 
 export interface FAQItem {
   question: string;
@@ -54,25 +54,21 @@ export default function FAQSection({
   faqs = homeFaqs,
   inquiryTitle = "Have a question not answered here?",
   inquiryDescription = "We’re an engineer-led studio with zero sales pressure. Whether you have an existing codebase or an early concept, we’re happy to discuss your specific requirements.",
-  buttonText = "Discuss your project",
+  buttonText = "Ask a question",
   buttonHref = "/#contact",
   bgVariant = "bg",
 }: FAQSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const isCardVariant = bgVariant === "card";
-  const sectionBg = isCardVariant ? "bg-dv-card" : "bg-dv-bg";
-  const cardBg = isCardVariant ? "bg-dv-surface" : "bg-dv-card";
-  const dividerBorder = isCardVariant
-    ? "border-dv-surface-border"
-    : "border-dv-border";
-  const toggleBg = isCardVariant
-    ? "bg-dv-border group-hover:bg-dv-surface-border"
-    : "bg-dv-surface group-hover:bg-dv-border";
+  const sectionBg = "bg-dv-bg";
+  const cardBg = "bg-dv-card";
+  const dividerBorder = "border-dv-border";
+  const toggleBg = "bg-dv-surface group-hover:bg-dv-border";
 
   return (
     <section id={id} className={`w-full ${sectionBg}`}>
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-12 lg:gap-16 overflow-hidden">
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20 overflow-hidden">
         {/* Centered Heading */}
         <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-normal font-sans tracking-tight leading-tight text-center">
           {heading}
@@ -80,32 +76,17 @@ export default function FAQSection({
 
         {/* 2-Column Split: Left Inquiry Card + Right Accordion Stack */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-          {/* Left Column: Inquiry Card */}
-          <div
-            className={`w-full order-2 lg:order-1 lg:col-span-5 ${cardBg} rounded-lg p-7 sm:p-8 lg:p-9 flex flex-col justify-between gap-8 lg:sticky lg:top-28`}
+          {/* Left Column: Slogan & CTA Card matching Services Card 2 */}
+          <article
+            className={`w-full order-2 lg:order-1 lg:col-span-5 ${cardBg} rounded-2xl p-8 sm:p-10 lg:p-12 min-h-96 sm:min-h-112 flex flex-col items-center justify-center text-center gap-6 sm:gap-8 lg:sticky lg:top-28`}
           >
-            <div className="w-full flex flex-col items-start gap-5">
-              <div className="w-8 h-8 flex items-center justify-center text-dv-lime">
-                <FaqIcon size={24} />
-              </div>
-              <div className="w-full flex flex-col items-start gap-3">
-                <h3 className="w-full text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
-                  {inquiryTitle}
-                </h3>
-                <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
-                  {inquiryDescription}
-                </p>
-              </div>
-            </div>
-
-            <div
-              className={`w-full pt-6 border-t ${dividerBorder} flex flex-col items-start gap-5`}
-            >
-              <Button href={buttonHref} variant="primary" fullWidth>
-                {buttonText}
-              </Button>
-            </div>
-          </div>
+            <h3 className="max-w-md text-dv-text text-2xl sm:text-3xl lg:text-4xl font-normal font-sans tracking-tight leading-snug">
+              {inquiryTitle}
+            </h3>
+            <Button href={buttonHref} variant="primary">
+              {buttonText}
+            </Button>
+          </article>
 
           {/* Right Column: Elevated Accordion Cards Stack */}
           <div className="w-full order-1 lg:order-2 lg:col-span-7 flex flex-col gap-3.5 sm:gap-4">
@@ -114,20 +95,20 @@ export default function FAQSection({
               return (
                 <div
                   key={faq.question}
-                  className={`w-full ${cardBg} rounded-lg p-6 sm:p-7 flex flex-col transition-colors overflow-hidden`}
+                  className={`w-full ${cardBg} rounded-2xl p-6 sm:p-7 flex flex-col transition-colors overflow-hidden`}
                 >
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     className="w-full flex justify-between items-center gap-4 sm:gap-6 text-left cursor-pointer group"
                     aria-expanded={isOpen}
                   >
-                    <span className="flex-1 text-dv-text text-base sm:text-lg font-medium font-sans leading-snug group-hover:text-dv-lime transition-colors">
+                    <span className="flex-1 text-dv-text text-base sm:text-lg font-medium font-sans leading-snug transition-colors">
                       {faq.question}
                     </span>
 
                     {/* Toggle Icon Box */}
                     <div
-                      className={`w-8 h-8 rounded-md ${toggleBg} relative flex items-center justify-center text-dv-lime shrink-0 transition-colors`}
+                      className={`w-8 h-8 rounded-md ${toggleBg} relative flex items-center justify-center text-dv-text shrink-0 transition-colors`}
                     >
                       <span
                         className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${

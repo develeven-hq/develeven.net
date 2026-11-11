@@ -11,7 +11,7 @@ export default function SectionLabel({
   theme = "dark",
   className = "",
 }: SectionLabelProps) {
-  const textColor = theme === "dark" ? "text-dv-lime" : "text-dv-light-label";
+  const textColor = "text-dv-muted";
   return (
     <div
       className={`font-sans text-xs sm:text-sm font-medium leading-normal tracking-wide ${textColor} ${className}`}

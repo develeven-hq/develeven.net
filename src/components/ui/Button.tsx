@@ -32,15 +32,12 @@ export default function Button({
       "bg-dv-bg text-dv-text hover:bg-dv-surface transition-all duration-200 group",
   };
 
-  const arrowColor =
-    variant === "primary" ? "dark" : variant === "secondary" ? "light" : "lime";
+  const arrowColor = variant === "primary" ? "dark" : "light";
 
   const strokeColor =
     arrowColor === "dark"
       ? "var(--color-dv-btn-primary-text)"
-      : arrowColor === "light"
-      ? "var(--color-dv-text)"
-      : "var(--color-dv-lime)";
+      : "var(--color-dv-text)";
 
   const baseClasses = `px-5 sm:px-6 py-2.5 sm:py-3 rounded-full overflow-hidden justify-start items-center gap-2.5 sm:gap-3 inline-flex font-sans text-sm sm:text-base font-medium cursor-pointer shrink-0 ${
     fullWidth ? "w-full justify-between" : ""

@@ -49,7 +49,7 @@ export default function CTABanner({
                 {buttonText}
               </span>
               <ArrowIcon
-                color="lime"
+                color="light"
                 size="md"
               />
             </a>
