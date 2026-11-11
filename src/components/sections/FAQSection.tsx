@@ -74,7 +74,7 @@ export default function FAQSection({
     <section id={id} className={`w-full ${sectionBg}`}>
       <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-12 lg:gap-16 overflow-hidden">
         {/* Centered Heading */}
-        <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight text-center">
+        <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-normal font-sans tracking-tight leading-tight text-center">
           {heading}
         </h2>
 

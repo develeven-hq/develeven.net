@@ -27,7 +27,7 @@ export default function CTABanner({
         {/* Bottom Row */}
         <div className="w-full flex flex-col lg:flex-row justify-start items-start lg:items-end gap-10 lg:gap-14 xl:gap-16">
           <h2
-            className={`text-dv-dark font-medium font-sans tracking-tight flex-1 pb-2 ${
+            className={`text-dv-dark font-normal font-sans tracking-tight flex-1 pb-2 ${
               isLarge
                 ? "text-5xl sm:text-7xl lg:text-8xl leading-tight lg:leading-[1.02]"
                 : "text-4xl sm:text-6xl lg:text-7xl leading-tight lg:leading-[1.05]"

@@ -26,7 +26,7 @@ export default function HeroSection() {
           </span>
         </div>
 
-        <h1 className="text-center text-6xl lg:text-7xl font-medium font-sans leading-[1.02] tracking-tight text-dv-text max-w-5xl">
+        <h1 className="text-center text-6xl lg:text-7xl font-normal font-sans leading-[1.02] tracking-tight text-dv-text max-w-5xl">
           Ambitious ideas
           <br />
           Precisely engineered

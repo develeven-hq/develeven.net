@@ -1,8 +1,8 @@
 import React from "react";
-import TechPill from "@/components/ui/TechPill";
+import Image from "next/image";
 import { InspectIcon, ResilienceIcon, FoundationIcon } from "@/components/ui/Icons";
 
-const principles = [
+const PRINCIPLES = [
   {
     title: "Quality you can inspect",
     description:
@@ -23,13 +23,13 @@ const principles = [
   },
 ];
 
-const techStack = [
-  { name: "React", iconSrc: "/icons/tech/react.svg" },
-  { name: "TypeScript", iconSrc: "/icons/tech/typescript.svg" },
-  { name: "Node.js", iconSrc: "/icons/tech/nodejs.svg" },
-  { name: "Python", iconSrc: "/icons/tech/python.svg" },
-  { name: "Unity", iconSrc: "/icons/tech/unity.svg" },
-  { name: "AWS", iconSrc: "/icons/tech/aws.svg" },
+const TECH_STACK = [
+  { name: "React", role: "Frontend", iconSrc: "/icons/tech/react.svg" },
+  { name: "TypeScript", role: "Type safety", iconSrc: "/icons/tech/typescript.svg" },
+  { name: "Node.js", role: "Runtime", iconSrc: "/icons/tech/nodejs.svg" },
+  { name: "Python", role: "AI & tooling", iconSrc: "/icons/tech/python.svg" },
+  { name: "Unity", role: "Game engine", iconSrc: "/icons/tech/unity.svg" },
+  { name: "AWS", role: "Cloud & infra", iconSrc: "/icons/tech/aws.svg" },
 ];
 
 export default function ApproachSection() {
@@ -37,50 +37,69 @@ export default function ApproachSection() {
     <section id="approach" className="w-full bg-dv-bg">
       <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20 overflow-hidden">
         {/* Centered Heading */}
-        <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight text-center">
+        <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-normal font-sans tracking-tight leading-tight text-center">
           The standards we follow to build reliable software
         </h2>
 
-        {/* 3 Principles Grid */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
-          {principles.map((p) => (
-            <div
-              key={p.title}
-              className="w-full p-6 pb-8 sm:p-8 sm:pb-12 bg-dv-card rounded-lg flex flex-col gap-4 overflow-hidden"
-            >
-              <div className="w-8 h-8 flex items-center justify-center text-dv-lime">
-                {p.icon}
-              </div>
-              <h3 className="w-full text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
-                {p.title}
-              </h3>
-              <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
-                {p.description}
-              </p>
-            </div>
-          ))}
-        </div>
+        {/* Two Rows Layout */}
+        <div className="w-full flex flex-col gap-4">
+          {/* Row 1: Three Principles Cards */}
+          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+            {PRINCIPLES.map((p) => (
+              <article
+                key={p.title}
+                className="w-full min-h-64 sm:min-h-72 p-6 sm:p-7 lg:p-8 bg-dv-card rounded-2xl flex flex-col justify-between"
+              >
+                {/* Top: Icon Box */}
+                <div className="size-10 flex items-center justify-center text-dv-lime border border-dv-border rounded-lg">
+                  {p.icon}
+                </div>
 
-        {/* Bottom Bar: Tech Stack & Quality Gate */}
-        <div className="w-full p-5 sm:p-6 bg-dv-card rounded-lg flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5">
-          <div className="flex flex-wrap items-center gap-3.5 sm:gap-4">
-            <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans mr-1">
-              Core technologies:
-            </span>
-            {techStack.map((tech) => (
-              <TechPill key={tech.name} name={tech.name} iconSrc={tech.iconSrc} />
+                {/* Bottom: Label & Description */}
+                <div className="flex flex-col gap-2.5">
+                  <span className="text-dv-muted text-base font-normal font-sans tracking-normal">
+                    {p.title}
+                  </span>
+                  <p className="text-dv-text text-base sm:text-lg font-normal sm:font-normal font-sans leading-snug tracking-normal">
+                    {p.description}
+                  </p>
+                </div>
+              </article>
             ))}
           </div>
 
-          <div className="flex items-center gap-2 shrink-0">
-            <span className="text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-wide">
-              Quality gate built into every release
-            </span>
+          {/* Row 2: Six Technology Cards in One Responsive Row */}
+          <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {TECH_STACK.map((tech) => (
+              <article
+                key={tech.name}
+                className="w-full min-h-36 sm:min-h-40 p-5 sm:p-6 bg-dv-card rounded-2xl flex flex-col justify-between group"
+              >
+                {/* Top: Tech Icon */}
+                <div className="flex items-center justify-start">
+                  <Image
+                    src={tech.iconSrc}
+                    alt={tech.name}
+                    width={40}
+                    height={40}
+                    className="w-9 h-9 sm:w-10 sm:h-10 object-contain"
+                  />
+                </div>
+
+                {/* Bottom: Role & Name */}
+                <div className="flex flex-col gap-1">
+                  <span className="text-dv-muted text-xs sm:text-sm font-normal font-sans">
+                    {tech.role}
+                  </span>
+                  <span className="text-dv-text text-base font-medium font-sans tracking-normal">
+                    {tech.name}
+                  </span>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-
