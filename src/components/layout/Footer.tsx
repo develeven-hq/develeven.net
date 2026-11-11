@@ -9,7 +9,7 @@ import {
   YouTubeIcon,
   XSocialIcon,
   TikTokIcon,
-  TwitchIcon,
+  DiscordIcon,
   GitHubIcon,
   BrandLogo,
 } from "@/components/ui/Icons";
@@ -45,13 +45,13 @@ const companyLinks = [
 const socialLinks = [
   {
     label: "DevEleven on LinkedIn",
-    href: "https://linkedin.com/company/develeven",
+    href: "https://linkedin.com/company/develeven-hq",
     icon: LinkedInIcon,
     size: 19,
   },
   {
     label: "DevEleven on Instagram",
-    href: "https://instagram.com/develeven",
+    href: "https://instagram.com/develeven_hq",
     icon: InstagramIcon,
     size: 18,
   },
@@ -63,7 +63,7 @@ const socialLinks = [
   },
   {
     label: "DevEleven on X",
-    href: "https://x.com/develeven",
+    href: "https://x.com/DevElevenX",
     icon: XSocialIcon,
     size: 16,
   },
@@ -74,9 +74,9 @@ const socialLinks = [
     size: 18,
   },
   {
-    label: "DevEleven on Twitch",
-    href: "https://twitch.tv/develeven",
-    icon: TwitchIcon,
+    label: "DevEleven on Discord",
+    href: "https://discord.gg/EzD8tqgtMn",
+    icon: DiscordIcon,
     size: 18,
   },
   {
@@ -295,7 +295,7 @@ export default function Footer() {
             </div>
 
             {/* Language Selector Button */}
-            <LanguageSwitcher direction="up" className="h-8 px-3 rounded-md" showLabelOnMobile />
+            <LanguageSwitcher direction="up" />
           </div>
         </div>
       </div>

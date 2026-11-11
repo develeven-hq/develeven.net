@@ -35,10 +35,7 @@ export default function HomePage() {
             Let’s make it real.
           </>
         }
-        headlineSize="7xl"
-        description="Tell us what you’re thinking. We’ll bring the questions, the expertise, and a clear way forward."
-        buttonText="Discuss your project"
-        note="No sales script. Just a good conversation."
+        buttonText="Let’s talk"
       />
     </div>
   );
