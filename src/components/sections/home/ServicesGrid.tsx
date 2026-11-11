@@ -41,7 +41,7 @@ export default function ServicesGrid() {
     <section id="services" className="w-full bg-dv-bg">
       <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20 overflow-hidden">
         {/* Centered Heading */}
-        <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-medium font-sans tracking-tight leading-tight text-center">
+        <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-normal font-sans tracking-tight leading-tight text-center">
           Services we provide to build and scale your product
         </h2>
 
@@ -124,7 +124,7 @@ export default function ServicesGrid() {
 
             {/* Card 2: Centered Slogan & All Services CTA */}
             <div className="w-full min-h-112 sm:min-h-128 lg:min-h-136 p-8 sm:p-12 lg:p-16 bg-dv-card rounded-2xl flex flex-col items-center justify-center text-center gap-6 sm:gap-8">
-              <h3 className="max-w-md text-dv-text text-2xl sm:text-3xl lg:text-4xl font-medium font-sans tracking-tight leading-snug">
+              <h3 className="max-w-md text-dv-text text-2xl sm:text-3xl lg:text-4xl font-normal font-sans tracking-tight leading-snug">
                 Every development solution in one place
               </h3>
               <Button href="#services" variant="primary">

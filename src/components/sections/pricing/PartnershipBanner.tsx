@@ -10,7 +10,7 @@ export default function PartnershipBanner() {
           <span className="text-dv-lime text-xs sm:text-sm font-medium font-sans tracking-wide">
             Partnership & capacity
           </span>
-          <h3 className="text-dv-text text-2xl sm:text-3xl font-medium font-sans tracking-normal leading-snug">
+          <h3 className="text-dv-text text-2xl sm:text-3xl font-normal font-sans tracking-normal leading-snug">
             Need engineering capacity, not a standalone project?
           </h3>
           {/* <p className="w-full text-dv-lead text-base sm:text-lg font-normal font-sans leading-relaxed">
