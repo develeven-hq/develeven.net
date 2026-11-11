@@ -141,7 +141,7 @@ export default function ServicesGrid() {
                 className="w-full min-h-64 sm:min-h-72 p-6 sm:p-7 lg:p-8 bg-dv-card rounded-2xl flex flex-col justify-between"
               >
                 {/* Top: Service Icon */}
-                <div className="size-10 flex items-center justify-center text-dv-lime border border-dv-border rounded-lg">
+                <div className="size-10 flex items-center justify-center text-dv-text border border-dv-border rounded-lg">
                   {service.icon}
                 </div>
 

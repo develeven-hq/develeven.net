@@ -37,9 +37,8 @@ export default function PricingFAQ() {
       id="pricing-faq"
       heading="Questions about pricing and proposals"
       faqs={pricingFaqs}
-      inquiryTitle="Need a custom estimate or breakdown?"
-      inquiryDescription="Every project is unique. If our standard packages don't match your scope or timeline, we're happy to discuss your specific requirements and explore practical phases."
-      buttonText="Discuss your project"
+      inquiryTitle="Have a question not answered here?"
+      buttonText="Ask a question"
       buttonHref="/#contact"
     />
   );

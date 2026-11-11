@@ -67,7 +67,7 @@ export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
       className={`w-10 h-10 rounded-full bg-dv-card hover:bg-dv-surface border border-dv-border text-dv-text flex items-center justify-center transition-colors cursor-pointer shrink-0 ${className}`}
     >
       {isDark ? (
-        <SunIcon size={18} className="text-dv-lime transition-transform duration-200 hover:rotate-45" />
+        <SunIcon size={18} className="text-dv-text transition-transform duration-200 hover:rotate-45" />
       ) : (
         <MoonIcon size={18} className="text-dv-text transition-transform duration-200 hover:-rotate-12" />
       )}

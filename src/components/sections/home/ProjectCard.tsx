@@ -42,10 +42,10 @@ export default function ProjectCard({
   return (
     <Link
       href={href}
-      className="w-full flex flex-col h-full bg-dv-surface rounded-lg overflow-hidden group cursor-pointer transition-colors duration-300 hover:bg-dv-surface/90"
+      className="w-full flex flex-col h-full bg-dv-card rounded-2xl overflow-hidden group cursor-pointer transition-colors duration-300 hover:bg-dv-card/80"
     >
       {/* Clean Media Presentation Frame */}
-      <div className="w-full relative aspect-16/10 sm:aspect-video bg-dv-card overflow-hidden">
+      <div className="w-full relative aspect-16/10 sm:aspect-video bg-dv-bg overflow-hidden">
         <Image
           src={imageSrc}
           alt={imageAlt}
@@ -60,18 +60,18 @@ export default function ProjectCard({
         <div className="flex flex-col items-start gap-3">
           {/* Title & Interactive Arrow */}
           <div className="w-full flex items-center justify-between gap-4">
-            <h3 className="text-dv-text text-xl sm:text-2xl font-medium font-sans tracking-tight group-hover:text-dv-lime transition-colors flex items-center gap-2.5">
+            <h3 className="text-dv-text text-xl sm:text-2xl font-medium font-sans tracking-tight transition-colors flex items-center gap-2.5">
               {resolvedTypeIcon && (
-                <span className="text-dv-lime shrink-0 flex items-center justify-center">
+                <span className="text-dv-text shrink-0 flex items-center justify-center">
                   {resolvedTypeIcon}
                 </span>
               )}
               <span>{title}</span>
             </h3>
-            <div className="w-8 h-8 rounded-md bg-dv-border flex items-center justify-center shrink-0 group-hover:bg-dv-lime group-hover:text-dv-dark transition-all">
+            <div className="w-8 h-8 rounded-md bg-dv-surface flex items-center justify-center shrink-0 group-hover:bg-dv-border transition-all">
               <ArrowUpRight
                 size={18}
-                className="text-dv-text group-hover:text-dv-dark group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                className="text-dv-text group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
               />
             </div>
           </div>

@@ -29,7 +29,7 @@ const engagements = [
 
 export default function EngagementSection() {
   return (
-    <section id="engagement" className="w-full bg-dv-card">
+    <section id="engagement" className="w-full bg-dv-bg">
       <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20 overflow-hidden">
         {/* Centered Heading */}
         <h2 className="max-w-3xl text-dv-text text-3xl sm:text-4xl lg:text-5xl font-normal font-sans tracking-tight leading-tight text-center">
@@ -41,10 +41,10 @@ export default function EngagementSection() {
           {engagements.map((eng) => (
             <div
               key={eng.title}
-              className="p-7 bg-dv-surface/80 rounded-lg flex flex-col justify-between items-start gap-6 overflow-hidden"
+              className="p-7 sm:p-8 bg-dv-card rounded-2xl flex flex-col justify-between items-start gap-6 overflow-hidden"
             >
               <div className="w-full flex flex-col items-start gap-4">
-                <div className="w-8 h-8 flex items-center justify-center text-dv-lime">
+                <div className="w-8 h-8 flex items-center justify-center text-dv-text">
                   {eng.icon}
                 </div>
                 <h3 className="w-full text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
@@ -71,10 +71,10 @@ export default function EngagementSection() {
                   href="/#contact"
                   className="w-full flex justify-between items-center overflow-hidden group pt-1"
                 >
-                  <span className="text-dv-lime text-sm sm:text-base font-medium font-sans tracking-normal group-hover:underline">
+                  <span className="text-dv-text text-sm sm:text-base font-medium font-sans tracking-normal group-hover:underline">
                     Let’s talk about it
                   </span>
-                  <ArrowIcon color="lime" size="md" />
+                  <ArrowIcon color="light" size="md" />
                 </Link>
               </div>
             </div>

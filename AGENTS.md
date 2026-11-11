@@ -72,7 +72,8 @@ Every section must follow this two-tier container structure:
 - **Centralized Wrapper**: All icons are imported from and encapsulated in `src/components/ui/Icons.tsx` using `lucide-react`.
 - **Aesthetic Parameters**:
   - `strokeWidth={1.5}` as default for all feature and section icons.
-  - Accent color: Lime `#CEFF69` on dark cards.
+  - Icon color: Neutral high contrast (`text-dv-text` / `currentColor`), strictly avoiding accent color overuse on icons.
+  - Hover states: Clean `text-dv-text` / `text-dv-muted` transitions with no accent hover colors on text or icons.
 - **Every Clickable / Button Gets An Appropriate Icon**:
   - Interactive arrows (`ArrowIcon.tsx` / `ArrowUpRight`) for buttons, links, and cards.
   - Interactive hover translations: `transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5`.
@@ -101,14 +102,14 @@ Surfaces in DevEleven strictly adhere to the elevation rule: **elements higher i
 
 | Elevation Level | Role | Token | Value | Applied To |
 | :--- | :--- | :--- | :--- | :--- |
-| **Level 0 (Ground / Page)** | Dark page background | `--color-dv-bg` | `var(--color-zinc-950)` | Page container, primary dark sections (`Hero`, `ServicesGrid`, `Approach`, `Studio`, `FAQ`, `WebsitePricing`) |
-| **Level 1 (Section or Base Card)** | Lighter zinc section or ground card | `--color-dv-card` | `var(--color-zinc-900)` | Alternating sections (`WorkShowcase`, `ProcessSection`, `EngagementSection`, `PartnershipBanner`, `PricingFAQ`) OR cards on Level 0 sections (`ServicesGrid` cards, `Approach` cards, `PricingCard`) |
-| **Level 2 (Elevated Card / Surface)** | Cards on Level 1 sections, secondary buttons | `--color-dv-surface` | `var(--color-zinc-800)` | Cards on Level 1 sections (`EngagementSection` cards, `WorkShowcase` cards), buttons inside `PricingCard` |
-| **Level 3 (Elevated Divider / Border)** | Borders on Level 2 cards | `--color-dv-surface-border` | `var(--color-zinc-700)` | Borders and inner dividers on Level 2 cards |
+| **Level 0 (Ground / Page & Sections)** | Dark page and section background | `--color-dv-bg` | `var(--color-zinc-950)` | Page container and all standard sections (`Hero`, `ServicesGrid`, `WorkShowcase`, `Approach`, `ProcessSection`, `Studio`, `EngagementSection`, `FAQ`, `WebsitePricing`, `PricingProcess`, `PartnershipBanner`) |
+| **Level 1 (Cards & Content Containers)** | Elevated card background | `--color-dv-card` | `var(--color-zinc-900)` | All content cards across all sections (`ServicesGrid` cards, `WorkShowcase` cards, `Approach` cards, `ProcessSection` cards, `Studio` cards, `EngagementSection` cards, `FAQ` cards, `PricingCard`) |
+| **Level 2 (Elevated Surface)** | Interactive elements, pills, secondary buttons | `--color-dv-surface` | `var(--color-zinc-800)` | Tech pills, secondary buttons, inner surface elements |
+| **Level 3 (Elevated Divider / Border)** | Subtle borders and inner dividers | `--color-dv-surface-border` | `var(--color-zinc-700)` | Inner dividers, accordion lines, and border accents |
 
-> **Crucial Rule**: **Higher means lighter**. A section which is lighter zinc (`zinc-900` / `bg-dv-card`) must **NEVER** have a darker card (`zinc-950` / `bg-dv-bg`) on it. Cards on a `zinc-900` section must be `zinc-800` (`bg-dv-surface`). There are **no light background sections** on the site.
+> **Crucial Rule**: **Unified Surface Backgrounds**. Sections do not alternate background colors — all standard sections share the clean ground background (`bg-dv-bg`), and all content cards sit elevated on `bg-dv-card` with `rounded-2xl` corners.
 >
-> **No Card Outlines or Borders**: Cards across the entire site must **NEVER** have outer outlines or borders (`border`, `outline`). Cards define their boundaries purely through clean surface elevation contrast (e.g. `zinc-900` card on `zinc-950` section, or `zinc-800` card on `zinc-900` section).
+> **No Card Outlines or Borders**: Cards across the entire site must **NEVER** have outer outlines or borders (`border`, `outline`). Cards define their boundaries purely through clean surface elevation contrast (`zinc-900` / `bg-dv-card` card on `zinc-950` / `bg-dv-bg` section).
 
 ### Design Tokens
 Defined in `src/app/globals.css`:
