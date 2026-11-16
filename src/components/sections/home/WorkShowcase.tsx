@@ -1,93 +1,38 @@
 import React from "react";
 import ProjectCard, { ProjectCardProps } from "@/components/sections/home/ProjectCard";
-import Button from "@/components/ui/Button";
-import {
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiPostgresql,
-  SiUnity,
-  SiBlender,
-  SiOpengl,
-} from "react-icons/si";
-import { TbBrandCSharp } from "react-icons/tb";
 
 const projects: ProjectCardProps[] = [
   {
     id: "orbit",
     title: "Orbit",
-    type: "application",
     subtitle: "Complex workflows. One clear view.",
-    imageSrc: "/images/operations-dashboard.jpg",
-    imageAlt: "Orbit operations platform dashboard preview",
     description:
       "A connected operations platform with real-time reporting, role-based access, and automated workflow handoffs built to replace fragmented spreadsheets.",
+    imageSrc: "/images/operations-dashboard.jpg",
+    imageAlt: "Orbit operations platform dashboard preview",
     technologies: [
-      {
-        name: "React",
-        iconSrc: "/icons/tech/react.svg",
-        icon: <SiReact size={20} className="text-[#61DAFB]" />,
-      },
-      {
-        name: "Next.js",
-        iconSrc: "/icons/tech/nextjs.svg",
-        icon: <SiNextdotjs size={20} className="text-white" />,
-      },
-      {
-        name: "TypeScript",
-        iconSrc: "/icons/tech/typescript.svg",
-        icon: <SiTypescript size={20} className="text-[#3178C6]" />,
-      },
-      {
-        name: "Tailwind CSS",
-        iconSrc: "/icons/tech/tailwindcss.svg",
-        icon: <SiTailwindcss size={20} className="text-[#38BDF8]" />,
-      },
-      {
-        name: "Node.js",
-        iconSrc: "/icons/tech/nodejs.svg",
-        icon: <SiNodedotjs size={20} className="text-[#5FA04E]" />,
-      },
-      {
-        name: "PostgreSQL",
-        iconSrc: "/icons/tech/postgresql.svg",
-        icon: <SiPostgresql size={20} className="text-[#336791]" />,
-      },
+      { name: "React", iconSrc: "/icons/tech/react.svg" },
+      { name: "Next.js", iconSrc: "/icons/tech/nextjs.svg" },
+      { name: "TypeScript", iconSrc: "/icons/tech/typescript.svg" },
+      { name: "Tailwind CSS", iconSrc: "/icons/tech/tailwindcss.svg" },
+      { name: "Node.js", iconSrc: "/icons/tech/nodejs.svg" },
+      { name: "PostgreSQL", iconSrc: "/icons/tech/postgresql.svg" },
     ],
     href: "/#contact",
   },
   {
     id: "afterlight",
     title: "Afterlight",
-    type: "game",
     subtitle: "A world worth getting lost in.",
-    imageSrc: "/images/exploration-game.png",
-    imageAlt: "Afterlight atmospheric exploration game preview",
     description:
       "An atmospheric exploration experience combining immersive procedural environments, responsive gameplay mechanics, and scalable runtime systems.",
+    imageSrc: "/images/exploration-game.png",
+    imageAlt: "Afterlight atmospheric exploration game preview",
     technologies: [
-      {
-        name: "Unity",
-        iconSrc: "/icons/tech/unity.svg",
-        icon: <SiUnity size={20} className="text-white" />,
-      },
-      {
-        name: "C#",
-        iconSrc: "/icons/tech/csharp.svg",
-        icon: <TbBrandCSharp size={21} className="text-[#9B4993]" />,
-      },
-      {
-        name: "Blender",
-        iconSrc: "/icons/tech/blender.svg",
-        icon: <SiBlender size={20} className="text-[#EA7600]" />,
-      },
-      {
-        name: "OpenGL / Shaders",
-        iconSrc: "/icons/tech/opengl.svg",
-        icon: <SiOpengl size={20} className="text-[#5586A4]" />,
-      },
+      { name: "Unity", iconSrc: "/icons/tech/unity.svg" },
+      { name: "C#", iconSrc: "/icons/tech/csharp.svg" },
+      { name: "Blender", iconSrc: "/icons/tech/blender.svg" },
+      { name: "OpenGL / Shaders", iconSrc: "/icons/tech/opengl.svg" },
     ],
     href: "/#contact",
   },
@@ -102,24 +47,13 @@ export default function WorkShowcase() {
           Selected projects and build concepts
         </h2>
 
-        {/* Projects Grid */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} {...project} />
+        {/* Projects */}
+        <div className="w-full flex flex-col gap-4">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.id} {...project} reverse={index % 2 === 1} />
           ))}
-        </div>
-
-        {/* See All Works CTA Button */}
-        <div className="flex justify-center items-center pt-2">
-          <Button
-            href="/#contact"
-            variant="secondary"
-          >
-            See all works
-          </Button>
         </div>
       </div>
     </section>
   );
 }
-

@@ -131,7 +131,7 @@ export default function Footer() {
               Subscribe
             </button>
           ) : subscribed ? (
-            <div className="mt-1 px-5 py-2.5 bg-dv-card border border-dv-border text-dv-text text-sm sm:text-base font-medium font-sans rounded-full inline-flex items-center gap-2">
+            <div className="mt-1 px-5 py-2.5 bg-dv-surface text-dv-text text-sm sm:text-base font-medium font-sans rounded-full inline-flex items-center gap-2">
               <span>✓ You&apos;re subscribed to the newsletter!</span>
             </div>
           ) : (
@@ -145,7 +145,7 @@ export default function Footer() {
                 placeholder="Enter your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-4 py-2.5 rounded-full bg-dv-card border border-dv-border text-dv-text placeholder:text-dv-muted text-sm sm:text-base font-sans focus:outline-none focus:border-dv-border transition-colors"
+                className="flex-1 px-4 py-2.5 rounded-full bg-dv-surface text-dv-text placeholder:text-dv-muted text-sm sm:text-base font-sans focus:outline-none focus:ring-2 focus:ring-dv-text/20 transition-colors"
               />
               <button
                 type="submit"

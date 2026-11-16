@@ -27,9 +27,9 @@ export default function Button({
     primary:
       "bg-dv-btn-primary-bg text-dv-btn-primary-text hover:bg-dv-btn-primary-hover transition-all duration-200 group",
     secondary:
-      "bg-dv-surface/40 hover:bg-dv-surface/65 backdrop-blur-md text-dv-text transition-all duration-200 group",
+      "bg-dv-surface hover:bg-dv-surface-hover text-dv-text transition-colors duration-200 group",
     dark:
-      "bg-dv-bg text-dv-text hover:bg-dv-surface transition-all duration-200 group",
+      "bg-dv-surface text-dv-text hover:bg-dv-surface-hover transition-colors duration-200 group",
   };
 
   const arrowColor = variant === "primary" ? "dark" : "light";

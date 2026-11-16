@@ -12,7 +12,7 @@ This file serves as the persistent source of truth for all AI agents working on 
   - Use unitless, proportional line-heights (`leading-[0.98]`, `leading-[1.08]`, `leading-tight`, `leading-relaxed`).
   - Standard Tailwind modular type scale (`text-xs` up to `text-8xl`), strictly eliminating arbitrary pixel font classes (`text-[...px]`).
   - Strong visual hierarchy through deliberate weight separation (Headings in `font-bold`, interactive in `font-semibold`, metadata in `font-medium`, reading copy in `font-normal`).
-  - High accessible contrast across both dark (`#101211`) and light (`#E8EDE1`) background sections.
+  - High accessible contrast on the single light ground (`#ffffff`): `zinc-950` primary text, `zinc-600` muted text, `zinc-700` leads.
 
 ---
 
@@ -30,19 +30,33 @@ This file serves as the persistent source of truth for all AI agents working on 
 
 | Tier | UI Role | Tailwind Size | Tailwind Weight | Tracking & Leading | Color Tokens |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **L1: Display / H1** | Page & Hero main titles | `text-5xl sm:text-7xl lg:text-8xl` | `font-normal` (400) | `tracking-tight leading-tight` / `leading-[1.02]` | `#F2F4EC` |
-| **L2: Section Headings / H2** | Major section headers (`h2`) - centered, clean, non-dramatic | `text-3xl sm:text-4xl lg:text-5xl` | `font-normal` (400) | `text-center tracking-tight leading-tight` | `#F2F4EC` (dark) / `#11150E` (light) |
-| **L3: Card Titles / H3** | Services, pricing tiers, showcase cases | `text-xl sm:text-2xl` | `font-medium` (500) | `tracking-normal leading-snug` | `#F2F4EC` (dark) / `#11150E` (light) |
-| **L4: Prices & Large Stats** | Pricing tiers (`$600–1,000`), stat metrics | `text-3xl sm:text-4xl lg:text-5xl` | `font-bold` (700) | `tracking-tight` | `#F2F4EC` |
-| **L5: Section Kickers / Labels** | Section overlines | `text-xs sm:text-sm` | `font-medium` (500) | `tracking-wide` | `#CEFF69` (dark) / `#2D3427` (light) |
-| **L6: Lead Paragraphs** | Hero narrative & section intro leads | `text-base sm:text-lg lg:text-xl` | `font-normal` (400) | `leading-relaxed` | `#C5CDC1` (dark) / `#384031` (light) |
-| **L7: Interactive & Navigation** | Nav links, buttons, CTA text, accordion triggers | `text-sm sm:text-base` / `text-base sm:text-lg` | `font-medium` (500) | `tracking-normal` / `hover:text-[#CEFF69]` | High-contrast interactive states |
-| **L8: Badges, Pills & Numbers** | Tech pills, step numbers (`01`), service codes | `text-xs sm:text-sm` or `text-base sm:text-lg` | `font-medium` (500) | `tracking-normal` / `tracking-wide` | `#CEFF69`, `#F2F4EC`, `#A4ADA0` |
-| **L9: Checklist Items** | Features list in pricing & service cards | `text-sm sm:text-base` | `font-normal sm:font-medium` (400/500) | `leading-relaxed tracking-normal` | `#F2F4EC` |
-| **L10: Body & Card Descriptions** | Standard explanatory paragraphs | `text-sm sm:text-base` | `font-normal` (400) | `leading-relaxed tracking-normal` | `#A4ADA0` |
-| **L11: Micro-copy & Notes** | Subtitles, footnotes, legal disclaimer | `text-xs sm:text-sm` | `font-medium` (500) | `tracking-wide` | `#A4ADA0`, `#F2F4EC` |
+| **L1: Display / H1** | Page & Hero main titles | `text-5xl sm:text-7xl lg:text-8xl` | `font-normal` (400) | `tracking-tight leading-tight` / `leading-[1.02]` | `text-dv-text` |
+| **L2: Section Headings / H2** | Major section headers (`h2`) - centered, clean, non-dramatic | `text-3xl sm:text-4xl lg:text-5xl` | `font-normal` (400) | `text-center tracking-tight leading-tight` | `text-dv-text` |
+| **L3: Card Label** | Quiet label inside a feature card (Services, Studio, Approach, Engagement) | `text-base` | `font-normal` (400) | `tracking-normal` | `text-dv-muted` |
+| **L3b: Card Statement** | The prominent line directly below a card label | `text-base sm:text-lg` | `font-normal` (400) | `leading-snug` | `text-dv-text` |
+| **L3c: Slogan Card Heading** | Oversized heading inside slogan / CTA cards | `text-2xl sm:text-3xl lg:text-4xl` | `font-normal` (400) | `tracking-tight leading-snug` | `text-dv-text` |
+| **L3d: Named Card Title** | Work project names, pricing tier names, process stage names | `text-xl sm:text-2xl` | `font-medium` (500) | `tracking-normal leading-snug` | `text-dv-text` |
+| **L4: Prices & Large Stats** | Pricing tiers (`$600–1,000`), stat metrics | `text-3xl sm:text-4xl lg:text-5xl` | `font-bold` (700) | `tracking-tight` | `text-dv-text` |
+| **L5: Section Kickers / Labels** | Section overlines | `text-xs sm:text-sm` | `font-medium` (500) | `tracking-wide` | `text-dv-muted` (accent reserved) |
+| **L6: Lead Paragraphs** | Hero narrative & section intro leads | `text-base sm:text-lg lg:text-xl` | `font-normal` (400) | `leading-relaxed` | `text-dv-lead` |
+| **L7: Interactive & Navigation** | Nav links, buttons, CTA text, accordion triggers | `text-sm sm:text-base` / `text-base sm:text-lg` | `font-medium` (500) | `tracking-normal` / muted → `text-dv-text` on hover | `text-dv-text` (muted at rest) |
+| **L8: Badges, Pills & Numbers** | Tech pills, step numbers (`01`), service codes | `text-xs sm:text-sm` or `text-base sm:text-lg` | `font-medium` (500) | `tracking-normal` / `tracking-wide` | `text-dv-text` / `text-dv-muted`; deliverable badges invert to `bg-dv-text` / `text-dv-bg` |
+| **L9: Checklist Items** | Features list in pricing & service cards | `text-sm sm:text-base` | `font-normal sm:font-medium` (400/500) | `leading-relaxed tracking-normal` | `text-dv-text` |
+| **L10: Supporting Body Copy** | Secondary paragraphs (FAQ answers, project notes, metadata) | `text-sm sm:text-base` | `font-normal` (400) | `leading-relaxed tracking-normal` | `text-dv-muted` |
+| **L11: Micro-copy & Notes** | Subtitles, footnotes, legal disclaimer | `text-xs sm:text-sm` | `font-medium` (500) | `tracking-wide` | `text-dv-muted` / `text-dv-text` |
 
-> **Crucial Rule**: Use standard Tailwind classes only with no arbitrary pixel font sizes. Mona Sans requires `font-normal` (400) on display titles (H1), `font-normal` (400) on centered section headings (H2), `font-medium` (500) on card titles (matching GitHub Primer Brand `Heading--6` weight 480), and clean `font-normal` (400) on body descriptions. Avoid whole-word uppercase shout-styling on section headers. Section headings must be centered, direct, and sound like a natural sentence or descriptive clause that clearly clarifies the section's purpose (e.g., *'Services we provide to build and scale your product'*, *'How we scope, estimate, and price your project'*) without dramatic multi-part structures (no eyebrows/kickers, subtitles, or verbose marketing slop).
+> **Card title inversion is intentional.** Feature cards put a quiet `text-base` `text-dv-muted` label above a louder `text-base sm:text-lg` `text-dv-text` statement. The label names the topic; the statement carries the message. Never "correct" this by promoting the label to a bigger, bolder title. Named-entity cards and stages (Work projects, Pricing tiers, Process stages) are the exception: there the name is the content, so it keeps a `text-xl sm:text-2xl font-medium` title.
+
+> **Crucial Rule**: Use standard Tailwind classes only with no arbitrary pixel font sizes. Mona Sans requires `font-normal` (400) on display titles (H1), `font-normal` (400) on centered section headings (H2), `font-medium` (500) only on named card and stage titles (Work projects, Pricing tiers, Process stages, matching GitHub Primer Brand `Heading--6` weight 480), never on feature-card labels, and clean `font-normal` (400) on body descriptions. Avoid whole-word uppercase shout-styling on section headers. Section headings must be centered, direct, and sound like a natural sentence or descriptive clause that clearly clarifies the section's purpose (e.g., *'Services we provide to build and scale your product'*, *'How we scope, estimate, and price your project'*) without dramatic multi-part structures (no eyebrows/kickers, subtitles, or verbose marketing slop).
+
+### Card anatomy
+- **Feature card** (Services, Studio, Approach, Engagement): `size-10 rounded-lg bg-dv-surface` icon chip, then a muted `text-base` label and a `text-base sm:text-lg` primary statement. Dividers, metadata and CTAs stay at the bottom of the card.
+- **Slogan card** (Services and Studio CTA cards, FAQ inquiry card): centered `text-2xl sm:text-3xl lg:text-4xl` heading with one primary button.
+- **Media card** (Services AI card): full-bleed image with a gradient scrim and grain, a small light label (`text-dv-inverse-muted`) and a statement (`text-dv-bg`) at the bottom, plus one contained product window above the copy laid out with `justify-end`; the window sits inside the card padding and is never oversized, offset or clipped.
+- **Photo card** (Studio workspace card): the image alone. No scrim, no overlay text, no padding. It exists to show real photography, so the alt text carries the meaning and the asset must be large enough to render sharp at 2x. Add a scrim or caption only if the card is given text again.
+- **Project card** (Work): a full-width horizontal row (`bg-dv-card rounded-2xl`) with media on one side and a vertically centered content column on the other, alternating the media side per row. Content: `text-xl sm:text-2xl font-medium` project name, one-line subtitle, full description, a quiet monochrome icon row, and one standard `Button` ("View project"). No standalone arrow icons, no divider, no metadata strip, no slash-separated tech text, and never a display-size slogan. Keep the copy off the screenshot; overlay text does not survive light UI imagery.
+- **Named card** (Pricing tiers): `text-xl sm:text-2xl font-medium` title, with the price and plan data below it.
+- **Process timeline** (Process): a single left rail with numbered 32px nodes and a 2px spine. Each stage is one full-width row: the stage title on the left with the deliverable chip right-aligned on the same baseline, and the description below capped at `max-w-2xl`. Rows carry `py-6 lg:py-8` and the spine segments bridge into the next node. No alternating columns, no cards, no step icons, no arrows. The section stays white-and-black: near-black titles, `text-dv-lead` descriptions, inverted `bg-dv-text` / `text-dv-bg` deliverable chips, and no mid-gray filled pills.
 
 ---
 
@@ -52,7 +66,7 @@ This file serves as the persistent source of truth for all AI agents working on 
 Every section must follow this two-tier container structure:
 ```tsx
 {/* 1. Outer Viewport Container: stretches 100vw, full-bleed background */}
-<section className="w-full bg-[#101211]">
+<section className="w-full bg-dv-bg">
   {/* 2. Inner Content Wrapper: standard Tailwind max-width with generous padding */}
   <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24">
     {/* Page content */}
@@ -60,8 +74,8 @@ Every section must follow this two-tier container structure:
 </section>
 ```
 
-- **No Hard Caps on Outer Containers**: Never apply `max-w-[...]` to the outer `<section>` or background wrapper. Background colors (`#101211`, `#191C19`, `#E8EDE1`, `#CEFF69`) must extend full-width without cutoff on ultrawide monitors.
-- **No Top/Bottom Section Borders**: Sections must never use `border-t`, `border-b`, `border-y`, or outline rules. Separate adjacent sections through surface elevation contrast (`bg-dv-bg` vs `bg-dv-card`) and spacing alone. Borders remain allowed for internal dividers inside cards, lists, and content blocks, and for the fixed header and footer chrome.
+- **No Hard Caps on Outer Containers**: Never apply `max-w-[...]` to the outer `<section>` or background wrapper. The ground (`#ffffff`) and any full-bleed media must extend edge-to-edge without cutoff on ultrawide monitors.
+- **No Top/Bottom Section Borders**: Sections must never use `border-t`, `border-b`, `border-y`, or outline rules. Separate adjacent sections through whitespace alone; never alternate section backgrounds. Borders remain allowed for internal dividers inside cards, lists, and content blocks, and for the fixed header and footer chrome.
 - **Inner Content Container**: Use standard Tailwind `max-w-8xl` (1440px / 90rem, configured via `--container-8xl: 90rem` in `@theme`), providing the ideal modern desktop middleground between 1280px and 1536px, centered with `mx-auto` and `px-6 sm:px-8 lg:px-16`.
 - **Fluid & Responsive Layouts**: Use fluid grids (`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3/4`) and flex layouts. Never use hardcoded pixel widths (`w-[760px]`, `w-[380px]`) that break mobile viewports or create horizontal scrollbars.
 
@@ -95,37 +109,49 @@ Every section must follow this two-tier container structure:
 
 ---
 
-## 5. Color Palette & Surface Elevation Standards
+## 5. Color, Surface & Interaction Standards
 
-### Dark Surface Elevation Hierarchy ("Higher Means Lighter")
-Surfaces in DevEleven strictly adhere to the elevation rule: **elements higher in spatial elevation must be lighter in color value than the surface they sit on.**
+### One ground, one contrast ladder
+DevEleven ships a single light theme and **one ground**. Every page and every section uses `bg-dv-bg` (`#ffffff`); sections never alternate backgrounds and never use full-bleed tinted bands. Depth is expressed only through a four-step neutral ladder, and the interface always moves **darker** as elements nest:
 
-| Elevation Level | Role | Token | Value | Applied To |
+| Step | Role | Token | Value | Applied to |
 | :--- | :--- | :--- | :--- | :--- |
-| **Level 0 (Ground / Page & Sections)** | Dark page and section background | `--color-dv-bg` | `var(--color-zinc-950)` | Page container and all standard sections (`Hero`, `ServicesGrid`, `WorkShowcase`, `Approach`, `ProcessSection`, `Studio`, `EngagementSection`, `FAQ`, `WebsitePricing`, `PricingProcess`, `PartnershipBanner`) |
-| **Level 1 (Cards & Content Containers)** | Elevated card background | `--color-dv-card` | `var(--color-zinc-900)` | All content cards across all sections (`ServicesGrid` cards, `WorkShowcase` cards, `Approach` cards, `ProcessSection` cards, `Studio` cards, `EngagementSection` cards, `FAQ` cards, `PricingCard`) |
-| **Level 2 (Elevated Surface)** | Interactive elements, pills, secondary buttons | `--color-dv-surface` | `var(--color-zinc-800)` | Tech pills, secondary buttons, inner surface elements |
-| **Level 3 (Elevated Divider / Border)** | Subtle borders and inner dividers | `--color-dv-surface-border` | `var(--color-zinc-700)` | Inner dividers, accordion lines, and border accents |
+| **Ground** | Page + every section | `--color-dv-bg` | `#ffffff` | `<body>` and all `<section>` backgrounds |
+| **Card** | All content cards | `--color-dv-card` | `zinc-100` | Services, Work, Approach, Studio, Engagement, FAQ, Pricing cards |
+| **Inset** | Pills, inputs, icon chips, secondary buttons, accordion toggles | `--color-dv-surface` | `zinc-200` | Language switcher, hamburger, icon tiles, footer input, tags |
+| **Inset hover** | Hover / pressed state of any inset | `--color-dv-surface-hover` | `zinc-300` | Interactive inset states |
 
-> **Crucial Rule**: **Unified Surface Backgrounds**. Sections do not alternate background colors — all standard sections share the clean ground background (`bg-dv-bg`), and all content cards sit elevated on `bg-dv-card` with `rounded-2xl` corners.
->
-> **No Card Outlines or Borders**: Cards across the entire site must **NEVER** have outer outlines or borders (`border`, `outline`). Cards define their boundaries purely through clean surface elevation contrast (`zinc-900` / `bg-dv-card` card on `zinc-950` / `bg-dv-bg` section).
+Internal dividers use `--color-dv-border` (`zinc-200`); strong dividers use `--color-dv-surface-border` (`zinc-300`).
+
+### Hard rules
+- **Never white on white.** Nothing inside a card may use `bg-white` or `bg-dv-bg`; that is what the inset step exists for.
+- **One direction only.** Nesting moves darker: ground → card → inset → inset hover. Hover states never move lighter and never use opacity (`hover:bg-dv-card/80` is forbidden).
+- **Only interactive elements hover.** Static cards and content blocks have no hover background.
+- **No card borders, outlines, or shadows.** Cards are defined by the single contrast step between ground and card. Shadows are reserved for floating overlays (dropdowns, tooltips).
+- **No section bands.** Sections are separated by whitespace (`py-20 lg:py-24`), never by alternating backgrounds.
+- **One inverted moment per page.** The closing CTA panel is the only large dark surface. Build it with `bg-dv-text text-dv-bg` and light buttons (`bg-dv-bg text-dv-text hover:bg-dv-surface`); never use `bg-black` or add a second dark surface.
+- **The accent is not a surface.** `dv-accent` is reserved for the brand mark and stays unused on sections, cards, and icons.
+- **Product windows obey the ladder.** The simulated product window in the Services media card is a real element, not a picture: `bg-dv-bg` window, `bg-dv-surface` insets, no borders, no shadow, and never sized past its card. There are no illustrated-UI exemptions. Any mock that needs its own chrome is out of spec.
+
+### Rhythm from structure, not color
+Do not add a background band to fix a flat page. Create rhythm with composition instead:
+- Vary section density: full-width media, asymmetric 12-column layouts, single-column statements, then grids.
+- Let the L1 → L2 → L3 type scale do the separating work.
+- Keep exactly one inverted CTA moment per page.
 
 ### Design Tokens
-Defined in `src/app/globals.css`:
-- **Page Background**: `--color-dv-bg: var(--color-zinc-950)` (`bg-dv-bg`)
-- **Card Background**: `--color-dv-card: var(--color-zinc-900)` (`bg-dv-card`)
-- **Elevated Surface**: `--color-dv-surface: var(--color-zinc-800)` (`bg-dv-surface`)
-- **Subtle Borders & Dividers**: `--color-dv-border: var(--color-zinc-800)` (`border-dv-border`, `bg-dv-border`, `outline-dv-border`)
-- **Elevated Surface Borders**: `--color-dv-surface-border: var(--color-zinc-700)` (`border-dv-surface-border`)
-- **Primary Lime Accent**: `--color-dv-lime: var(--color-sky-300)` (`text-dv-lime`, `bg-dv-lime`, `outline-dv-lime`, `border-dv-lime`)
-- **Lime Accent Hover**: `--color-dv-lime-hover: var(--color-sky-200)` (`hover:bg-dv-lime-hover`)
-- **Primary Text**: `--color-dv-text: var(--color-white)` (`text-dv-text`)
-- **Secondary / Muted Text**: `--color-dv-muted: var(--color-zinc-400)` (`text-dv-muted`)
-- **Lead Text**: `--color-dv-lead: var(--color-zinc-300)` (`text-dv-lead` for high-contrast narrative leads)
-- **Dark Accents (Text & Buttons)**: `--color-dv-dark: var(--color-zinc-950)` (`text-dv-dark`, `bg-dv-dark`), hover: `--color-dv-dark-hover: var(--color-zinc-900)` (`hover:bg-dv-dark-hover`)
-- **Primary Buttons (Theme-Inverting)**: `--dv-btn-primary-bg` (White `#ffffff` in dark mode, dark `zinc-950` in light mode), `--dv-btn-primary-text` (`zinc-950` in dark mode, `#ffffff` in light mode), hover: `--dv-btn-primary-hover` (`zinc-200` in dark mode, `zinc-800` in light mode).
-- **Secondary Buttons**: Borderless frosted glass `bg-dv-surface/40 hover:bg-dv-surface/65 backdrop-blur-md text-dv-text`.
+Defined in `src/app/globals.css`. Token names are semantic, never color-based (`accent`, not `lime`); changing a hue happens only in `globals.css`, never in components:
+- **Ground**: `--color-dv-bg: #ffffff` (`bg-dv-bg`)
+- **Card**: `--color-dv-card: var(--color-zinc-100)` (`bg-dv-card`)
+- **Inset**: `--color-dv-surface: var(--color-zinc-200)` (`bg-dv-surface`)
+- **Inset Hover**: `--color-dv-surface-hover: var(--color-zinc-300)` (`hover:bg-dv-surface-hover`)
+- **Dividers**: `--color-dv-border: var(--color-zinc-200)`; strong: `--color-dv-surface-border: var(--color-zinc-300)`
+- **Primary Text**: `--color-dv-text: var(--color-zinc-950)` (`text-dv-text`)
+- **Muted Text**: `--color-dv-muted: var(--color-zinc-600)` (`text-dv-muted`)
+- **Lead Text**: `--color-dv-lead: var(--color-zinc-700)` (`text-dv-lead`)
+- **Brand Accent (reserved)**: `--color-dv-accent: var(--color-sky-600)`, hover `sky-700`
+- **Primary Buttons**: `--dv-btn-primary-bg` (`zinc-950`), text `#ffffff`, hover `zinc-800` (`bg-dv-btn-primary-bg`, `text-dv-btn-primary-text`, `hover:bg-dv-btn-primary-hover`)
+- **Secondary Buttons**: solid inset, borderless: `bg-dv-surface hover:bg-dv-surface-hover text-dv-text`
 
 ### Corner Radius Standards
 - **Buttons & Interactive CTAs**: Use `rounded-full` (pill style). All clickable buttons, action triggers, and primary/secondary CTA links across the site use `rounded-full`. Hero buttons have thick vertical padding with snug horizontal padding (`py-3.5 sm:py-4 px-6 sm:px-7 gap-2.5 sm:gap-3`), while navbar buttons use compact pill padding (`h-10 px-4.5` on desktop).
@@ -181,4 +207,5 @@ Always verify these commands before concluding any task:
 4. `grep -rn "—" src/` - must return 0 results (strictly enforcing no em-dashes).
 5. Verify every page route exports a unique title in its metadata.
 6. Test HTTP 200 on all routes: `curl -I http://localhost:3000/` and `curl -I http://localhost:3000/pricing`.
+7. `grep -rn "hover:bg-dv-card/\|bg-dv-surface/" src/` - must return 0 results (no opacity-based surface hovers).
 

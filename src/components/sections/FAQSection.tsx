@@ -64,7 +64,7 @@ export default function FAQSection({
   const sectionBg = "bg-dv-bg";
   const cardBg = "bg-dv-card";
   const dividerBorder = "border-dv-border";
-  const toggleBg = "bg-dv-surface group-hover:bg-dv-border";
+  const toggleBg = "bg-dv-surface group-hover:bg-dv-surface-hover";
 
   return (
     <section id={id} className={`w-full ${sectionBg}`}>

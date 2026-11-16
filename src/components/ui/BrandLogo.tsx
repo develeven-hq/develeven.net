@@ -4,7 +4,7 @@ import Link from "next/link";
 export interface BrandLogoProps {
   /** Size in pixels (width and height). Defaults to 28 */
   size?: number | string;
-  /** Custom fill color. Defaults to theme-adaptive var(--color-dv-lime) */
+  /** Custom fill color. Defaults to theme-adaptive var(--color-dv-accent) */
   color?: string;
   /** Additional CSS class names for the SVG element */
   className?: string;
@@ -20,7 +20,7 @@ export interface BrandLogoProps {
 
 export default function BrandLogo({
   size = 28,
-  color = "var(--color-dv-lime)",
+  color = "var(--color-dv-accent)",
   className = "",
   withText = false,
   textSize = "text-xl",

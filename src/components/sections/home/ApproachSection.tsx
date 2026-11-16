@@ -51,15 +51,15 @@ export default function ApproachSection() {
                 className="w-full min-h-64 sm:min-h-72 p-6 sm:p-7 lg:p-8 bg-dv-card rounded-2xl flex flex-col justify-between"
               >
                 {/* Top: Icon Box */}
-                <div className="size-10 flex items-center justify-center text-dv-text border border-dv-border rounded-lg">
+                <div className="size-10 flex items-center justify-center text-dv-text bg-dv-surface rounded-lg">
                   {p.icon}
                 </div>
 
                 {/* Bottom: Label & Description */}
                 <div className="flex flex-col gap-2.5">
-                  <span className="text-dv-muted text-base font-normal font-sans tracking-normal">
+                  <h3 className="text-dv-muted text-base font-normal font-sans tracking-normal">
                     {p.title}
-                  </span>
+                  </h3>
                   <p className="text-dv-text text-base sm:text-lg font-normal sm:font-normal font-sans leading-snug tracking-normal">
                     {p.description}
                   </p>

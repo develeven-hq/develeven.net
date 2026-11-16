@@ -1,28 +1,24 @@
 import React from "react";
 import Link from "next/link";
-import ArrowIcon from "@/components/ui/ArrowIcon";
-import { ProjectIcon, PartnershipIcon, MaintenanceIcon } from "@/components/ui/Icons";
+import { ArrowUpRight, ProjectIcon, PartnershipIcon, MaintenanceIcon } from "@/components/ui/Icons";
 
 const engagements = [
   {
     title: "Build something new",
     description:
       "A focused engagement to take your idea from scope to launch, with clear milestones and a shared delivery plan.",
-    bestFor: "New websites, MVPs, custom platforms",
     icon: <ProjectIcon size={24} />,
   },
   {
     title: "Extend your team",
     description:
       "Engineering expertise alongside your people. Add capacity, solve specialist challenges, and keep delivery moving.",
-    bestFor: "Growing products, ongoing roadmaps",
     icon: <PartnershipIcon size={24} />,
   },
   {
     title: "Keep getting better",
     description:
       "A dependable partner for maintenance, optimization, and thoughtful improvements after your product goes live.",
-    bestFor: "Live websites, established software",
     icon: <MaintenanceIcon size={24} />,
   },
 ];
@@ -37,47 +33,32 @@ export default function EngagementSection() {
         </h2>
 
         {/* Cards Row */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-hidden">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-hidden">
           {engagements.map((eng) => (
-            <div
+            <Link
               key={eng.title}
-              className="p-7 sm:p-8 bg-dv-card rounded-2xl flex flex-col justify-between items-start gap-6 overflow-hidden"
+              href="/#contact"
+              className="group w-full min-h-64 sm:min-h-72 p-6 sm:p-7 lg:p-8 bg-dv-card rounded-2xl flex flex-col justify-between items-start gap-6 overflow-hidden"
             >
-              <div className="w-full flex flex-col items-start gap-4">
-                <div className="w-8 h-8 flex items-center justify-center text-dv-text">
+              <div className="w-full flex items-start justify-between">
+                <div className="size-10 flex items-center justify-center text-dv-text bg-dv-surface rounded-lg shrink-0">
                   {eng.icon}
                 </div>
-                <h3 className="w-full text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-normal">
+                <ArrowUpRight
+                  size={18}
+                  className="text-dv-muted transition-all duration-200 group-hover:text-dv-text group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
+              </div>
+
+              <div className="w-full flex flex-col items-start gap-2.5">
+                <h3 className="text-dv-muted text-base font-normal font-sans tracking-normal">
                   {eng.title}
                 </h3>
-                <p className="w-full text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
+                <p className="text-dv-text text-base sm:text-lg font-normal font-sans leading-snug tracking-normal">
                   {eng.description}
                 </p>
               </div>
-
-              <div className="w-full flex flex-col items-start gap-6">
-                {/* Best For Box */}
-                <div className="w-full pt-5 border-t border-dv-surface-border flex flex-col items-start gap-2 overflow-hidden">
-                  <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-wide">
-                    Best for
-                  </span>
-                  <p className="w-full text-dv-text text-sm sm:text-base font-medium font-sans">
-                    {eng.bestFor}
-                  </p>
-                </div>
-
-                {/* CTA Link */}
-                <Link
-                  href="/#contact"
-                  className="w-full flex justify-between items-center overflow-hidden group pt-1"
-                >
-                  <span className="text-dv-text text-sm sm:text-base font-medium font-sans tracking-normal group-hover:underline">
-                    Let’s talk about it
-                  </span>
-                  <ArrowIcon color="light" size="md" />
-                </Link>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

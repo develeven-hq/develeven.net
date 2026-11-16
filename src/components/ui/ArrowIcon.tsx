@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowUpRight } from "./Icons";
 
 interface ArrowIconProps {
-  color?: "dark" | "lime" | "light" | "dim";
+  color?: "dark" | "light" | "dim";
   size?: "md" | "lg";
   className?: string;
 }
