@@ -38,11 +38,11 @@ interface StepCardProps {
 
 function StepCard({ step }: StepCardProps) {
   return (
-    <div className="w-full h-full p-6 sm:p-8 lg:p-10 bg-dv-card rounded-2xl flex flex-col justify-between gap-6 hover:bg-dv-card/80 transition-colors duration-200">
+    <div className="w-full h-full p-6 sm:p-8 lg:p-10 bg-dv-card rounded-2xl flex flex-col justify-between gap-6">
       <div className="flex flex-col gap-5">
         {/* Header Row */}
         <div className="w-full flex items-center gap-3">
-          <div className="w-9 h-9 rounded-md bg-dv-border flex items-center justify-center text-dv-text shrink-0">
+          <div className="size-10 rounded-lg bg-dv-surface flex items-center justify-center text-dv-text shrink-0">
             {step.icon}
           </div>
           <span className="text-dv-text text-base sm:text-lg font-bold font-sans">
@@ -50,15 +50,15 @@ function StepCard({ step }: StepCardProps) {
           </span>
         </div>
 
-        {/* Title */}
-        <h3 className="text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-tight">
-          {step.title}
-        </h3>
-
-        {/* Narrative Description */}
-        <p className="text-dv-lead text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
-          {step.description}
-        </p>
+        {/* Label & Statement */}
+        <div className="flex flex-col gap-2.5">
+          <h3 className="text-dv-muted text-base font-normal font-sans tracking-normal">
+            {step.title}
+          </h3>
+          <p className="text-dv-text text-base sm:text-lg font-normal font-sans leading-snug tracking-normal">
+            {step.description}
+          </p>
+        </div>
       </div>
 
       {/* Deliverable */}

@@ -98,7 +98,7 @@ export default function LanguageSwitcher({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`h-10 px-3 sm:px-3.5 rounded-full bg-dv-card hover:bg-dv-surface border border-dv-border text-dv-text flex items-center gap-2 text-xs sm:text-sm font-medium font-sans transition-colors cursor-pointer shrink-0 ${className}`}
+        className={`h-10 px-3 sm:px-3.5 rounded-full bg-dv-control hover:bg-dv-control-hover text-dv-text flex items-center gap-2 text-xs sm:text-sm font-medium font-sans transition-colors duration-200 cursor-pointer shrink-0 ${className}`}
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-label={`${selectedLang} - Select language`}
@@ -119,7 +119,7 @@ export default function LanguageSwitcher({
         <div
           role="menu"
           aria-orientation="vertical"
-          className={`absolute right-0 ${menuPosition} w-40 py-1.5 bg-dv-card border border-dv-border rounded-lg shadow-2xl z-50 flex flex-col overflow-hidden backdrop-blur-md`}
+          className={`absolute right-0 ${menuPosition} w-40 py-1.5 bg-dv-card rounded-lg shadow-2xl z-50 flex flex-col overflow-hidden`}
         >
           {LANGUAGES.map((lang) => {
             const isSelected = selectedLang === lang.label;
@@ -129,7 +129,7 @@ export default function LanguageSwitcher({
                 type="button"
                 role="menuitem"
                 onClick={() => selectLanguage(lang.label)}
-                className={`px-3.5 py-2 text-xs sm:text-sm text-left font-sans transition-colors cursor-pointer flex items-center justify-between ${
+                className={`px-3.5 py-2 text-xs sm:text-sm text-left font-sans transition-colors duration-200 cursor-pointer flex items-center justify-between ${
                   isSelected
                     ? "text-dv-text bg-dv-surface font-semibold"
                     : "text-dv-text hover:bg-dv-surface"

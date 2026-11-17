@@ -64,7 +64,7 @@ export default function FAQSection({
   const sectionBg = "bg-dv-bg";
   const cardBg = "bg-dv-card";
   const dividerBorder = "border-dv-border";
-  const toggleBg = "bg-dv-surface group-hover:bg-dv-border";
+  const toggleBg = "bg-dv-surface group-hover:bg-dv-surface-hover";
 
   return (
     <section id={id} className={`w-full ${sectionBg}`}>
@@ -95,20 +95,20 @@ export default function FAQSection({
               return (
                 <div
                   key={faq.question}
-                  className={`w-full ${cardBg} rounded-2xl p-6 sm:p-7 flex flex-col transition-colors overflow-hidden`}
+                  className={`w-full ${cardBg} rounded-2xl p-6 sm:p-7 flex flex-col transition-colors duration-200 overflow-hidden`}
                 >
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     className="w-full flex justify-between items-center gap-4 sm:gap-6 text-left cursor-pointer group"
                     aria-expanded={isOpen}
                   >
-                    <span className="flex-1 text-dv-text text-base sm:text-lg font-medium font-sans leading-snug transition-colors">
+                    <span className="flex-1 text-dv-text text-base sm:text-lg font-medium font-sans leading-snug transition-colors duration-200">
                       {faq.question}
                     </span>
 
                     {/* Toggle Icon Box */}
                     <div
-                      className={`w-8 h-8 rounded-md ${toggleBg} relative flex items-center justify-center text-dv-text shrink-0 transition-colors`}
+                      className={`w-8 h-8 rounded-md ${toggleBg} relative flex items-center justify-center text-dv-text shrink-0 transition-colors duration-200`}
                     >
                       <span
                         className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${

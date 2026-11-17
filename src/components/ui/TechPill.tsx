@@ -44,7 +44,7 @@ export default function TechPill({
         <div
           role="img"
           aria-label={displayName}
-          className="px-3 py-1.5 rounded-lg bg-dv-surface hover:bg-dv-border transition-colors flex items-center gap-2 cursor-default select-none"
+          className="px-3 py-1.5 rounded-lg bg-dv-surface hover:bg-dv-surface-hover transition-colors duration-200 flex items-center gap-2 cursor-default select-none"
         >
           <span className="flex items-center justify-center shrink-0">
             {renderIcon()}
