@@ -9,7 +9,7 @@ export default function PartnerCallout() {
       <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5 min-w-0">
         {/* RushSec Logo */}
         <div
-          className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl overflow-hidden shrink-0 shadow-xs select-none flex items-center justify-center"
+          className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl overflow-hidden shrink-0 select-none flex items-center justify-center"
           title="RushSec"
         >
           <Image
@@ -35,7 +35,7 @@ export default function PartnerCallout() {
       {/* Right: Get started button */}
       <Link
         href="/#contact"
-        className="px-5 sm:px-6 py-2.5 rounded-full bg-dv-bg text-dv-text shadow-xs ring-1 ring-zinc-200 hover:ring-zinc-300 hover:bg-zinc-50 text-sm sm:text-base font-medium font-sans transition-colors duration-200 cursor-pointer shrink-0 inline-flex items-center justify-center self-start md:self-center"
+        className="px-5 sm:px-6 py-2.5 rounded-full bg-dv-surface hover:bg-dv-surface-hover text-dv-text text-sm sm:text-base font-medium font-sans transition-colors duration-200 cursor-pointer shrink-0 inline-flex items-center justify-center self-start md:self-center"
       >
         Get started
       </Link>

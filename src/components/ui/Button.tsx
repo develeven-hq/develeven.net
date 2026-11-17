@@ -2,7 +2,7 @@ import React from "react";
 import ArrowIcon from "./ArrowIcon";
 import { ArrowDown } from "./Icons";
 
-type ButtonVariant = "primary" | "secondary" | "dark";
+type ButtonVariant = "primary" | "secondary" | "secondary-inset" | "dark";
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -28,6 +28,8 @@ export default function Button({
       "bg-dv-btn-primary-bg text-dv-btn-primary-text hover:bg-dv-btn-primary-hover transition-all duration-200 group",
     secondary:
       "bg-dv-control hover:bg-dv-control-hover text-dv-text transition-colors duration-200 group",
+    "secondary-inset":
+      "bg-dv-surface hover:bg-dv-surface-hover text-dv-text transition-colors duration-200 group",
     dark:
       "bg-dv-control text-dv-text hover:bg-dv-control-hover transition-colors duration-200 group",
   };

@@ -10,14 +10,6 @@ const projects: ProjectCardProps[] = [
       "A connected operations platform with real-time reporting, role-based access, and automated workflow handoffs built to replace fragmented spreadsheets.",
     imageSrc: "/images/operations-dashboard.jpg",
     imageAlt: "Orbit operations platform dashboard preview",
-    technologies: [
-      { name: "React", iconSrc: "/icons/tech/react.svg" },
-      { name: "Next.js", iconSrc: "/icons/tech/nextjs.svg" },
-      { name: "TypeScript", iconSrc: "/icons/tech/typescript.svg" },
-      { name: "Tailwind CSS", iconSrc: "/icons/tech/tailwindcss.svg" },
-      { name: "Node.js", iconSrc: "/icons/tech/nodejs.svg" },
-      { name: "PostgreSQL", iconSrc: "/icons/tech/postgresql.svg" },
-    ],
     href: "/#contact",
   },
   {
@@ -28,12 +20,6 @@ const projects: ProjectCardProps[] = [
       "An atmospheric exploration experience combining immersive procedural environments, responsive gameplay mechanics, and scalable runtime systems.",
     imageSrc: "/images/exploration-game.png",
     imageAlt: "Afterlight atmospheric exploration game preview",
-    technologies: [
-      { name: "Unity", iconSrc: "/icons/tech/unity.svg" },
-      { name: "C#", iconSrc: "/icons/tech/csharp.svg" },
-      { name: "Blender", iconSrc: "/icons/tech/blender.svg" },
-      { name: "OpenGL / Shaders", iconSrc: "/icons/tech/opengl.svg" },
-    ],
     href: "/#contact",
   },
 ];
@@ -47,10 +33,10 @@ export default function WorkShowcase() {
           Selected projects and build concepts
         </h2>
 
-        {/* Projects */}
-        <div className="w-full flex flex-col gap-4">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} {...project} reverse={index % 2 === 1} />
+        {/* Two Columns Grid of Vertical Project Cards */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 items-stretch">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} {...project} />
           ))}
         </div>
       </div>
