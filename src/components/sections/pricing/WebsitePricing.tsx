@@ -1,6 +1,6 @@
 import React from "react";
 import PricingCard, { PricingCardProps } from "@/components/sections/pricing/PricingCard";
-import PartnershipBanner from "@/components/sections/pricing/PartnershipBanner";
+import PartnerCallout from "@/components/sections/pricing/PartnerCallout";
 import {
   WebDevIcon,
   LayersIcon,
@@ -75,7 +75,7 @@ export default function WebsitePricing() {
               <PricingCard key={tier.name} {...tier} />
             ))}
           </div>
-          <PartnershipBanner />
+          <PartnerCallout />
         </div>
       </div>
     </section>
