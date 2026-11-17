@@ -182,7 +182,7 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href, link.targetId)}
-                  className={`text-base font-medium tracking-[0.24px] font-sans transition-colors ${
+                  className={`text-base font-medium tracking-[0.24px] font-sans transition-colors duration-200 ${
                     isActive
                       ? "text-dv-text font-semibold"
                       : "text-dv-muted hover:text-dv-text"
@@ -201,7 +201,7 @@ export default function Navbar() {
           <Link
             href="/#contact"
             onClick={(e) => handleNavClick(e, "/#contact", "contact")}
-            className="h-10 px-4.5 bg-dv-btn-primary-bg text-dv-btn-primary-text rounded-full flex items-center gap-2.5 overflow-hidden hover:bg-dv-btn-primary-hover transition-colors group cursor-pointer"
+            className="h-10 px-4.5 bg-dv-btn-primary-bg text-dv-btn-primary-text rounded-full flex items-center gap-2.5 overflow-hidden hover:bg-dv-btn-primary-hover transition-colors duration-200 group cursor-pointer"
           >
             <span className="text-sm font-medium font-sans">
               Let's talk
@@ -216,7 +216,7 @@ export default function Navbar() {
           <Link
             href="/#contact"
             onClick={(e) => handleNavClick(e, "/#contact", "contact")}
-            className="px-3.5 py-2 bg-dv-btn-primary-bg text-dv-btn-primary-text rounded-full flex items-center gap-1.5 hover:bg-dv-btn-primary-hover transition-colors cursor-pointer"
+            className="px-3.5 py-2 bg-dv-btn-primary-bg text-dv-btn-primary-text rounded-full flex items-center gap-1.5 hover:bg-dv-btn-primary-hover transition-colors duration-200 cursor-pointer"
           >
             <span className="text-xs sm:text-sm font-medium font-sans">
               Talk
@@ -227,7 +227,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="w-10 h-10 rounded-full bg-dv-surface flex items-center justify-center text-dv-text transition-colors cursor-pointer hover:bg-dv-surface-hover shrink-0"
+            className="w-10 h-10 rounded-full bg-dv-control flex items-center justify-center text-dv-text transition-colors duration-200 cursor-pointer hover:bg-dv-control-hover shrink-0"
             aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMobileMenuOpen}
           >
@@ -258,7 +258,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href, link.targetId)}
-                className={`py-3 text-base font-medium font-sans tracking-normal transition-colors ${
+                className={`py-3 text-base font-medium font-sans tracking-normal transition-colors duration-200 ${
                   isActive ? "text-dv-text font-semibold" : "text-dv-muted hover:text-dv-text"
                 }`}
               >

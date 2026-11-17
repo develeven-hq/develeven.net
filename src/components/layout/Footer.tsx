@@ -122,34 +122,35 @@ export default function Footer() {
             Twice a month. Right in your inbox.
           </p>
 
-          {!showSubscribeInput && !subscribed ? (
-            <button
-              type="button"
-              onClick={() => setShowSubscribeInput(true)}
-              className="mt-1 px-6 py-2.5 inline-flex items-center justify-center bg-dv-btn-primary-bg hover:bg-dv-btn-primary-hover text-dv-btn-primary-text font-medium text-sm sm:text-base font-sans rounded-full transition-colors cursor-pointer"
-            >
-              Subscribe
-            </button>
-          ) : subscribed ? (
+          {/* Newsletter: the field expands left to right and pushes the button right */}
+          {subscribed ? (
             <div className="mt-1 px-5 py-2.5 bg-dv-surface text-dv-text text-sm sm:text-base font-medium font-sans rounded-full inline-flex items-center gap-2">
-              <span>✓ You&apos;re subscribed to the newsletter!</span>
+              <span>&#10003; You&apos;re subscribed to the newsletter!</span>
             </div>
           ) : (
             <form
               onSubmit={handleSubscribe}
-              className="mt-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full max-w-md"
+              className={`mt-1 grid w-full max-w-md items-center transition-all duration-300 ease-in-out ${
+                showSubscribeInput ? "grid-cols-[1fr_max-content]" : "grid-cols-[0fr_max-content]"
+              }`}
             >
-              <input
-                type="email"
-                required
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-4 py-2.5 rounded-full bg-dv-surface text-dv-text placeholder:text-dv-muted text-sm sm:text-base font-sans focus:outline-none focus:ring-2 focus:ring-dv-text/20 transition-colors"
-              />
+              <div className="min-w-0 overflow-hidden" inert={!showSubscribeInput}>
+                <div className="pr-2.5">
+                  <input
+                    type="email"
+                    required
+                    placeholder="Enter your email address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full px-4 py-2.5 rounded-full bg-dv-control border border-dv-input-border text-dv-text placeholder:text-dv-muted text-sm sm:text-base font-sans transition-colors duration-200 focus:outline-none focus:bg-dv-bg focus:border-dv-text"
+                  />
+                </div>
+              </div>
+
               <button
-                type="submit"
-                className="px-6 py-2.5 bg-dv-btn-primary-bg hover:bg-dv-btn-primary-hover text-dv-btn-primary-text font-medium text-sm sm:text-base font-sans rounded-full transition-colors cursor-pointer shrink-0 inline-flex items-center justify-center"
+                type={showSubscribeInput ? "submit" : "button"}
+                onClick={showSubscribeInput ? undefined : () => setShowSubscribeInput(true)}
+                className="shrink-0 px-6 py-2.5 bg-dv-btn-primary-bg hover:bg-dv-btn-primary-hover text-dv-btn-primary-text font-medium text-sm sm:text-base font-sans rounded-full transition-colors duration-200 cursor-pointer inline-flex items-center justify-center"
               >
                 Subscribe
               </button>
@@ -169,7 +170,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors"
+                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -188,7 +189,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors"
+                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -207,7 +208,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors"
+                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -226,7 +227,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors"
+                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -242,32 +243,32 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-dv-muted text-xs sm:text-sm font-medium font-sans">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-dv-muted hover:text-dv-text transition-colors group"
+              className="inline-flex items-center gap-2 text-dv-muted hover:text-dv-text transition-colors duration-200 group"
             >
               <BrandLogo size={18} className="w-4.5 h-4.5 transition-transform group-hover:scale-105" />
               <span>© 2026 DevEleven, Inc.</span>
             </Link>
             <Link
               href="/terms"
-              className="hover:text-dv-text transition-colors"
+              className="hover:text-dv-text transition-colors duration-200"
             >
               Terms
             </Link>
             <Link
               href="/privacy"
-              className="hover:text-dv-text transition-colors"
+              className="hover:text-dv-text transition-colors duration-200"
             >
               Privacy
             </Link>
             <button
               type="button"
-              className="hover:text-dv-text transition-colors cursor-pointer"
+              className="hover:text-dv-text transition-colors duration-200 cursor-pointer"
             >
               Manage cookies
             </button>
             <button
               type="button"
-              className="hover:text-dv-text transition-colors cursor-pointer"
+              className="hover:text-dv-text transition-colors duration-200 cursor-pointer"
             >
               Do not share my personal information
             </button>
@@ -286,7 +287,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={item.label}
-                    className="hover:text-dv-text transition-colors p-0.5 flex items-center justify-center"
+                    className="hover:text-dv-text transition-colors duration-200 p-0.5 flex items-center justify-center"
                   >
                     <IconComponent size={item.size} />
                   </a>

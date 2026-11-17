@@ -118,15 +118,21 @@ DevEleven ships a single light theme and **one ground**. Every page and every se
 | :--- | :--- | :--- | :--- | :--- |
 | **Ground** | Page + every section | `--color-dv-bg` | `#ffffff` | `<body>` and all `<section>` backgrounds |
 | **Card** | All content cards | `--color-dv-card` | `zinc-100` | Services, Work, Approach, Studio, Engagement, FAQ, Pricing cards |
-| **Inset** | Pills, inputs, icon chips, secondary buttons, accordion toggles | `--color-dv-surface` | `zinc-200` | Language switcher, hamburger, icon tiles, footer input, tags |
-| **Inset hover** | Hover / pressed state of any inset | `--color-dv-surface-hover` | `zinc-300` | Interactive inset states |
+| **Control** | Neutral pills sitting on the ground: secondary buttons, language trigger, nav toggle | `--color-dv-control` | `#ececf0` | Interactive controls outside cards |
+| **Control hover** | Hover / pressed state of a control | `--color-dv-control-hover` | `#e1e1e6` | Control hover states |
+| **Inset** | Chips inside a card: icon tiles, accordion toggles, inner rows, tags | `--color-dv-surface` | `zinc-200` | Chips, toggles and inner surfaces inside cards |
+| **Inset hover** | Hover / pressed state of an inset | `--color-dv-surface-hover` | `zinc-300` | Interactive inset states |
 
 Internal dividers use `--color-dv-border` (`zinc-200`); strong dividers use `--color-dv-surface-border` (`zinc-300`).
+
+The two midpoints exist because Tailwind's zinc scale has a large jump at 100/200 and 200/300: `zinc-100` disappears on white and `zinc-200` reads heavy, so `Control` and the input border are set between the steps. Controls only ever sit on the ground; if one is placed inside a card it must move to the inset step or it disappears into the card.
 
 ### Hard rules
 - **Never white on white.** Nothing inside a card may use `bg-white` or `bg-dv-bg`; that is what the inset step exists for.
 - **One direction only.** Nesting moves darker: ground → card → inset → inset hover. Hover states never move lighter and never use opacity (`hover:bg-dv-card/80` is forbidden).
 - **Only interactive elements hover.** Static cards and content blocks have no hover background.
+- **State changes animate.** Every interactive state change uses `transition-colors duration-200`. Never leave a hover, focus or pressed state instantaneous, and never use a duration other than 200ms for colour transitions.
+- **Inputs are the only bordered elements.** A text field carries one subtle 1px border (`border border-dv-input-border`, `#dcdce1`) plus the control fill (`bg-dv-control`, `#ececf0`) so it reads as a field rather than an empty gap; on focus it lifts to `bg-dv-bg` and the border darkens to `border-dv-text`. Nothing else may use a full border: no buttons, pills, chips, cards, popovers or images. Header and footer chrome plus internal dividers stay on `border-t` / `border-b` as before.
 - **No card borders, outlines, or shadows.** Cards are defined by the single contrast step between ground and card. Shadows are reserved for floating overlays (dropdowns, tooltips).
 - **No section bands.** Sections are separated by whitespace (`py-20 lg:py-24`), never by alternating backgrounds.
 - **One inverted moment per page.** The closing CTA panel is the only large dark surface. Build it with `bg-dv-text text-dv-bg` and light buttons (`bg-dv-bg text-dv-text hover:bg-dv-surface`); never use `bg-black` or add a second dark surface.
@@ -143,15 +149,17 @@ Do not add a background band to fix a flat page. Create rhythm with composition 
 Defined in `src/app/globals.css`. Token names are semantic, never color-based (`accent`, not `lime`); changing a hue happens only in `globals.css`, never in components:
 - **Ground**: `--color-dv-bg: #ffffff` (`bg-dv-bg`)
 - **Card**: `--color-dv-card: var(--color-zinc-100)` (`bg-dv-card`)
+- **Control**: `--color-dv-control: #ececf0` (`bg-dv-control`), hover `--color-dv-control-hover: #e1e1e6` (`hover:bg-dv-control-hover`)
 - **Inset**: `--color-dv-surface: var(--color-zinc-200)` (`bg-dv-surface`)
 - **Inset Hover**: `--color-dv-surface-hover: var(--color-zinc-300)` (`hover:bg-dv-surface-hover`)
+- **Input Border**: `--color-dv-input-border: #dcdce1` (`border-dv-input-border`); the only border allowed outside chrome and dividers
 - **Dividers**: `--color-dv-border: var(--color-zinc-200)`; strong: `--color-dv-surface-border: var(--color-zinc-300)`
 - **Primary Text**: `--color-dv-text: var(--color-zinc-950)` (`text-dv-text`)
 - **Muted Text**: `--color-dv-muted: var(--color-zinc-600)` (`text-dv-muted`)
 - **Lead Text**: `--color-dv-lead: var(--color-zinc-700)` (`text-dv-lead`)
 - **Brand Accent (reserved)**: `--color-dv-accent: var(--color-sky-600)`, hover `sky-700`
 - **Primary Buttons**: `--dv-btn-primary-bg` (`zinc-950`), text `#ffffff`, hover `zinc-800` (`bg-dv-btn-primary-bg`, `text-dv-btn-primary-text`, `hover:bg-dv-btn-primary-hover`)
-- **Secondary Buttons**: solid inset, borderless: `bg-dv-surface hover:bg-dv-surface-hover text-dv-text`
+- **Secondary Buttons**: solid control fill, borderless: `bg-dv-control hover:bg-dv-control-hover text-dv-text`. Inputs are the only bordered control.
 
 ### Corner Radius Standards
 - **Buttons & Interactive CTAs**: Use `rounded-full` (pill style). All clickable buttons, action triggers, and primary/secondary CTA links across the site use `rounded-full`. Hero buttons have thick vertical padding with snug horizontal padding (`py-3.5 sm:py-4 px-6 sm:px-7 gap-2.5 sm:gap-3`), while navbar buttons use compact pill padding (`h-10 px-4.5` on desktop).
@@ -208,4 +216,5 @@ Always verify these commands before concluding any task:
 5. Verify every page route exports a unique title in its metadata.
 6. Test HTTP 200 on all routes: `curl -I http://localhost:3000/` and `curl -I http://localhost:3000/pricing`.
 7. `grep -rn "hover:bg-dv-card/\|bg-dv-surface/" src/` - must return 0 results (no opacity-based surface hovers).
+8. `grep -rn "border border-" src/components/` - must return only the newsletter input (inputs are the only bordered elements).
 

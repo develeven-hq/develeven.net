@@ -59,7 +59,7 @@ export default function PricingCard({
         {/* Bottom CTA Button */}
         <Link
           href="/#contact"
-          className="w-full mt-2 py-3 px-6 rounded-full flex items-center justify-center gap-2.5 transition-colors group cursor-pointer bg-dv-btn-primary-bg text-dv-btn-primary-text hover:bg-dv-btn-primary-hover font-medium"
+          className="w-full mt-2 py-3 px-6 rounded-full flex items-center justify-center gap-2.5 transition-colors duration-200 group cursor-pointer bg-dv-btn-primary-bg text-dv-btn-primary-text hover:bg-dv-btn-primary-hover font-medium"
         >
           <span className="text-sm font-sans tracking-normal">
             {buttonText}

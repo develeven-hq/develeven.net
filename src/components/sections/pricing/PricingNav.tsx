@@ -50,7 +50,7 @@ export default function PricingNav() {
             key={link.label}
             href={link.href}
             onClick={(e) => handleJump(e, link.href)}
-            className="group flex items-center gap-2 text-dv-text text-xs sm:text-sm font-medium font-sans tracking-normal hover:text-dv-muted transition-colors whitespace-nowrap"
+            className="group flex items-center gap-2 text-dv-text text-xs sm:text-sm font-medium font-sans tracking-normal hover:text-dv-muted transition-colors duration-200 whitespace-nowrap"
           >
             <span className="shrink-0 flex items-center justify-center">
               {link.icon}
