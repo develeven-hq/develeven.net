@@ -26,10 +26,10 @@ export default function PricingCard({
 }: PricingCardProps) {
   return (
     <div
-      className={`relative p-6 rounded-2xl overflow-hidden flex flex-col justify-between items-start gap-8 outline ${
+      className={`relative p-6 rounded-2xl overflow-hidden flex flex-col justify-between items-start gap-8 ${
         featured
           ? "bg-white bg-linear-to-b from-blue-50 via-white via-45% to-white outline-1 outline-blue-200"
-          : "bg-dv-card/75 outline-1 outline-dv-border"
+          : "bg-dv-card"
       }`}
     >
       {badge && (
