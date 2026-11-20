@@ -157,7 +157,7 @@ Defined in `src/app/globals.css`. Token names are semantic, never color-based (`
 - **Primary Text**: `--color-dv-text: var(--color-zinc-950)` (`text-dv-text`)
 - **Muted Text**: `--color-dv-muted: var(--color-zinc-600)` (`text-dv-muted`)
 - **Lead Text**: `--color-dv-lead: var(--color-zinc-700)` (`text-dv-lead`)
-- **Brand Accent (reserved)**: `--color-dv-accent: var(--color-sky-600)`, hover `sky-700`
+- **Brand Accent (reserved)**: `--color-dv-accent: var(--color-blue-600)`, hover `blue-700`
 - **Primary Buttons**: `--dv-btn-primary-bg` (`zinc-950`), text `#ffffff`, hover `zinc-800` (`bg-dv-btn-primary-bg`, `text-dv-btn-primary-text`, `hover:bg-dv-btn-primary-hover`)
 - **Secondary Buttons**: solid control fill, borderless: `bg-dv-control hover:bg-dv-control-hover text-dv-text`. Inputs are the only bordered control.
 

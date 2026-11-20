@@ -30,8 +30,8 @@
   --dv-lead: var(--color-zinc-700);
   --dv-inverse-muted: var(--color-zinc-300); /* label text over imagery */
 
-  --dv-accent: var(--color-sky-600);
-  --dv-accent-hover: var(--color-sky-700);
+  --dv-accent: var(--color-blue-600);
+  --dv-accent-hover: var(--color-blue-700);
 
   /* Primary Button: dark surface with light text */
   --dv-btn-primary-bg: var(--color-zinc-950);
