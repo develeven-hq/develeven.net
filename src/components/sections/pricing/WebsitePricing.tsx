@@ -1,6 +1,6 @@
 import React from "react";
 import PricingCard, { PricingCardProps } from "@/components/sections/pricing/PricingCard";
-import PartnershipBanner from "@/components/sections/pricing/PartnershipBanner";
+import PartnerCallout from "@/components/sections/pricing/PartnerCallout";
 import {
   WebDevIcon,
   LayersIcon,
@@ -24,7 +24,7 @@ const pricingTiers: PricingCardProps[] = [
   },
   {
     name: "Business",
-    badge: "Most popular",
+    badge: "Recommended",
     featured: true,
     icon: <LayersIcon size={24} />,
     price: "$249",
@@ -69,13 +69,13 @@ export default function WebsitePricing() {
   return (
     <section id="websites" className="w-full bg-dv-bg">
       <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 pt-8 pb-16 sm:pt-10 sm:pb-20 lg:pt-14 lg:pb-24">
-        <div className="w-full flex flex-col gap-4">
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="w-full flex flex-col gap-6">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {pricingTiers.map((tier) => (
               <PricingCard key={tier.name} {...tier} />
             ))}
           </div>
-          <PartnershipBanner />
+          <PartnerCallout />
         </div>
       </div>
     </section>

@@ -29,6 +29,7 @@ import {
   TrendingUp,
   AppWindow,
   Loader,
+  SlidersHorizontal,
 } from "lucide-react";
 
 interface IconProps {
@@ -149,6 +150,23 @@ export function LayersIcon({
 }: IconProps) {
   return (
     <LucideLayers
+      size={size}
+      color={color}
+      strokeWidth={strokeWidth}
+      className={`shrink-0 ${className}`}
+    />
+  );
+}
+
+/** Controls / Filter sliders icon */
+export function SlidersHorizontalIcon({
+  className = "",
+  size = 24,
+  color = "currentColor",
+  strokeWidth = 1.5,
+}: IconProps) {
+  return (
+    <SlidersHorizontal
       size={size}
       color={color}
       strokeWidth={strokeWidth}

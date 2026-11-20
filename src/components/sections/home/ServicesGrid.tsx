@@ -53,7 +53,7 @@ export default function ServicesGrid() {
             {/* Card 1: AI-Driven Development */}
             <div className="relative w-full min-h-112 sm:min-h-128 lg:min-h-136 bg-dv-card rounded-2xl overflow-hidden flex flex-col justify-end gap-5 p-4 sm:p-6">
               <Image
-                src="/images/abstract-cyan.jpg"
+                src="/images/abstract-blue.jpg"
                 alt=""
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"

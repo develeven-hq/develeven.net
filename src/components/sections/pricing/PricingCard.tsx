@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import CheckItem from "@/components/ui/CheckItem";
-import ArrowIcon from "@/components/ui/ArrowIcon";
 
 export interface PricingCardProps {
   name: string;
@@ -26,7 +25,13 @@ export default function PricingCard({
   featured = false,
 }: PricingCardProps) {
   return (
-    <div className="relative p-6 bg-dv-card rounded-2xl overflow-hidden flex flex-col justify-between items-start gap-8">
+    <div
+      className={`relative p-6 rounded-2xl overflow-hidden flex flex-col justify-between items-start gap-8 outline ${
+        featured
+          ? "bg-white bg-linear-to-b from-blue-50 via-white via-45% to-white outline-1 outline-blue-200"
+          : "bg-dv-card/75 outline-1 outline-dv-border"
+      }`}
+    >
       {badge && (
         <div className="absolute top-0 right-0 px-3.5 py-1.5 bg-blue-600 text-white text-xs font-medium font-sans tracking-wide rounded-bl-xl select-none">
           {badge}
@@ -45,14 +50,14 @@ export default function PricingCard({
 
         {/* Price */}
         <div className="w-full flex flex-col items-start gap-1">
-          <span className="text-dv-lead text-xs sm:text-sm font-normal font-sans tracking-wide">
+          <span className="text-dv-text text-xs sm:text-sm font-normal font-sans">
             Starting from
           </span>
           <div className="flex items-baseline gap-1.5">
             <span className="text-dv-text text-4xl sm:text-5xl lg:text-5xl font-medium font-sans tracking-tight">
               {price}
             </span>
-            <span className="text-base text-dv-muted">USD</span>
+            <span className="text-xs sm:text-sm font font-medium text-dv-muted">USD</span>
           </div>
         </div>
 
@@ -64,7 +69,6 @@ export default function PricingCard({
           <span className="text-sm font-sans tracking-normal">
             {buttonText}
           </span>
-          <ArrowIcon color="dark" />
         </Link>
 
         {/* 1px Divider */}
