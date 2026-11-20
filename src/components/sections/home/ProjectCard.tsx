@@ -3,11 +3,6 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import GrainOverlay from "@/components/ui/GrainOverlay";
 
-export interface ProjectTechnology {
-  name: string;
-  iconSrc: string;
-}
-
 export interface ProjectCardProps {
   id?: string;
   title: string;
@@ -15,9 +10,14 @@ export interface ProjectCardProps {
   description: string;
   imageSrc: string;
   imageAlt: string;
-  technologies?: ProjectTechnology[];
+  deliverableBadge?: string;
+  sector?: string;
+  technologies?: string[];
+  metrics?: {
+    value: string;
+    label: string;
+  };
   href?: string;
-  reverse?: boolean;
 }
 
 export default function ProjectCard({
@@ -26,10 +26,14 @@ export default function ProjectCard({
   description,
   imageSrc,
   imageAlt,
+  deliverableBadge,
+  sector,
+  technologies = [],
+  metrics,
   href = "/#contact",
 }: ProjectCardProps) {
   return (
-    <article className="group w-full h-full bg-dv-card rounded-2xl overflow-hidden flex flex-col justify-between">
+    <article className="group w-full h-full bg-dv-card rounded-2xl overflow-hidden flex flex-col justify-between transition-colors duration-200">
       {/* Top: Media Container */}
       <div className="relative w-full aspect-16/10 bg-dv-surface overflow-hidden shrink-0">
         <Image
@@ -46,6 +50,22 @@ export default function ProjectCard({
       {/* Bottom: Content Container */}
       <div className="p-6 sm:p-7 lg:p-8 flex flex-col flex-1 justify-between gap-6">
         <div className="flex flex-col gap-4">
+          {/* Deliverable Badge & Sector Pills */}
+          {(deliverableBadge || sector) && (
+            <div className="flex items-center flex-wrap gap-2">
+              {deliverableBadge && (
+                <span className="bg-dv-text text-dv-bg font-medium font-sans text-xs px-2.5 py-1 rounded-md">
+                  {deliverableBadge}
+                </span>
+              )}
+              {sector && (
+                <span className="bg-dv-surface text-dv-muted font-medium font-sans text-xs px-2.5 py-1 rounded-md">
+                  {sector}
+                </span>
+              )}
+            </div>
+          )}
+
           {/* Title & Subtitle */}
           <div className="flex flex-col gap-1">
             <h3 className="text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-tight">
@@ -60,10 +80,37 @@ export default function ProjectCard({
           <p className="text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
             {description}
           </p>
+
+          {/* Tech Stack Pills */}
+          {technologies.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              {technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="bg-dv-surface text-dv-text font-medium font-sans text-xs px-2.5 py-1 rounded-md"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* CTA Button */}
-        <div className="pt-2">
+        {/* Footer: Metric & Action */}
+        <div className="pt-4 border-t border-dv-border flex items-center justify-between gap-4">
+          {metrics ? (
+            <div className="flex flex-col">
+              <span className="text-dv-text text-base sm:text-lg font-medium font-sans leading-tight">
+                {metrics.value}
+              </span>
+              <span className="text-dv-muted text-xs font-normal font-sans">
+                {metrics.label}
+              </span>
+            </div>
+          ) : (
+            <div />
+          )}
+
           <Button href={href} variant="secondary-inset">
             View project
           </Button>

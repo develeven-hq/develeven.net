@@ -1,41 +1,99 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import ProjectCard, { ProjectCardProps } from "@/components/sections/home/ProjectCard";
 
-const projects: ProjectCardProps[] = [
+interface ShowcaseProject extends ProjectCardProps {
+  category: "platforms" | "graphics";
+}
+
+const projects: ShowcaseProject[] = [
   {
     id: "orbit",
+    category: "platforms",
+    deliverableBadge: "Operations platform",
+    sector: "Enterprise tooling",
     title: "Orbit",
     subtitle: "Complex workflows. One clear view.",
     description:
       "A connected operations platform with real-time reporting, role-based access, and automated workflow handoffs built to replace fragmented spreadsheets.",
+    technologies: ["Next.js", "TypeScript", "WebSockets", "PostgreSQL", "Tailwind CSS"],
+    metrics: {
+      value: "< 50ms",
+      label: "Sync latency",
+    },
     imageSrc: "/images/operations-dashboard.jpg",
     imageAlt: "Orbit operations platform dashboard preview",
     href: "/#contact",
   },
   {
     id: "afterlight",
+    category: "graphics",
+    deliverableBadge: "Procedural runtime",
+    sector: "Interactive 3D simulation",
     title: "Afterlight",
     subtitle: "A world worth getting lost in.",
     description:
       "An atmospheric exploration experience combining immersive procedural environments, responsive gameplay mechanics, and scalable runtime systems.",
+    technologies: ["Three.js", "WebGL", "WebAssembly", "GLSL Shaders", "TypeScript"],
+    metrics: {
+      value: "60 FPS",
+      label: "Runtime performance",
+    },
     imageSrc: "/images/exploration-game.png",
     imageAlt: "Afterlight atmospheric exploration game preview",
     href: "/#contact",
   },
 ];
 
+const filterCategories = [
+  { id: "all", label: "All builds", count: 2 },
+  { id: "platforms", label: "Web platforms", count: 1 },
+  { id: "graphics", label: "Graphics & 3D", count: 1 },
+] as const;
+
+type FilterId = (typeof filterCategories)[number]["id"];
+
 export default function WorkShowcase() {
+  const [activeFilter, setActiveFilter] = useState<FilterId>("all");
+
+  const filteredProjects =
+    activeFilter === "all"
+      ? projects
+      : projects.filter((project) => project.category === activeFilter);
+
   return (
     <section id="work" className="w-full bg-dv-bg">
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-16 lg:gap-20">
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 py-20 lg:py-24 flex flex-col items-center gap-12 lg:gap-16">
         {/* Centered Heading */}
         <h2 className="text-dv-text text-3xl sm:text-4xl lg:text-5xl font-normal font-sans tracking-tight leading-tight text-center">
           Selected projects and build concepts
         </h2>
 
+        {/* Category Filter Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          {filterCategories.map((cat) => {
+            const isActive = activeFilter === cat.id;
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => setActiveFilter(cat.id)}
+                className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium font-sans transition-colors duration-200 cursor-pointer ${
+                  isActive
+                    ? "bg-dv-text text-dv-bg"
+                    : "bg-dv-control hover:bg-dv-control-hover text-dv-muted hover:text-dv-text"
+                }`}
+              >
+                {cat.label} ({cat.count})
+              </button>
+            );
+          })}
+        </div>
+
         {/* Two Columns Grid of Vertical Project Cards */}
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 items-stretch">
-          {projects.map((project) => (
+          {filteredProjects.map((project) => (
             <ProjectCard key={project.id} {...project} />
           ))}
         </div>

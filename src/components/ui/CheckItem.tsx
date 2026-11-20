@@ -9,7 +9,7 @@ export default function CheckItem({ children }: { children: React.ReactNode }) {
           <CheckIcon size={16} />
         </div>
       </div>
-      <span className="flex-1 text-dv-lead text-sm lg:text-base font-normal font-sans leading-6 tracking-normal wrap-break-word">
+      <span className="flex-1 text-dv-text text-sm lg:text-base font-normal font-sans leading-6 tracking-normal wrap-break-word">
         {children}
       </span>
     </div>

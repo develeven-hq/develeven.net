@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import CheckItem from "@/components/ui/CheckItem";
-import ArrowIcon from "@/components/ui/ArrowIcon";
 
 export interface PricingCardProps {
   name: string;
@@ -26,7 +25,11 @@ export default function PricingCard({
   featured = false,
 }: PricingCardProps) {
   return (
-    <div className="relative p-6 bg-dv-card rounded-2xl overflow-hidden flex flex-col justify-between items-start gap-8">
+    <div
+      className={`relative p-6 bg-dv-card rounded-2xl overflow-hidden flex flex-col justify-between items-start gap-8 ${
+        featured ? "outline outline-2 outline-blue-600" : ""
+      }`}
+    >
       {badge && (
         <div className="absolute top-0 right-0 px-3.5 py-1.5 bg-blue-600 text-white text-xs font-medium font-sans tracking-wide rounded-bl-xl select-none">
           {badge}
@@ -64,7 +67,6 @@ export default function PricingCard({
           <span className="text-sm font-sans tracking-normal">
             {buttonText}
           </span>
-          <ArrowIcon color="dark" />
         </Link>
 
         {/* 1px Divider */}

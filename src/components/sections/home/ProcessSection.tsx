@@ -47,7 +47,7 @@ interface StepCardProps {
 
 function StepCard({ step }: StepCardProps) {
   return (
-    <div className="w-full h-full p-6 sm:p-8 lg:p-10 bg-dv-card rounded-2xl flex flex-col justify-between gap-6 hover:bg-dv-card/80 transition-colors duration-200">
+    <div className="w-full h-full p-6 sm:p-8 lg:p-10 bg-dv-card rounded-2xl flex flex-col justify-between gap-6 transition-colors duration-200">
       <div className="flex flex-col gap-5">
         {/* Header Row */}
         <div className="w-full flex items-center gap-3">
