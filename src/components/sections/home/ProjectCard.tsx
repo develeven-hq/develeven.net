@@ -54,12 +54,12 @@ export default function ProjectCard({
           {(deliverableBadge || sector) && (
             <div className="flex items-center flex-wrap gap-2">
               {deliverableBadge && (
-                <span className="bg-dv-text text-dv-bg font-medium font-sans text-xs px-2.5 py-1 rounded-md">
+                <span className="bg-blue-50/80 text-blue-600 outline outline-1 outline-blue-200 font-medium font-sans text-xs px-3 py-1.5 rounded-full">
                   {deliverableBadge}
                 </span>
               )}
               {sector && (
-                <span className="bg-dv-surface text-dv-muted font-medium font-sans text-xs px-2.5 py-1 rounded-md">
+                <span className="bg-dv-surface text-dv-muted font-medium font-sans text-xs px-3 py-1.5 rounded-full">
                   {sector}
                 </span>
               )}
@@ -68,32 +68,29 @@ export default function ProjectCard({
 
           {/* Title & Subtitle */}
           <div className="flex flex-col gap-1">
-            <h3 className="text-dv-text text-xl sm:text-2xl font-medium font-sans leading-snug tracking-tight">
-              {title}
+            <h3 className="text-dv-text text-2xl sm:text-3xl font-normal font-sans leading-snug">
+              {title} — {subtitle}
             </h3>
-            <p className="text-dv-lead text-sm sm:text-base font-normal font-sans leading-snug tracking-normal">
-              {subtitle}
-            </p>
           </div>
 
           {/* Description */}
-          <p className="text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
+          <p className="text-dv-lead text-sm sm:text-base font-normal font-sans leading-relaxed tracking-normal">
             {description}
           </p>
 
           {/* Tech Stack Pills */}
-          {technologies.length > 0 && (
+          {/* {technologies.length > 0 && (
             <div className="flex flex-wrap gap-1.5 pt-1">
               {technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="bg-dv-surface text-dv-text font-medium font-sans text-xs px-2.5 py-1 rounded-md"
+                  className="bg-dv-surface text-dv-text font-medium font-sans text-xs px-3 py-1.5 rounded-full"
                 >
                   {tech}
                 </span>
               ))}
             </div>
-          )}
+          )} */}
         </div>
 
         {/* Footer: Metric & Action */}

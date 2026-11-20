@@ -14,28 +14,28 @@
    * one step darker. Never place white on white, never move lighter on hover.
    */
   --dv-bg: #ffffff;                       /* ground: page + every section */
-  --dv-card: var(--color-zinc-100);       /* cards                       */
-  --dv-surface: var(--color-zinc-200);    /* insets inside cards         */
-  --dv-surface-hover: var(--color-zinc-300); /* inset hover / pressed    */
-  /* Midpoints: the zinc scale jumps 100 -> 200 (and 200 -> 300), so neither
-     step is usable on white. zinc-100 is invisible, zinc-200 reads heavy. */
+  --dv-card: var(--color-gray-100);       /* cards                       */
+  --dv-surface: var(--color-gray-200);    /* insets inside cards         */
+  --dv-surface-hover: var(--color-gray-300); /* inset hover / pressed    */
+  /* Midpoints: the gray scale jumps 100 -> 200 (and 200 -> 300), so neither
+     step is usable on white. gray-100 is invisible, gray-200 reads heavy. */
   --dv-control: #ececf0;                  /* neutral pills on the ground */
   --dv-control-hover: #e1e1e6;
   --dv-input-border: #dcdce1;             /* the only permitted border */
-  --dv-border: var(--color-zinc-200);     /* internal dividers           */
-  --dv-surface-border: var(--color-zinc-300); /* strong dividers         */
+  --dv-border: var(--color-gray-200);     /* internal dividers           */
+  --dv-surface-border: var(--color-gray-300); /* strong dividers         */
 
-  --dv-text: var(--color-zinc-950);
-  --dv-muted: var(--color-zinc-600);
-  --dv-lead: var(--color-zinc-700);
-  --dv-inverse-muted: var(--color-zinc-300); /* label text over imagery */
+  --dv-text: var(--color-gray-950);
+  --dv-muted: var(--color-gray-600);
+  --dv-lead: var(--color-gray-700);
+  --dv-inverse-muted: var(--color-gray-300); /* label text over imagery */
 
   --dv-accent: var(--color-blue-600);
   --dv-accent-hover: var(--color-blue-700);
 
   /* Primary Button: dark surface with light text */
-  --dv-btn-primary-bg: var(--color-zinc-950);
-  --dv-btn-primary-hover: var(--color-zinc-800);
+  --dv-btn-primary-bg: var(--color-gray-950);
+  --dv-btn-primary-hover: var(--color-gray-800);
   --dv-btn-primary-text: #ffffff;
 }
 

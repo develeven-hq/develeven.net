@@ -28,8 +28,8 @@ export default function PricingCard({
     <div
       className={`relative p-6 rounded-2xl overflow-hidden flex flex-col justify-between items-start gap-8 outline ${
         featured
-          ? "bg-white bg-gradient-to-b from-blue-50 via-white via-45% to-white outline-1 outline-blue-200"
-          : "bg-dv-card outline-1 outline-dv-border"
+          ? "bg-white bg-linear-to-b from-blue-50 via-white via-45% to-white outline-1 outline-blue-200"
+          : "bg-dv-card/75 outline-1 outline-dv-border"
       }`}
     >
       {badge && (
@@ -50,14 +50,14 @@ export default function PricingCard({
 
         {/* Price */}
         <div className="w-full flex flex-col items-start gap-1">
-          <span className="text-dv-lead text-xs sm:text-sm font-normal font-sans tracking-wide">
+          <span className="text-dv-text text-xs sm:text-sm font-normal font-sans">
             Starting from
           </span>
           <div className="flex items-baseline gap-1.5">
             <span className="text-dv-text text-4xl sm:text-5xl lg:text-5xl font-medium font-sans tracking-tight">
               {price}
             </span>
-            <span className="text-base text-dv-muted">USD</span>
+            <span className="text-xs sm:text-sm font font-medium text-dv-muted">USD</span>
           </div>
         </div>
 
