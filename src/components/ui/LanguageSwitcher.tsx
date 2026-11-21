@@ -5,9 +5,9 @@ import { GlobeIcon, ChevronDownIcon, CheckIcon } from "@/components/ui/Icons";
 
 export const LANGUAGES = [
   { code: "en", label: "English" },
-  { code: "de", label: "Deutsch" },
-  { code: "es", label: "Español" },
-  { code: "fr", label: "Français" },
+  { code: "bn", label: "বাংলা" },
+  { code: "ar", label: "العربية" },
+  { code: "ur", label: "اردو" },
   { code: "ja", label: "日本語" },
 ];
 

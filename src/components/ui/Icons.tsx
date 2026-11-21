@@ -30,6 +30,7 @@ import {
   AppWindow,
   Loader,
   SlidersHorizontal,
+  DollarSign as LucideDollarSign,
 } from "lucide-react";
 
 interface IconProps {
@@ -104,6 +105,45 @@ export function InfoIcon({
       strokeWidth={strokeWidth}
       className={`shrink-0 ${className}`}
     />
+  );
+}
+
+/** Dollar currency icon ($) */
+export function DollarIcon({
+  className = "",
+  size = 16,
+  color = "currentColor",
+  strokeWidth = 1.5,
+}: IconProps) {
+  return (
+    <LucideDollarSign
+      size={size}
+      color={color}
+      strokeWidth={strokeWidth}
+      className={`shrink-0 ${className}`}
+    />
+  );
+}
+
+/** Bengali Taka currency icon (৳) */
+export function TakaIcon({
+  className = "",
+  size = 16,
+  color = "currentColor",
+}: IconProps) {
+  return (
+    <span
+      style={{
+        width: size,
+        height: size,
+        color,
+        fontSize: typeof size === "number" ? size * 0.95 : "0.95em",
+      }}
+      className={`inline-flex items-center justify-center font-bold font-sans leading-none select-none shrink-0 ${className}`}
+      aria-hidden="true"
+    >
+      ৳
+    </span>
   );
 }
 

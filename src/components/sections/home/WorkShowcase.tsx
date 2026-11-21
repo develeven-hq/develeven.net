@@ -78,7 +78,7 @@ export default function WorkShowcase() {
 
         {/* Category Switcher */}
         <div className="w-full flex justify-center">
-          <div className="inline-flex items-center p-1 sm:p-1.5 rounded-full bg-dv-control outline outline-1 outline-dv-border max-w-full overflow-x-auto">
+          <div className="inline-flex items-center rounded-full bg-dv-bg outline outline-dv-border max-w-full overflow-x-auto">
             {filterCategories.map((cat) => {
               const isActive = activeFilter === cat.id;
               const Icon = cat.icon;
@@ -87,10 +87,10 @@ export default function WorkShowcase() {
                   key={cat.id}
                   type="button"
                   onClick={() => setActiveFilter(cat.id)}
-                  className={`group inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium font-sans whitespace-nowrap transition-all duration-200 cursor-pointer ${
+                  className={`group inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium font-sans whitespace-nowrap transition-all duration-200 cursor-pointer ${
                     isActive
-                      ? "bg-white text-dv-text shadow-xs"
-                      : "text-dv-muted hover:text-dv-text hover:bg-dv-control-hover/60"
+                      ? "bg-dv-accent-subtle text-dv-accent"
+                      : "text-dv-lead hover:text-dv-accent"
                   }`}
                 >
                   <Icon
