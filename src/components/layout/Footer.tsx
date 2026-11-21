@@ -1,76 +1,50 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import {
   LinkedInIcon,
-  InstagramIcon,
-  YouTubeIcon,
   XSocialIcon,
-  TikTokIcon,
   DiscordIcon,
   GitHubIcon,
   BrandLogo,
 } from "@/components/ui/Icons";
 
 const serviceLinks = [
-  { label: "Website development", href: "/#services" },
-  { label: "Website maintenance", href: "/#services" },
-  { label: "Custom software", href: "/#services" },
-  { label: "Dedicated engineering", href: "/#services" },
+  { label: "Website Development", href: "/#services" },
+  { label: "Custom Software", href: "/#services" },
+  { label: "Game Development", href: "/#services" },
+  { label: "Website Maintenance", href: "/#services" },
+  { label: "AI-Driven Development", href: "/#services" },
 ];
 
 const studioLinks = [
-  { label: "Selected work", href: "/#work" },
-  { label: "Engineering standards", href: "/#approach" },
-  { label: "Development workflow", href: "/#process" },
-  { label: "About our studio", href: "/#studio" },
+  { label: "Selected Work", href: "/#work" },
+  { label: "Engineering Standards", href: "/#approach" },
+  { label: "Development Process", href: "/#process" },
+  { label: "About Studio", href: "/#studio" },
 ];
 
 const pricingLinks = [
-  { label: "Website packages", href: "/pricing#websites" },
-  { label: "Custom software rates", href: "/pricing#software" },
-  { label: "How we estimate", href: "/pricing#process" },
-  { label: "Pricing questions", href: "/pricing#pricing-faq" },
+  { label: "Website Packages", href: "/pricing#websites" },
+  { label: "Custom Software Rates", href: "/pricing#software" },
+  { label: "How We Estimate", href: "/pricing#process" },
+  { label: "Pricing FAQ", href: "/pricing#pricing-faq" },
 ];
 
 const companyLinks = [
-  { label: "Start a conversation", href: "/#contact" },
-  { label: "Common questions", href: "/#faq" },
-  { label: "Privacy policy", href: "/privacy" },
-  { label: "Terms of use", href: "/terms" },
+  { label: "Start a Conversation", href: "/#contact" },
+  { label: "Common Questions", href: "/#faq" },
+  { label: "Terms of Service", href: "/terms" },
+  { label: "Privacy Policy", href: "/privacy" },
 ];
 
 const socialLinks = [
   {
-    label: "DevEleven on LinkedIn",
-    href: "https://linkedin.com/company/develeven-hq",
-    icon: LinkedInIcon,
-    size: 19,
-  },
-  {
-    label: "DevEleven on Instagram",
-    href: "https://instagram.com/develeven_hq",
-    icon: InstagramIcon,
-    size: 18,
-  },
-  {
-    label: "DevEleven on YouTube",
-    href: "https://youtube.com/@develeven",
-    icon: YouTubeIcon,
-    size: 19,
-  },
-  {
-    label: "DevEleven on X",
-    href: "https://x.com/DevElevenX",
-    icon: XSocialIcon,
-    size: 16,
-  },
-  {
-    label: "DevEleven on TikTok",
-    href: "https://tiktok.com/@develeven",
-    icon: TikTokIcon,
+    label: "DevEleven on GitHub",
+    href: "https://github.com/develeven-hq",
+    icon: GitHubIcon,
     size: 18,
   },
   {
@@ -80,86 +54,25 @@ const socialLinks = [
     size: 18,
   },
   {
-    label: "DevEleven on GitHub",
-    href: "https://github.com/develeven-hq",
-    icon: GitHubIcon,
-    size: 18,
+    label: "DevEleven on X",
+    href: "https://x.com/DevElevenX",
+    icon: XSocialIcon,
+    size: 16,
+  },
+  {
+    label: "DevEleven on LinkedIn",
+    href: "https://linkedin.com/company/develeven-hq",
+    icon: LinkedInIcon,
+    size: 19,
   },
 ];
 
 export default function Footer() {
-  const [showSubscribeInput, setShowSubscribeInput] = useState(false);
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail("");
-    }
-  };
-
   return (
     <footer className="w-full bg-dv-bg border-t border-dv-border">
-      {/* 2. Main Footer Body */}
-      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 pt-16 pb-12 flex flex-col gap-12 lg:gap-14">
-        {/* Newsletter Section */}
-        <div className="w-full flex flex-col items-start gap-3.5">
-          <div className="flex items-center gap-2">
-            <span
-              className="w-1.5 h-3.5 bg-dv-muted rounded-xs shrink-0"
-              aria-hidden="true"
-            />
-            <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-wide">
-              The developer newsletter
-            </span>
-          </div>
-
-          <p className="text-dv-muted text-sm sm:text-base font-normal font-sans leading-relaxed max-w-md">
-            Get tips, technical guides, and best practices.
-            <br />
-            Twice a month. Right in your inbox.
-          </p>
-
-          {/* Newsletter: the field expands left to right and pushes the button right */}
-          {subscribed ? (
-            <div className="mt-1 px-5 py-2.5 bg-dv-surface text-dv-text text-sm sm:text-base font-medium font-sans rounded-full inline-flex items-center gap-2">
-              <span>&#10003; You&apos;re subscribed to the newsletter!</span>
-            </div>
-          ) : (
-            <form
-              onSubmit={handleSubscribe}
-              className={`mt-1 grid w-full max-w-md items-center transition-all duration-300 ease-in-out ${
-                showSubscribeInput ? "grid-cols-[1fr_max-content]" : "grid-cols-[0fr_max-content]"
-              }`}
-            >
-              <div className="min-w-0 overflow-hidden" inert={!showSubscribeInput}>
-                <div className="pr-2.5">
-                  <input
-                    type="email"
-                    required
-                    placeholder="Enter your email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-full bg-dv-control border border-dv-input-border text-dv-text placeholder:text-dv-muted text-sm sm:text-base font-sans transition-colors duration-200 focus:outline-none focus:bg-dv-bg focus:border-dv-text"
-                  />
-                </div>
-              </div>
-
-              <button
-                type={showSubscribeInput ? "submit" : "button"}
-                onClick={showSubscribeInput ? undefined : () => setShowSubscribeInput(true)}
-                className="shrink-0 px-6 py-2.5 bg-dv-btn-primary-bg hover:bg-dv-btn-primary-hover text-dv-btn-primary-text font-medium text-sm sm:text-base font-sans rounded-full transition-colors duration-200 cursor-pointer inline-flex items-center justify-center"
-              >
-                Subscribe
-              </button>
-            </form>
-          )}
-        </div>
-
-        {/* 3. 4 Columns Links Grid */}
-        <div className="w-full pt-8 border-t border-dv-border grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+      <div className="w-full max-w-8xl mx-auto px-6 sm:px-8 lg:px-16 pt-16 pb-12 flex flex-col gap-12 lg:gap-16">
+        {/* 4 Columns Links Grid */}
+        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
           {/* Column 1: Services */}
           <div className="flex flex-col items-start gap-4">
             <span className="text-dv-muted text-xs sm:text-sm font-medium font-sans tracking-wide">
@@ -170,7 +83,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors duration-200"
+                    className="text-dv-lead hover:text-dv-text text-sm sm:text-base font-medium font-sans hover:underline"
                   >
                     {link.label}
                   </Link>
@@ -189,7 +102,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors duration-200"
+                    className="text-dv-lead hover:text-dv-text text-sm sm:text-base font-medium font-sans hover:underline"
                   >
                     {link.label}
                   </Link>
@@ -208,7 +121,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors duration-200"
+                    className="text-dv-lead hover:text-dv-text text-sm sm:text-base font-medium font-sans hover:underline"
                   >
                     {link.label}
                   </Link>
@@ -227,7 +140,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-dv-muted text-sm sm:text-base font-medium font-sans hover:text-dv-text transition-colors duration-200"
+                    className="text-dv-lead hover:text-dv-text text-sm sm:text-base font-medium font-sans hover:underline"
                   >
                     {link.label}
                   </Link>
@@ -237,46 +150,40 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* 4. Bottom Legal, Social & Language Selector Bar */}
-        <div className="w-full pt-8 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 border-t border-dv-border/40">
+        {/* Bottom Legal, Social & Language Selector Bar */}
+        <div className="w-full pt-8 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 border-t border-dv-border">
           {/* Left: Copyright & Legal */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-dv-muted text-xs sm:text-sm font-medium font-sans">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-dv-muted hover:text-dv-text transition-colors duration-200 group"
+              className="inline-flex items-center gap-2 text-dv-muted group"
             >
               <BrandLogo size={18} className="w-4.5 h-4.5 transition-transform group-hover:scale-105" />
               <span>© 2026 DevEleven, Inc.</span>
             </Link>
             <Link
               href="/terms"
-              className="hover:text-dv-text transition-colors duration-200"
+              className="hover:underline"
             >
               Terms
             </Link>
             <Link
               href="/privacy"
-              className="hover:text-dv-text transition-colors duration-200"
+              className="hover:underline"
             >
               Privacy
             </Link>
             <button
               type="button"
-              className="hover:text-dv-text transition-colors duration-200 cursor-pointer"
+              className="hover:underline cursor-pointer"
             >
-              Manage cookies
-            </button>
-            <button
-              type="button"
-              className="hover:text-dv-text transition-colors duration-200 cursor-pointer"
-            >
-              Do not share my personal information
+              Cookies
             </button>
           </div>
 
           {/* Right: Social Icons & Language Button */}
           <div className="flex flex-wrap items-center gap-6">
-            {/* Social Icons Row (Exact 7 icons in GitHub's order) */}
+            {/* Curated Developer Studio Socials */}
             <div className="flex items-center gap-4 text-dv-muted">
               {socialLinks.map((item) => {
                 const IconComponent = item.icon;
