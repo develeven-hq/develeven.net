@@ -129,15 +129,15 @@ export default function LanguageSwitcher({
                 type="button"
                 role="menuitem"
                 onClick={() => selectLanguage(lang.label)}
-                className={`px-3.5 py-2 text-xs sm:text-sm text-left font-sans transition-colors duration-200 cursor-pointer flex items-center justify-between ${
+                className={`px-3.5 py-2 text-xs sm:text-sm text-left font-sans transition-colors duration-200 cursor-pointer flex items-center justify-between hover:bg-dv-accent-subtle ${
                   isSelected
-                    ? "text-dv-text bg-dv-surface font-semibold"
-                    : "text-dv-text hover:bg-dv-surface"
+                    ? "text-dv-accent bg-dv-surface font-medium"
+                    : "hover:text-dv-accent hover:bg-dv-accent-subtle"
                 }`}
               >
                 <span>{lang.label}</span>
                 {isSelected && (
-                  <CheckIcon size={14} className="text-dv-text shrink-0" />
+                  <CheckIcon size={14} className="text-dv-accent shrink-0" />
                 )}
               </button>
             );

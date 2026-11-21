@@ -268,7 +268,7 @@ export default function Navbar() {
             >
               <BrandLogo
                 size={24}
-                className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 transition-transform duration-200 group-hover:scale-105"
+                className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 transition-transform duration-200"
               />
               <span className="text-dv-text text-lg font-medium font-sans">
                 DevEleven
@@ -287,8 +287,8 @@ export default function Navbar() {
                         onMouseEnter={handleServicesTriggerMouseEnter}
                         className={`inline-flex items-center gap-1.5 py-1 text-base font-medium tracking-[0.24px] font-sans transition-colors duration-200 cursor-pointer ${
                           isServicesOpen
-                            ? "text-dv-text font-semibold"
-                            : "text-dv-muted hover:text-dv-text"
+                            ? "text-dv-text"
+                            : "text-dv-lead hover:text-dv-text"
                         }`}
                         aria-expanded={isServicesOpen}
                         aria-haspopup="true"
@@ -297,7 +297,7 @@ export default function Navbar() {
                         <ChevronDownIcon
                           size={14}
                           className={`transition-transform duration-200 shrink-0 ${
-                            isServicesOpen ? "rotate-180 text-dv-text" : "text-dv-muted"
+                            isServicesOpen ? "rotate-180 text-dv-text" : "text-dv-lead"
                           }`}
                         />
                       </button>
@@ -315,8 +315,8 @@ export default function Navbar() {
                     onClick={(e) => handleNavClick(e, link.href, link.targetId)}
                     className={`py-1 text-base font-medium tracking-[0.24px] font-sans transition-colors duration-200 ${
                       isActive
-                        ? "text-dv-text font-semibold"
-                        : "text-dv-muted hover:text-dv-text"
+                        ? "text-dv-text"
+                        : "text-dv-lead hover:text-dv-text"
                     }`}
                   >
                     {link.label}
