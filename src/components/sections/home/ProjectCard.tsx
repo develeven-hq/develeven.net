@@ -69,7 +69,7 @@ export default function ProjectCard({
           {/* Title & Subtitle */}
           <div className="flex flex-col gap-1">
             <h3 className="text-dv-text text-2xl sm:text-3xl font-normal font-sans leading-snug">
-              {title} — {subtitle}
+              {title} - {subtitle}
             </h3>
           </div>
 

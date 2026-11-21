@@ -32,6 +32,7 @@
 
   --dv-accent: var(--color-blue-600);
   --dv-accent-hover: var(--color-blue-700);
+  --dv-accent-subtle: #eff2f7;
 
   /* Primary Button: dark surface with light text */
   --dv-btn-primary-bg: var(--color-gray-950);
@@ -61,6 +62,7 @@
 
   --color-dv-accent: var(--dv-accent);
   --color-dv-accent-hover: var(--dv-accent-hover);
+  --color-dv-accent-subtle: var(--dv-accent-subtle);
 
   --color-dv-btn-primary-bg: var(--dv-btn-primary-bg);
   --color-dv-btn-primary-hover: var(--dv-btn-primary-hover);
