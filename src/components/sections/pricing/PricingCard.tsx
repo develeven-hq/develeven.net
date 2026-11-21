@@ -8,6 +8,7 @@ export interface PricingCardProps {
   badge?: string;
   icon: React.ReactNode;
   price: string;
+  currency?: string;
   period?: string;
   scope?: string;
   features: string[];
@@ -20,6 +21,7 @@ export default function PricingCard({
   badge,
   icon,
   price,
+  currency = "USD",
   features,
   buttonText = "Get started",
   featured = false,
@@ -54,10 +56,12 @@ export default function PricingCard({
             Starting from
           </span>
           <div className="flex items-baseline gap-1.5">
-            <span className="text-dv-text text-4xl sm:text-5xl lg:text-5xl font-medium font-sans tracking-tight">
+            <span className="text-dv-text text-3xl sm:text-4xl xl:text-5xl font-medium font-sans tracking-tight transition-all duration-200">
               {price}
             </span>
-            <span className="text-xs sm:text-sm font font-medium text-dv-muted">USD</span>
+            <span className="text-xs sm:text-sm font-medium text-dv-muted font-sans">
+              {currency}
+            </span>
           </div>
         </div>
 

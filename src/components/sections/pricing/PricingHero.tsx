@@ -8,7 +8,7 @@ export default function PricingHero() {
           <h1 className="w-full text-dv-text text-4xl sm:text-5xl lg:text-6xl font-normal font-sans tracking-tight leading-[1.02]">
             Choose the plan that
             <br />
-            fits your needs.
+            fits your needs
           </h1>
         </div>
       </div>
