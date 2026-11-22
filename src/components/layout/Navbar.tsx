@@ -27,7 +27,7 @@ interface NavLinkItem {
 interface ServiceDropdownItem {
   title: string;
   href: string;
-  targetId: string;
+  targetId?: string;
   icon: React.ComponentType<{ size?: number | string; className?: string }>;
 }
 
@@ -42,33 +42,23 @@ const navLinks: NavLinkItem[] = [
 const servicesList: ServiceDropdownItem[] = [
   {
     title: "Website Development",
-    href: "/#services",
-    targetId: "services",
+    href: "/services/web-development",
     icon: WebDevIcon,
   },
   {
     title: "Custom Software",
-    href: "/#services",
-    targetId: "services",
+    href: "/services/custom-software",
     icon: CustomSoftwareIcon,
   },
   {
     title: "Game Development",
-    href: "/#services",
-    targetId: "services",
+    href: "/services/game-development",
     icon: GameDevIcon,
   },
   {
     title: "Website Maintenance",
-    href: "/#services",
-    targetId: "services",
+    href: "/services/website-maintenance",
     icon: MaintenanceIcon,
-  },
-  {
-    title: "AI-Driven Development",
-    href: "/#services",
-    targetId: "services",
-    icon: TerminalIcon,
   },
 ];
 
@@ -133,6 +123,13 @@ export default function Navbar() {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
+      return;
+    }
+
+    // If navigating to the active service page, smoothly scroll to top
+    if (href.startsWith("/services/") && pathname === href) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
 
